@@ -1,8 +1,26 @@
 @use 'reset';
 @use 'vars';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&display=swap');
 
 body {
   font-family: sans-serif;
+}
+
+.ui.left.floated.header {
+  margin-top: 10px;
+  font-family: 'Oswald', sans-serif;
+  font-style: italic;
+  font-size: xx-large;
+}
+
+.ui.right.floated.header {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.ui.image {
+  display: flex;
+  max-height: 50em;
 }
 
 /* 

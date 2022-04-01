@@ -1,10 +1,13 @@
 // == Import
 import './styles.scss';
-import Header from '../Header';
+import 'semantic-ui-css/semantic.min.css';
+
+import HeaderExampleFloating from '../Header';
+
 // == Composant
 const App = () => (
   <div className="app">
-    <Header />
+    <HeaderExampleFloating />
   </div>
 );
 
