@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  align-content: space-between;
+  width: 100%;
+
+  & li {
+    display: flex;
+    align-content: space-around;
+    margin-left: 70px;
+  } 
+}
+
+.nav {
+  border-bottom: solid 2px lightgray;
+  border-left: solid 2px lightgray;
+  border-right: solid 2px lightgray;
+  box-shadow: 0px 1px 5px lightgray;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: -19px;
+  padding-top: 5px;
+}
+
+
+
+
