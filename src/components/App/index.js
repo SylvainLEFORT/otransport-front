@@ -10,7 +10,7 @@ import Error from '../Error';
 // == Composant
 const App = () => (
   <div className="app">
-    <Header />
+    {/* <Header /> */}
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="*" element={<Error />} />
