@@ -1,7 +1,7 @@
 import { Header, Segment, Image } from 'semantic-ui-react';
 
-import Patrick from 'src/assets/images/patrick.png';
-import Otransport from 'src/assets/images/roue-O-transport.svg';
+import Patrick from 'src/assets/docs/patrick.png';
+import Otransport from 'src/assets/docs/roue-O-transport.svg';
 
 import NavBar from './NavBar';
 
