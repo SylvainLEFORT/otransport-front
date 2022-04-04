@@ -13,13 +13,12 @@ import Error from '../Error';
 const App = () => (
   <div className="app">
     <HeaderLogged />
-    <AdminHomepage />
-    
-    {/* <Routes>
+    <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/driver" element={<Driver />} />
       <Route path="*" element={<Error />} />
-    </Routes> */}
+      <Route path="/admin" element={<AdminHomepage />} />
+    </Routes>
   </div>
 );
 
