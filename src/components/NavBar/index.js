@@ -9,10 +9,10 @@ const NavBar = () => (
         Gestion des chauffeurs
       </li>
       <li>
-        Gestion des livraisons
+        <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} exact to="/admin/deliveries_management">Gestion des livraisons</NavLink>
       </li>
       <li>
-        <NavLink className={(active) => (active ? 'current' : '')} to="/admin">Livraisons en cours</NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} exact to="/admin">Livraisons en cours</NavLink>
       </li>
       <li>
         Créer une livraison
