@@ -4,6 +4,7 @@ import './styles.scss';
 import 'semantic-ui-css/semantic.min.css';
 
 import HeaderLogged from '../Header';
+import AdminHomepage from '../AdminHomepage';
 import Login from '../Login';
 import Driver from '../Driver';
 import Error from '../Error';
@@ -12,11 +13,13 @@ import Error from '../Error';
 const App = () => (
   <div className="app">
     <HeaderLogged />
-    <Routes>
+    <AdminHomepage />
+    
+    {/* <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/driver" element={<Driver />} />
       <Route path="*" element={<Error />} />
-    </Routes>
+    </Routes> */}
   </div>
 );
 

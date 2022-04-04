@@ -4,9 +4,11 @@
 
 body {
   font-family: sans-serif;
+  background-color: vars.$global-background;
 }
 
 #root {
+  height:100%;
   background-color: vars.$global-background;
 }
 
