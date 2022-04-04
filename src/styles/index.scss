@@ -6,6 +6,10 @@ body {
   font-family: sans-serif;
 }
 
+#root {
+  background-color: vars.$global-background;
+}
+
 .ui.left.floated.header {
   // margin-top: 10px;
   font-family: 'Oswald', sans-serif;

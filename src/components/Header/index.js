@@ -4,7 +4,7 @@ import Patrick from 'src/assets/docs/patrick.png';
 import Otransport from 'src/assets/docs/roue-O-transport.svg';
 
 const HeaderLogged = () => (
-  <div>
+  <div className="header">
     <Segment clearing>
       <Header as="h2" floated="right">
         <Image circular src={Patrick} /> Patrick
