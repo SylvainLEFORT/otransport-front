@@ -1,5 +1,7 @@
-.app {
+@use 'src/styles/vars';
 
+.app {
+  background-color: vars.$global-background;
   width: 80%;
   margin: 1em auto;
   text-align: center;

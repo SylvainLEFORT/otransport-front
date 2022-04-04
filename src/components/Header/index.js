@@ -6,7 +6,7 @@ import Otransport from 'src/assets/docs/roue-O-transport.svg';
 import NavBar from './NavBar';
 
 const HeaderLogged = () => (
-  <div>
+  <div className="header">
     <Segment clearing>
       <Header as="h2" floated="right">
         <Image circular src={Patrick} /> Patrick
