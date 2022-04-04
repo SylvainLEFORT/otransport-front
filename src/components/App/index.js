@@ -18,8 +18,8 @@ const App = () => (
       <Route path="/" element={<Login />} />
       <Route path="/driver" element={<Driver />} />
       <Route path="/driver/delivery/:id" element={<DriverDelivery />} />
-      <Route path="*" element={<Error />} />
       <Route path="/admin" element={<AdminHomepage />} />
+      <Route path="*" element={<Error />} />
     </Routes>
   </div>
 );
