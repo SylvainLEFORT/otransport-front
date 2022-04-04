@@ -9,31 +9,31 @@ const AdminHomepage = () => (
       <h1 className="title">Livraisons en cours</h1>
       <div className="trait" />
       <ul>
-        <li className="delivery 1">
+        <li className="delivery">
           <a>Chauffeur 1</a>
           <span>n° de livraison</span>
           <span>adresse de livraison</span>
           <a>Détail</a>
         </li>
-        <li className="delivery 2">
+        <li className="delivery">
           <a>Chauffeur 1</a>
           <span>n° de livraison</span>
           <span>adresse de livraison</span>
           <a>Détail</a>
         </li>
-        <li className="delivery 3">
+        <li className="delivery">
           <a>Chauffeur 1</a>
           <span>n° de livraison</span>
           <span>adresse de livraison</span>
           <a>Détail</a>
         </li>
-        <li className="delivery 4">
+        <li className="delivery">
           <a>Chauffeur 1</a>
           <span>n° de livraison</span>
           <span>adresse de livraison</span>
           <a>Détail</a>
         </li>
-        <li className="delivery 5">
+        <li className="delivery">
           <a>Chauffeur 1</a>
           <span>n° de livraison</span>
           <span>adresse de livraison</span>
