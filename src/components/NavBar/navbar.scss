@@ -21,8 +21,19 @@
   margin-right: 20px;
   margin-top: -5px;
   padding-top: 5px;
+
+  &-link {
+    margin: 0 1rem;
+    cursor: pointer;
+    color: black;
+
+    &--selected {
+      text-decoration: underline;
+      color: rgb(38, 46, 165);
+    }
+
+    &:hover {
+      color: rgb(145, 145, 145);
+    }
 }
-
-
-
-
+}
