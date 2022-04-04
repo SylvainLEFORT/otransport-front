@@ -1,5 +1,5 @@
 export const initialState = {
-  list: [],
+  driver: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
