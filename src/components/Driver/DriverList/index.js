@@ -9,7 +9,9 @@ const DriverList = () => (
     </div>
     <div className="utilitaire">
       <p className="statut">Statut de la livraison</p>
-      <Button className="button">Détails</Button>
+      <a href="http://localhost:8080/driver/delivery/1">
+        <Button className="button" type="submit">Détails</Button>
+      </a>
     </div>
   </div>
 );

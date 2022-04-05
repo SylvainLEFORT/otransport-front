@@ -1,3 +1,4 @@
+import { Button } from 'semantic-ui-react';
 import './driverdelivery.scss';
 
 const DriverDelivery = () => (
@@ -12,6 +13,9 @@ const DriverDelivery = () => (
       <p>Boites de cassoulets</p>
       <h2>Quantité</h2>
       <p>50 000 boites</p>
+      <a href="http://localhost:8080/driver">
+        <Button className="button">Retour</Button>
+      </a>
     </div>
   </div>
 );
