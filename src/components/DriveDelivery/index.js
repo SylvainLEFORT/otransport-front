@@ -1,7 +1,7 @@
 import './driverdelivery.scss';
 
 const DriverDelivery = () => (
-  <div className="delivery">
+  <div className="driver-delivery">
     <h1>Détail de la livraison</h1>
     <div className="details">
       <h2>Nom client</h2>
