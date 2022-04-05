@@ -1,5 +1,7 @@
 import './deliveriesmanagement.scss';
 
+import {  } from 'semantic-ui-react';
+
 import add from 'src/assets/docs/plus.svg';
 import edit from 'src/assets/docs/edit.svg';
 import trash from 'src/assets/docs/trash.svg';
@@ -15,7 +17,7 @@ const DeliveriesManagement = () => (
       <div className="trait" />
 
       <div className="plus">
-        <img src={add} alt="" />
+        <img src={add} alt="" className="add" />
       </div>
 
       <ul>

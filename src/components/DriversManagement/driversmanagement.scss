@@ -1,0 +1,47 @@
+.drivers-management {
+  // height: 100%;
+  // border: 2px solid black;
+  margin-top: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.driver-list {
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+  padding-bottom:1.5em;
+  padding-top:1.5em;
+  border-bottom: 2px solid lightgray;
+}
+
+.driver-utils {
+  width:10%;
+  display:flex;
+  justify-content:space-between;
+}
+
+.avatar {
+  block-size:50px;
+}
+
+.button {
+  display:flex;
+  justify-content:flex-end;
+  padding-right:10em;
+}
+
+.info {
+  cursor:pointer;
+}
+
+.edit {
+  cursor:pointer;
+}
+
+.trash {
+  cursor:pointer;
+}

@@ -26,6 +26,7 @@
   justify-content: flex-start;
   flex-flow: column wrap;
   align-content:space-between;
+  line-height:25px;
 }
 
 .detail-2 {
@@ -34,6 +35,8 @@
   justify-content: flex-start;
   flex-flow: column wrap;
   align-content:space-between;
+  line-height:30px;
+
 }
 
 .plus {
@@ -43,7 +46,7 @@
   padding-right:50px;
   margin-bottom:10px;
 
-    & img {
+    & .add {
    block-size:50px;
   }
 }
