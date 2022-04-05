@@ -1,11 +1,11 @@
-import './adminhomepage.scss';
+import './currentdeliveries.scss';
 
 import NavBar from '../NavBar';
 
-const AdminHomepage = () => (
+const CurrentDeliveries = () => (
   <div>
     <NavBar />
-    <div className="admin-home">
+    <div className="current-deliveries">
       <h1 className="title">Livraisons en cours</h1>
       <div className="trait" />
       <ul>
@@ -44,4 +44,4 @@ const AdminHomepage = () => (
   </div>
 );
 
-export default AdminHomepage;
+export default CurrentDeliveries;
