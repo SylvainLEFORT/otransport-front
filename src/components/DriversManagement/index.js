@@ -18,7 +18,9 @@ const DriversManagement = () => (
       <div className="trait" />
 
       <div className="button">
-        <Button>Ajouter un chauffeur</Button>
+        <a href="http://localhost:8080/admin/create_driver">
+          <Button>Ajouter un chauffeur</Button>
+        </a>
       </div>
 
       <ul>
