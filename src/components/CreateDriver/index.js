@@ -5,34 +5,34 @@ import './createdriver.scss';
 const CreateDriver = () => (
   <div>
     <NavBar />
+    <h1 className="titre">Création d'un chauffeur</h1>
     <div className="form">
-
       <Form>
-        <Form.Field>
+        <Form.Field className="input-1">
           <label>Prénom</label>
-          <input placeholder="Veillez inséré le prénom" />
+          <input placeholder="Veillez insérer le prénom" />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className="input-1">
           <label>Nom</label>
-          <input placeholder="Veillez inséré le nom" />
+          <input placeholder="Veillez insérer le nom" />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className="input-1">
           <label>E-mail</label>
-          <input placeholder="Veillez inséré l'e-mail" />
+          <input placeholder="Veillez insérer l'e-mail" />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className="input-1">
           <label>Mot de passe</label>
-          <input placeholder="Veillez inséré le mot de passe" />
+          <input placeholder="Veillez insérer le mot de passe" />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className="input-1">
           <label>Numéro de téléphone</label>
-          <input placeholder="Veillez inséré le numéro de téléphone" />
+          <input placeholder="Veillez insérer le numéro de téléphone" />
         </Form.Field>
         <Form.Field>
           <label>Image de profil</label>
           <input type="file" placeholder="Last Name" />
         </Form.Field>
-        <Button type="submit">Créer un chauffeur</Button>
+        <Button className="button" type="submit">Créer un chauffeur</Button>
       </Form>
     </div>
   </div>
