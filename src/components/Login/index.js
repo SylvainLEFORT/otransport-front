@@ -8,8 +8,8 @@ const Login = () => (
     <div className="form">
       <Form>
         <Form.Field>
-          <label>Nom d'utilisateur</label>
-          <input placeholder="veillez ecrire votre nom" />
+          <label>E-mail</label>
+          <input placeholder="veillez inséré votre E-mail" />
         </Form.Field>
         <Form.Field>
           <label>Mot de passe</label>
