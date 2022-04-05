@@ -5,6 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 
 import HeaderLogged from '../Header';
 import AdminHomepage from '../AdminHomepage';
+import DeliveriesManagement from '../DeliveriesManagement';
 import Login from '../Login';
 import Driver from '../Driver';
 import DriverDelivery from '../DriveDelivery';
@@ -19,6 +20,7 @@ const App = () => (
       <Route path="/driver" element={<Driver />} />
       <Route path="/driver/delivery/:id" element={<DriverDelivery />} />
       <Route path="/admin" element={<AdminHomepage />} />
+      <Route path="/admin/deliveries_management" element={<DeliveriesManagement />} />
       <Route path="*" element={<Error />} />
     </Routes>
   </div>
