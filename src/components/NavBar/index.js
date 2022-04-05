@@ -15,7 +15,7 @@ const NavBar = () => (
         <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} exact to="/admin/current_deliveries">Livraisons en cours</NavLink>
       </li>
       <li>
-        Créer une livraison
+        <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} exact to="/admin/create_deliveries">Créer une livraison</NavLink>
       </li>
       <li>
         Historique
