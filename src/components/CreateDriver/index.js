@@ -1,38 +1,38 @@
-import { Button, Checkbox, Form } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 import NavBar from '../NavBar';
 import './createdriver.scss';
 
 const CreateDriver = () => (
   <div>
     <NavBar />
+    <h1 className="titre">Création d'un chauffeur</h1>
     <div className="form">
-      <h1>Création d'un chauffeur</h1>
       <Form>
-        <Form.Field>
+        <Form.Field className="input-1">
           <label>Prénom</label>
-          <input placeholder="First Name" />
+          <input placeholder="Veillez inséré le prénom" />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className="input-1">
           <label>Nom</label>
-          <input placeholder="Last Name" />
+          <input placeholder="Veillez inséré le nom" />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className="input-1">
           <label>E-mail</label>
-          <input placeholder="Last Name" />
+          <input placeholder="Veillez inséré l'e-mail" />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className="input-1">
           <label>Mot de passe</label>
-          <input placeholder="Last Name" />
+          <input placeholder="Veillez inséré le mot de passe" />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className="input-1">
           <label>Numéro de téléphone</label>
-          <input placeholder="Last Name" />
+          <input placeholder="Veillez inséré le numéro de téléphone" />
         </Form.Field>
         <Form.Field>
           <label>Image de profil</label>
-          <input placeholder="Last Name" />
+          <input type="file" placeholder="Last Name" />
         </Form.Field>
-        <Button type="submit">Créer un chauffeur</Button>
+        <Button className="button" type="submit">Créer un chauffeur</Button>
       </Form>
     </div>
   </div>
