@@ -12,6 +12,7 @@ import Driver from '../Driver';
 import DriverDelivery from '../DriveDelivery';
 import Error from '../Error';
 import CreateDeliveries from '../CreateDeliveries';
+import CreateDriver from '../CreateDriver';
 
 // == Composant
 const App = () => (
@@ -25,6 +26,7 @@ const App = () => (
       <Route path="/admin/deliveries_management" element={<DeliveriesManagement />} />
       <Route path="/admin/drivers_management" element={<DriversManagement />} />
       <Route path="/admin/create_deliveries" element={<CreateDeliveries />} />
+      <Route path="/admin/create_driver" element={<CreateDriver />} />
       <Route path="*" element={<Error />} />
     </Routes>
   </div>
