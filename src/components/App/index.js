@@ -11,7 +11,7 @@ import Login from '../Login';
 import Driver from '../Driver';
 import DriverDelivery from '../DriveDelivery';
 import Error from '../Error';
-import CreateDeliveries from '../CreateDeliveries';
+import CreateDelivery from '../CreateDelivery';
 
 // == Composant
 const App = () => (
@@ -24,7 +24,7 @@ const App = () => (
       <Route path="/admin/current_deliveries" element={<CurrentDeliveries />} />
       <Route path="/admin/deliveries_management" element={<DeliveriesManagement />} />
       <Route path="/admin/drivers_management" element={<DriversManagement />} />
-      <Route path="/admin/create_deliveries" element={<CreateDeliveries />} />
+      <Route path="/admin/create_delivery" element={<CreateDelivery />} />
       <Route path="*" element={<Error />} />
     </Routes>
   </div>

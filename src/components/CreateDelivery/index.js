@@ -1,8 +1,8 @@
-import './createdeliveries.scss';
+import './createdelivery.scss';
 import { Button, Form } from 'semantic-ui-react';
 import NavBar from '../NavBar';
 
-const CreateDeliveries = () => (
+const CreateDelivery = () => (
   <div>
     <NavBar />
     <div className="createdeliveries">
@@ -30,4 +30,4 @@ const CreateDeliveries = () => (
   </div>
 );
 
-export default CreateDeliveries;
+export default CreateDelivery;
