@@ -9,6 +9,8 @@ body {
 
 #root {
   background-color: vars.$global-background;
+  width: 100%;
+  height: 100vh;
 }
 
 .ui.left.floated.header {
