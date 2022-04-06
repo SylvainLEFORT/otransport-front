@@ -10,6 +10,7 @@ const CreateDriver = () => (
       <Form>
         <Form.Field className="input-1">
           <label>Prénom</label>
+
           <input placeholder="Veillez insérer le prénom" />
         </Form.Field>
         <Form.Field className="input-1">
@@ -27,6 +28,7 @@ const CreateDriver = () => (
         <Form.Field className="input-1">
           <label>Numéro de téléphone</label>
           <input placeholder="Veillez insérer le numéro de téléphone" />
+
         </Form.Field>
         <Form.Field>
           <label>Image de profil</label>
