@@ -1,5 +1,7 @@
 import './driverinfos.scss';
+
 import { Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const DriverInfos = () => (
   <div>
@@ -13,9 +15,9 @@ const DriverInfos = () => (
       <p>06/40/84/78/65</p>
       <h2>Status</h2>
       <p>En cours de livraisons</p>
-      <a href="http://localhost:8080/admin/drivers_management">
+      <Link to="/admin/drivers_management">
         <Button className="button">Retour</Button>
-      </a>
+      </Link>
     </div>
   </div>
 );
