@@ -1,4 +1,5 @@
 import './driverlist.scss';
+
 import { Button } from 'semantic-ui-react';
 
 const DriverList = () => (
