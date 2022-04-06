@@ -3,7 +3,7 @@ import { Button } from 'semantic-ui-react';
 import Mediaquery from 'react-responsive';
 
 const DriverList = () => (
-  <div>
+  <div className="gobal">
     <Mediaquery minWidth={601}>
       <div className="driverList">
         <div className="infosClient">
