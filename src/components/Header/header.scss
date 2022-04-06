@@ -1,10 +1,13 @@
-.ui.left.floated.header {
-  display : flex;
-  justify-content: center;
-  align-content: center;
-  padding-top: 10em;
+.header-desktop{
+  margin: auto;
 }
+.header-phone{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-.disconnect {
-  font-size:small;
+
+  .image-avatar{
+    width: 40px;
+  }
 }

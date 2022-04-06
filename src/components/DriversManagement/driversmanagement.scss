@@ -5,6 +5,9 @@
   padding-top: 2em;
   padding-bottom: 2em;
 }
+.titre-phone{
+  font-size: 30px;
+}
 
 .driver-list {
   display:flex;
@@ -16,6 +19,11 @@
   padding-bottom:1.5em;
   padding-top:1.5em;
   border-bottom: 2px solid lightgray;
+}
+
+.ul-phone{
+  margin-left: -50px;
+
 }
 
 .driver-utils {
@@ -32,6 +40,12 @@
   display:flex;
   justify-content:flex-end;
   padding-right:10em;
+}
+
+.button-phone {
+  display:flex;
+  justify-content:center;
+  align-items: center;
 }
 
 .info {

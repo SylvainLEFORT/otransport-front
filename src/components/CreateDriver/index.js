@@ -10,23 +10,25 @@ const CreateDriver = () => (
       <Form>
         <Form.Field className="input-1">
           <label>Prénom</label>
-          <input placeholder="Veillez inséré le prénom" />
+
+          <input placeholder="Veillez insérer le prénom" />
         </Form.Field>
         <Form.Field className="input-1">
           <label>Nom</label>
-          <input placeholder="Veillez inséré le nom" />
+          <input placeholder="Veillez insérer le nom" />
         </Form.Field>
         <Form.Field className="input-1">
           <label>E-mail</label>
-          <input placeholder="Veillez inséré l'e-mail" />
+          <input placeholder="Veillez insérer l'e-mail" />
         </Form.Field>
         <Form.Field className="input-1">
           <label>Mot de passe</label>
-          <input placeholder="Veillez inséré le mot de passe" />
+          <input placeholder="Veillez insérer le mot de passe" />
         </Form.Field>
         <Form.Field className="input-1">
           <label>Numéro de téléphone</label>
-          <input placeholder="Veillez inséré le numéro de téléphone" />
+          <input placeholder="Veillez insérer le numéro de téléphone" />
+
         </Form.Field>
         <Form.Field>
           <label>Image de profil</label>
