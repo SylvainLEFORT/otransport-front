@@ -1,5 +1,6 @@
 //   Import
 import { Route, Routes } from 'react-router-dom';
+
 import './styles.scss';
 import 'semantic-ui-css/semantic.min.css';
 
@@ -14,6 +15,7 @@ import Error from '../Error';
 import CreateDelivery from '../CreateDelivery';
 import CreateDriver from '../CreateDriver';
 import History from '../History';
+import DriverInfos from '../DriverInfos';
 
 // == Composant
 const App = () => (
@@ -29,6 +31,7 @@ const App = () => (
       <Route path="/admin/create_delivery" element={<CreateDelivery />} />
       <Route path="/admin/create_driver" element={<CreateDriver />} />
       <Route path="/admin/history" element={<History />} />
+      <Route path="/admin/driver_informations" element={<DriverInfos />} />
       <Route path="*" element={<Error />} />
     </Routes>
   </div>
