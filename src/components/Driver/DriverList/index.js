@@ -4,7 +4,7 @@ import Mediaquery from 'react-responsive';
 
 const DriverList = () => (
   <div>
-    <Mediaquery minWidth={1224}>
+    <Mediaquery minWidth={601}>
       <div className="driverList">
         <div className="infosClient">
           <p className="client">Nom du client</p>
@@ -18,14 +18,12 @@ const DriverList = () => (
         </div>
       </div>
     </Mediaquery>
-    <Mediaquery maxWidth={1224}>
-      <div className="driverList">
-        <div className="infosClient">
+    <Mediaquery maxWidth={600}>
+      <div className="driverList-phone">
+        <div className="infosClient-phone">
           <p className="client">Nom du client</p>
-          <p className="adresse">Adresse</p>
         </div>
-        <div className="utilitaire">
-          <p className="statut">Statut de la livraison</p>
+        <div className="utilitaire-phone">
           <a href="http://localhost:8080/driver/delivery/1">
             <Button className="button" type="submit">Détails</Button>
           </a>

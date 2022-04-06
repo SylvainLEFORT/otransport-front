@@ -4,7 +4,7 @@ import DriverList from './DriverList';
 
 const Driver = () => (
   <div>
-    <Mediaquery minWidth={1224}>
+    <Mediaquery minWidth={601}>
       <div className="driver">
         <h1 className="titre">Livraisons attribuées</h1>
         <DriverList />
@@ -14,9 +14,9 @@ const Driver = () => (
         <DriverList />
       </div>
     </Mediaquery>
-    <Mediaquery maxWidth={1224}>
-      <div className="driver">
-        <h1 className="titre">Livraisons attribuées</h1>
+    <Mediaquery maxWidth={600}>
+      <div className="driver-phone">
+        <h1 className="titre-phone">Livraisons attribuées</h1>
         <DriverList />
         <DriverList />
         <DriverList />

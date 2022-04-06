@@ -12,6 +12,10 @@
     flex-direction: column;
   }
 
+  .infosClient-phone{
+
+  }
+
   .utilitaire{
     display: flex;
     justify-content: space-between;
@@ -19,4 +23,18 @@
     width: 400px;
   }
   
+}
+
+.driverList-phone{
+  border: 2px solid lightgrey;
+  border-radius: 4px;
+  width: 90%;
+  height: 5em;
+  margin: auto;
+  margin-bottom: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content:space-around;
+
 }
