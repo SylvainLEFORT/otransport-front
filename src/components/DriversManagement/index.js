@@ -3,6 +3,7 @@ import './driversmanagement.scss';
 import { Button } from 'semantic-ui-react';
 import React from 'react';
 import axios from 'axios';
+import Mediaquery from 'react-responsive';
 
 import Patrick from 'src/assets/docs/patrick.png';
 import info from 'src/assets/docs/info.svg';
@@ -26,13 +27,15 @@ export default class DriversManagement extends React.Component {
 
   render() {
     return (
-      <div>
+const DriversManagement = () => (
+  <div>
+    <Mediaquery minWidth={601}>
         <NavBar />
         <div className="drivers-management">
           <h1 className="title">Gestion des chauffeurs</h1>
 
           <div className="trait" />
-
+            
           <div className="button">
             <a href="http://localhost:8080/admin/create_driver">
               <Button>Ajouter un chauffeur</Button>
@@ -63,6 +66,45 @@ export default class DriversManagement extends React.Component {
           ))}
         </ul>
       </div>
-    );
-  }
-}
+    </Mediaquery>
+    <Mediaquery maxWidth={600}>
+        <NavBar />
+        <div className="drivers-management">
+          <h1 className="title">Gestion des chauffeurs</h1>
+
+          <div className="trait" />
+            
+          <div className="button">
+            <a href="http://localhost:8080/admin/create_driver">
+              <Button>Ajouter un chauffeur</Button>
+            </a>
+          </div>
+        </div>
+        <ul>
+          { this.state.drivers.map((driver) => (
+            <li className="driver-list">
+              <img src={Patrick} alt="" className="avatar" />
+              <span>{driver.firstname}</span>
+              <span>{driver.lastname}</span>
+              <span>{driver.email}</span>
+              <span>{(() => {
+                switch (driver.status) {
+                  case 0: return 'Disponible';
+                  case 1: return 'En cours de livraison';
+                  default: return 'Disponible';
+                }
+              })()}
+              </span>
+              <div className="driver-utils">
+                <img src={info} alt="" className="info" />
+                <img src={edit} alt="" className="edit" />
+                <img src={trash} alt="" className="trash" />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Mediaquery>
+  </div>
+);
+

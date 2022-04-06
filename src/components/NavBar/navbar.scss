@@ -10,6 +10,33 @@
     margin-right: auto;
   } 
 }
+.nav-phone{
+  border-bottom: solid 2px lightgray;
+  border-left: solid 2px lightgray;
+  border-right: solid 2px lightgray;
+  box-shadow: 0px 1px 5px lightgray;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: -5px;
+  padding-top: 5px;
+  position: relative;
+  &-link {
+    margin: 0 1rem;
+    cursor: pointer;
+    color: black;
+
+    &--selected {
+      text-decoration: underline;
+      font-weight:bold;
+      color: rgb(38, 46, 165);
+    }
+
+    &:hover {
+      color: rgb(145, 145, 145);
+    }
+}
+}
 
 .nav {
   border-bottom: solid 2px lightgray;
@@ -21,7 +48,7 @@
   margin-right: 20px;
   margin-top: -5px;
   padding-top: 5px;
-
+  position: relative;
   &-link {
     margin: 0 1rem;
     cursor: pointer;
