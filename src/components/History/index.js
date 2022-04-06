@@ -5,6 +5,7 @@ const History = () => (
   <div>
     <NavBar />
     <h1 className="title">Historique des livraisons</h1>
+    <div className="trait" />
     <div className="deliveries-management">
       <ul>
         <li className="delivery">
