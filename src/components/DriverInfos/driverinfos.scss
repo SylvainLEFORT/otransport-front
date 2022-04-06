@@ -1,0 +1,11 @@
+.details{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  p{
+    margin: auto;
+    border-bottom: 1px solid #d3d3d3;
+    padding-bottom: 20px;
+  }
+}

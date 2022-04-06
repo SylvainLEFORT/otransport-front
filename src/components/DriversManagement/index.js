@@ -57,7 +57,9 @@ export default class DriversManagement extends React.Component {
                 })()}
                 </span>
                 <div className="driver-utils">
-                  <img src={info} alt="" className="info" />
+                  <a href="http://localhost:8080/admin/driver_informations">
+                    <img src={info} alt="" className="info" />
+                  </a>
                   <img src={edit} alt="" className="edit" />
                   <img src={trash} alt="" className="trash" />
                 </div>
