@@ -31,21 +31,29 @@ export default class CreateDriver extends React.Component {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       email: this.state.email,
-      password: this.state.password,
+      password: 'password',
       phone_number: this.state.phone_number,
 
     });
 
-    axios.post('http://localhost:8000/api/drivers', { driver }, { headers: { 'Content-Type': 'application/json' } })
+    axios.post('http://localhost:8000/api/drivers', { headers: { 'Content-Type': 'application/json' }, driver })
       .then((res) => {
         console.log(res);
         console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
       });
-    console.log(driver);
   };
 
   render() {
-    const { firstname, lastname } = this.state;
+    const {
+      firstname,
+      lastname,
+      email,
+      password,
+      phone_number,
+    } = this.state;
     return (
       <div>
         <NavBar />
@@ -62,11 +70,11 @@ export default class CreateDriver extends React.Component {
             </Form.Field>
             <Form.Field className="input-1">
               <label>E-mail</label>
-              <input placeholder="Veillez insérer l'e-mail" type="email" name="email" onChange={this.handleChange} />
+              <input placeholder="Veillez insérer l'e-mail" type="email" name="email" value={email} onChange={this.handleChange} />
             </Form.Field>
             <Form.Field className="input-1">
               <label>Mot de passe</label>
-              <input placeholder="Veillez insérer le mot de passe" type="text" name="password" onChange={this.handleChange} />
+              <input placeholder="Veillez insérer le mot de passe" type="text" name="password" value={password} onChange={this.handleChange} />
             </Form.Field>
             <Form.Field className="input-1">
               <label>Numéro de téléphone</label>
@@ -74,6 +82,7 @@ export default class CreateDriver extends React.Component {
                 placeholder="Veillez insérer le numéro de téléphone"
                 type="text"
                 name="phone_number"
+                value={phone_number}
                 onChange={this.handleChange}
               />
             </Form.Field>
