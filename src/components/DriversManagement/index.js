@@ -80,7 +80,7 @@ export default class DriversManagement extends React.Component {
           </div>
           <ul>
             { this.state.drivers.map((driver) => (
-              <li className="driver-list">
+              <li className="driver-list" key={driver.id}>
                 <img src={Patrick} alt="" className="avatar" />
                 <span>{driver.firstname}</span>
                 <span>{driver.lastname}</span>

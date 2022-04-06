@@ -7,21 +7,20 @@ import NavBar from '../NavBar';
 import './createdriver.scss';
 
 export default class CreateDriver extends React.Component {
-  state = {
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: '',
-    phone_number: '',
-  };
+  constructor() {
+    super();
+    this.state = {
+      firstname: '',
+      lastname: '',
+      email: '',
+      password: '',
+      phone_number: '',
+    };
+  }
 
-  handleChange = (event) => {
+  handleChange = (e) => {
     this.setState({
-      firstname: event.target.value,
-      lastname: event.target.value,
-      email: event.target.value,
-      password: event.target.value,
-      phone_number: event.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -46,6 +45,7 @@ export default class CreateDriver extends React.Component {
   };
 
   render() {
+    const { firstname, lastname } = this.state;
     return (
       <div>
         <NavBar />
@@ -54,24 +54,25 @@ export default class CreateDriver extends React.Component {
           <Form onSubmit={this.handleSubmit}>
             <Form.Field className="input-1">
               <label>Prénom</label>
-              <input placeholder="Veillez insérer le prénom" name="firstname" onChange={this.handleChange} />
+              <input placeholder="Veillez insérer le prénom" type="text" name="firstname" value={firstname} onChange={this.handleChange} />
             </Form.Field>
             <Form.Field className="input-1">
               <label>Nom</label>
-              <input placeholder="Veillez insérer le nom" name="lastname" onChange={this.handleChange} />
+              <input placeholder="Veillez insérer le nom" type="text" name="lastname" value={lastname} onChange={this.handleChange} />
             </Form.Field>
             <Form.Field className="input-1">
               <label>E-mail</label>
-              <input placeholder="Veillez insérer l'e-mail" name="email" onChange={this.handleChange} />
+              <input placeholder="Veillez insérer l'e-mail" type="email" name="email" onChange={this.handleChange} />
             </Form.Field>
             <Form.Field className="input-1">
               <label>Mot de passe</label>
-              <input placeholder="Veillez insérer le mot de passe" name="password" onChange={this.handleChange} />
+              <input placeholder="Veillez insérer le mot de passe" type="text" name="password" onChange={this.handleChange} />
             </Form.Field>
             <Form.Field className="input-1">
               <label>Numéro de téléphone</label>
               <input
                 placeholder="Veillez insérer le numéro de téléphone"
+                type="text"
                 name="phone_number"
                 onChange={this.handleChange}
               />
