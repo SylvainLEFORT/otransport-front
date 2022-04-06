@@ -1,5 +1,5 @@
 import './navbar.scss';
-
+import Mediaquery from 'react-responsive';
 import { NavLink } from 'react-router-dom';
 
 const NavBar = () => (
