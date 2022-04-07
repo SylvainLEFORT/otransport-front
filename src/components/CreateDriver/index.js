@@ -1,4 +1,5 @@
 import { Button, Form } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import axios from 'axios';
 
@@ -56,65 +57,76 @@ export default class CreateDriver extends React.Component {
     return (
       <div>
         <NavBar />
-        <h1 className="titre">Création d'un chauffeur</h1>
-        <div className="form">
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Field className="input-1">
-              <label>Prénom</label>
-              <input
-                placeholder="Veuillez insérer le prénom"
-                type="text"
-                name="firstname"
-                value={firstname}
-                onChange={this.handleChange}
-              />
-            </Form.Field>
-            <Form.Field className="input-1">
-              <label>Nom</label>
-              <input
-                placeholder="Veuillez insérer le nom"
-                type="text"
-                name="lastname"
-                value={lastname}
-                onChange={this.handleChange}
-              />
-            </Form.Field>
-            <Form.Field className="input-1">
-              <label>E-mail</label>
-              <input
-                placeholder="Veuillez insérer l'e-mail"
-                type="email"
-                name="email"
-                value={email}
-                onChange={this.handleChange}
-              />
-            </Form.Field>
-            <Form.Field className="input-1">
-              <label>Mot de passe</label>
-              <input
-                placeholder="Veuillez insérer le mot de passe"
-                type="text"
-                name="password"
-                value={password}
-                onChange={this.handleChange}
-              />
-            </Form.Field>
-            <Form.Field className="input-1">
-              <label>Numéro de téléphone</label>
-              <input
-                placeholder="Veuillez insérer le numéro de téléphone"
-                type="text"
-                name="phone_number"
-                value={phone_number}
-                onChange={this.handleChange}
-              />
-            </Form.Field>
-            {/* <Form.Field>
-              <label>Image de profil</label>
-              <input type="file" placeholder="Last Name" onChange={this.handleChange} />
-            </Form.Field> */}
-            <Button className="button" type="submit">Créer un chauffeur</Button>
-          </Form>
+
+        <div className="create-driver">
+
+          <h1 className="titre">Création d'un chauffeur</h1>
+
+          <div className="trait" />
+
+          <Link to="/admin/drivers_management" className="return">
+            <Button>Retour</Button>
+          </Link>
+
+          <div className="form">
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Field className="input-1">
+                <label>Prénom</label>
+                <input
+                  placeholder="Veuillez insérer le prénom"
+                  type="text"
+                  name="firstname"
+                  value={firstname}
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
+              <Form.Field className="input-1">
+                <label>Nom</label>
+                <input
+                  placeholder="Veuillez insérer le nom"
+                  type="text"
+                  name="lastname"
+                  value={lastname}
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
+              <Form.Field className="input-1">
+                <label>E-mail</label>
+                <input
+                  placeholder="Veuillez insérer l'e-mail"
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
+              <Form.Field className="input-1">
+                <label>Mot de passe</label>
+                <input
+                  placeholder="Veuillez insérer le mot de passe"
+                  type="text"
+                  name="password"
+                  value={password}
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
+              <Form.Field className="input-1">
+                <label>Numéro de téléphone</label>
+                <input
+                  placeholder="Veuillez insérer le numéro de téléphone"
+                  type="text"
+                  name="phone_number"
+                  value={phone_number}
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
+              {/* <Form.Field>
+                <label>Image de profil</label>
+                <input type="file" placeholder="Last Name" onChange={this.handleChange} />
+              </Form.Field> */}
+              <Button className="button" type="submit">Créer un chauffeur</Button>
+            </Form>
+          </div>
         </div>
       </div>
     );

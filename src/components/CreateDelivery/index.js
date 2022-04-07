@@ -7,6 +7,7 @@ const CreateDelivery = () => (
     <NavBar />
     <div className="createdeliveries">
       <h1>Création d'une livraison</h1>
+      <div className="trait" />
       <Form className="form">
         <Form.Field>
           <label>Nom client</label>
