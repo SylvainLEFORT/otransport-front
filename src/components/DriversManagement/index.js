@@ -2,6 +2,7 @@ import './driversmanagement.scss';
 
 import { Button } from 'semantic-ui-react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
 
@@ -36,9 +37,9 @@ export default class DriversManagement extends React.Component {
             <div className="trait" />
 
             <div className="button">
-              <a href="http://localhost:8080/admin/create_driver">
+              <Link to="/admin/create_driver">
                 <Button>Ajouter un chauffeur</Button>
-              </a>
+              </Link>
             </div>
           </div>
           <ul>
@@ -57,9 +58,9 @@ export default class DriversManagement extends React.Component {
                 })()}
                 </span>
                 <div className="driver-utils">
-                  <a href="http://localhost:8080/admin/driver_informations">
+                  <Link to="/admin/driver_informations/:id">
                     <img src={info} alt="" className="info" />
-                  </a>
+                  </Link>
                   <img src={edit} alt="" className="edit" />
                   <img src={trash} alt="" className="trash" />
                 </div>
@@ -82,7 +83,7 @@ export default class DriversManagement extends React.Component {
           </div>
           <ul>
             { this.state.drivers.map((driver) => (
-              <li className="driver-list">
+              <li className="driver-list" key={driver.id}>
                 <img src={Patrick} alt="" className="avatar" />
                 <span>{driver.firstname}</span>
                 <span>{driver.lastname}</span>

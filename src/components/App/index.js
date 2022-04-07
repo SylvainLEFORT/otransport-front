@@ -31,7 +31,7 @@ const App = () => (
       <Route path="/admin/create_delivery" element={<CreateDelivery />} />
       <Route path="/admin/create_driver" element={<CreateDriver />} />
       <Route path="/admin/history" element={<History />} />
-      <Route path="/admin/driver_informations" element={<DriverInfos />} />
+      <Route path="/admin/driver_informations/:id" element={<DriverInfos />} />
       <Route path="*" element={<Error />} />
     </Routes>
   </div>
