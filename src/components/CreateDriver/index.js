@@ -1,6 +1,6 @@
 import { Button, Form } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 import NavBar from '../NavBar';
@@ -58,16 +58,14 @@ const CreateDriver = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    axios.post('http://localhost:8000/api/drivers', driver)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
-
-  axios.post('http://localhost:8000/api/drivers', driver)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
   return (
     <div>
       <NavBar />
