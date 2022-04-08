@@ -59,10 +59,16 @@ export default class DriversManagement extends React.Component {
                 </span>
                 <div className="driver-utils">
                   <Link to={`/admin/driver_informations/${driver.id}`}>
-                    <img src={info} alt="" className="info" />
+                    <button className="buttons-utils" type="button">
+                      <img src={info} alt="" className="info" />
+                    </button>
                   </Link>
-                  <img src={edit} alt="" className="edit" />
-                  <img src={trash} alt="" className="trash" />
+                  <button className="buttons-utils" type="button">
+                    <img src={edit} alt="" className="edit" />
+                  </button>
+                  <button className="buttons-utils" type="button">
+                    <img src={trash} alt="" className="trash" />
+                  </button>
                 </div>
               </li>
             ))}
