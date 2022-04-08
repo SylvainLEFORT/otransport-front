@@ -35,7 +35,6 @@ const DriversManagement = () => {
       });
   }, []);
 
-  // console.log(driver);
   return (
     <div>
       <Mediaquery minWidth={601}>

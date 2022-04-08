@@ -33,7 +33,6 @@ const App = () => (
       <Route path="/admin/create_driver" element={<CreateDriver />} />
       <Route path="/admin/history" element={<History />} />
       <Route path="/admin/driver_informations/:id" element={<DriverInfos />} />
-      <Route path="/admin/delete_driver/:id" element={<DeleteDriver />} />
       <Route path="*" element={<Error />} />
     </Routes>
   </div>
