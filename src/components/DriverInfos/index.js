@@ -14,7 +14,6 @@ const DriverInfos = () => {
     axios.get(`http://localhost:8000/api/drivers/${id}`)
       .then((res) => {
         const resultDrive = res.data;
-        console.log(resultDrive);
         setDriver(resultDrive);
       });
   }, []);

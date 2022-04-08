@@ -1,7 +1,7 @@
 import './driversmanagement.scss';
 
 import { Button } from 'semantic-ui-react';
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
@@ -13,100 +13,114 @@ import trash from 'src/assets/docs/trash.svg';
 
 import NavBar from '../NavBar';
 
-export default class DriversManagement extends React.Component {
-  state = {
-    drivers: [],
+const DriversManagement = () => {
+  const [drivers, setDrivers] = useState();
+
+  const deleteDriver = (readDriverId) => async () => {
+    await axios.delete(`http://localhost:8000/api/drivers/${readDriverId}`);
+    // On change la valeur de drivers pour supprimer le chauffeur des données front
+    // sans devoir refaire un appel API
+    setDrivers((prevValue) => {
+      // On filter le tableau pour garder tous les chauffeurs sauf celui qu'on a supprimé
+      const newDrivers = prevValue.filter((driver) => driver.id !== readDriverId);
+      return newDrivers;
+    });
   };
 
-  componentDidMount() {
+  useEffect(() => {
     axios.get('http://localhost:8000/api/drivers')
       .then((res) => {
-        const drivers = res.data;
-        this.setState({ drivers });
+        const driver = res.data;
+        setDrivers(driver);
       });
-  }
+  }, []);
 
-  render() {
-    return (
-      <div>
-        <Mediaquery minWidth={601}>
-          <NavBar />
-          <div className="drivers-management">
-            <h1 className="title">Gestion des chauffeurs</h1>
+  // console.log(driver);
+  return (
+    <div>
+      <Mediaquery minWidth={601}>
+        <NavBar />
+        <div className="drivers-management">
+          <h1 className="title">Gestion des chauffeurs</h1>
 
-            <div className="trait" />
+          <div className="trait" />
 
-            <div className="button">
-              <Link to="/admin/create_driver">
-                <Button>Ajouter un chauffeur</Button>
-              </Link>
-            </div>
+          <div className="button">
+            <Link to="/admin/create_driver">
+              <Button>Ajouter un chauffeur</Button>
+            </Link>
           </div>
-          <ul>
-            { this.state.drivers.map((driver) => (
-              <li className="driver-list">
-                <img src={Patrick} alt="" className="avatar" />
-                <span>{driver.firstname}</span>
-                <span>{driver.lastname}</span>
-                <span>{driver.email}</span>
-                <span>{(() => {
-                  switch (driver.status) {
-                    case 0: return 'Disponible';
-                    case 1: return 'En cours de livraison';
-                    default: return 'Disponible';
-                  }
-                })()}
-                </span>
-                <div className="driver-utils">
-                  <Link to={`/admin/driver_informations/${driver.id}`}>
-                    <img src={info} alt="" className="info" />
-                  </Link>
-                  <img src={edit} alt="" className="edit" />
+        </div>
+        <ul>
+          {drivers && drivers.map((item) => (
+            <li className="driver-list">
+              <img src={Patrick} alt="" className="avatar" />
+              <span>{item.firstname}</span>
+              <span>{item.lastname}</span>
+              <span>{item.email}</span>
+              <span>{(() => {
+                switch (item.status) {
+                  case 0: return 'Disponible';
+                  case 1: return 'En cours de livraison';
+                  default: return 'Disponible';
+                }
+              })()}
+              </span>
+              <div className="driver-utils">
+                <Link to={`/admin/driver_informations/${item.id}`}>
+                  <img src={info} alt="" className="info" />
+                </Link>
+                <img src={edit} alt="" className="edit" />
+                <button type="button" onClick={deleteDriver(item.id)}>
                   <img src={trash} alt="" className="trash" />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </Mediaquery>
-        <Mediaquery maxWidth={600}>
-          <NavBar />
-          <div className="drivers-management">
-            <h1 className="title">Gestion des chauffeurs</h1>
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Mediaquery>
+      <Mediaquery maxWidth={600}>
+        <NavBar />
+        <div className="drivers-management">
+          <h1 className="title">Gestion des chauffeurs</h1>
 
-            <div className="trait" />
+          <div className="trait" />
 
-            <div className="button">
-              <a href="http://localhost:8080/admin/create_driver">
-                <Button>Ajouter un chauffeur</Button>
-              </a>
-            </div>
+          <div className="button">
+            <a href="http://localhost:8080/admin/create_driver">
+              <Button>Ajouter un chauffeur</Button>
+            </a>
           </div>
-          <ul>
-            { this.state.drivers.map((driver) => (
-              <li className="driver-list" key={driver.id}>
-                <img src={Patrick} alt="" className="avatar" />
-                <span>{driver.firstname}</span>
-                <span>{driver.lastname}</span>
-                <span>{(() => {
-                  switch (driver.status) {
-                    case 0: return 'Disponible';
-                    case 1: return 'En cours de livraison';
-                    default: return 'Disponible';
-                  }
-                })()}
-                </span>
-                <div className="driver-utils">
-                  <a href="/admin/driver_informations/:id">
-                    <img src={info} alt="" className="info" />
-                  </a>
-                  <img src={edit} alt="" className="edit" />
+        </div>
+        <ul>
+          { drivers && drivers.map((item) => (
+            <li className="driver-list" key={item.id}>
+              <img src={Patrick} alt="" className="avatar" />
+              <span>{item.firstname}</span>
+              <span>{item.lastname}</span>
+              <span>{(() => {
+                switch (item.status) {
+                  case 0: return 'Disponible';
+                  case 1: return 'En cours de livraison';
+                  default: return 'Disponible';
+                }
+              })()}
+              </span>
+              <div className="driver-utils">
+                <Link to={`/admin/driver_informations/${item.id}`}>
+                  <img src={info} alt="" className="info" />
+                </Link>
+                <img src={edit} alt="" className="edit" />
+                <button type="button" onClick={deleteDriver(item.id)}>
                   <img src={trash} alt="" className="trash" />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </Mediaquery>
-      </div>
-    );
-  }
-}
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Mediaquery>
+    </div>
+  );
+};
+
+export default DriversManagement;
