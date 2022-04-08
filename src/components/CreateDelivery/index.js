@@ -25,6 +25,14 @@ const CreateDelivery = () => (
           <label>Quantité</label>
           <input placeholder="Veillez renseigné la quantité à livré" />
         </Form.Field>
+        <Form.Field>
+          <label>Numéro de téléphone</label>
+          <input placeholder="Veillez renseigné la quantité à livré" />
+        </Form.Field>
+        <Form.Field>
+          <label>Commentaire</label>
+          <input placeholder="Veillez renseigné la quantité à livré" />
+        </Form.Field>
         <Button className="button" type="submit">Créer la livraison</Button>
       </Form>
     </div>

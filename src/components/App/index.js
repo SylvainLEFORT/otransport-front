@@ -16,7 +16,7 @@ import CreateDelivery from '../CreateDelivery';
 import CreateDriver from '../CreateDriver';
 import History from '../History';
 import DriverInfos from '../DriverInfos';
-import DeleteDriver from '../DeleteDriver';
+import DeliveryDetail from '../DeliveryDetail';
 
 // == Composant
 const App = () => (
@@ -33,6 +33,7 @@ const App = () => (
       <Route path="/admin/create_driver" element={<CreateDriver />} />
       <Route path="/admin/history" element={<History />} />
       <Route path="/admin/driver_informations/:id" element={<DriverInfos />} />
+      <Route path="/admin/delivery_detail/:id" element={<DeliveryDetail />} />
       <Route path="*" element={<Error />} />
     </Routes>
   </div>
