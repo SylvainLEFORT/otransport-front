@@ -1,134 +1,149 @@
 import { Button, Form } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 import NavBar from '../NavBar';
 
 import './createdriver.scss';
 
-export default class CreateDriver extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      firstname: '',
-      lastname: '',
-      email: '',
-      password: '',
-      phone_number: '',
-    };
-  }
+const CreateDriver = () => {
+  const [driver, setDriver] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    phoneNumber: '',
+  });
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+  const handleFirstNameInputChange = (e) => {
+    e.persist();
+    setDriver((driver) => ({
+      ...driver,
+      firstName: e.target.value,
+    }));
   };
 
-  handleSubmit = (event) => {
+  const handleLastNameInputChange = (e) => {
+    e.persist();
+    setDriver((driver) => ({
+      ...driver,
+      lastName: e.target.value,
+    }));
+  };
+
+  const handleEmailInputChange = (e) => {
+    e.persist();
+    setDriver((driver) => ({
+      ...driver,
+      email: e.target.value,
+    }));
+  };
+
+  const handlePasswordInputChange = (e) => {
+    e.persist();
+    setDriver((driver) => ({
+      ...driver,
+      password: e.target.value,
+    }));
+  };
+
+  const handlePhoneNumberInputChange = (e) => {
+    e.persist();
+    setDriver((driver) => ({
+      ...driver,
+      phoneNumber: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-    const driver = JSON.stringify({
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      email: this.state.email,
-      password: this.state.password,
-      phone_number: this.state.phone_number,
-
-    });
-
-    axios.post('http://localhost:8000/api/drivers', driver)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
-  render() {
-    const {
-      firstname,
-      lastname,
-      email,
-      password,
-      phone_number,
-    } = this.state;
-    return (
-      <div>
-        <NavBar />
+  axios.post('http://localhost:8000/api/drivers', driver)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
-        <div className="create-driver">
+  return (
+    <div>
+      <NavBar />
 
-          <h1 className="titre">Création d'un chauffeur</h1>
+      <div className="create-driver">
 
-          <div className="trait" />
+        <h1 className="titre">Création d'un chauffeur</h1>
 
-          <Link to="/admin/drivers_management" className="return">
-            <Button>Retour</Button>
-          </Link>
+        <div className="trait" />
 
-          <div className="form">
-            <Form onSubmit={this.handleSubmit}>
-              <Form.Field className="input-1">
-                <label>Prénom</label>
-                <input
-                  placeholder="Veuillez insérer le prénom"
-                  type="text"
-                  name="firstname"
-                  value={firstname}
-                  onChange={this.handleChange}
-                />
-              </Form.Field>
-              <Form.Field className="input-1">
-                <label>Nom</label>
-                <input
-                  placeholder="Veuillez insérer le nom"
-                  type="text"
-                  name="lastname"
-                  value={lastname}
-                  onChange={this.handleChange}
-                />
-              </Form.Field>
-              <Form.Field className="input-1">
-                <label>E-mail</label>
-                <input
-                  placeholder="Veuillez insérer l'e-mail"
-                  type="email"
-                  name="email"
-                  value={email}
-                  onChange={this.handleChange}
-                />
-              </Form.Field>
-              <Form.Field className="input-1">
-                <label>Mot de passe</label>
-                <input
-                  placeholder="Veuillez insérer le mot de passe"
-                  type="text"
-                  name="password"
-                  value={password}
-                  onChange={this.handleChange}
-                />
-              </Form.Field>
-              <Form.Field className="input-1">
-                <label>Numéro de téléphone</label>
-                <input
-                  placeholder="Veuillez insérer le numéro de téléphone"
-                  type="text"
-                  name="phone_number"
-                  value={phone_number}
-                  onChange={this.handleChange}
-                />
-              </Form.Field>
-              {/* <Form.Field>
-                <label>Image de profil</label>
-                <input type="file" placeholder="Last Name" onChange={this.handleChange} />
-              </Form.Field> */}
-              <Button className="button" type="submit">Créer un chauffeur</Button>
-            </Form>
-          </div>
+        <Link to="/admin/drivers_management" className="return">
+          <Button>Retour</Button>
+        </Link>
+
+        <div className="form">
+          <Form onSubmit={handleSubmit}>
+            <Form.Field className="input-1">
+              <label>Prénom</label>
+              <input
+                placeholder="Veuillez insérer le prénom"
+                type="text"
+                name="firstname"
+                value={driver.firstName}
+                onChange={handleFirstNameInputChange}
+              />
+            </Form.Field>
+            <Form.Field className="input-1">
+              <label>Nom</label>
+              <input
+                placeholder="Veuillez insérer le nom"
+                type="text"
+                name="lastname"
+                value={driver.lastName}
+                onChange={handleLastNameInputChange}
+              />
+            </Form.Field>
+            <Form.Field className="input-1">
+              <label>E-mail</label>
+              <input
+                placeholder="Veuillez insérer l'e-mail"
+                type="email"
+                name="email"
+                value={driver.email}
+                onChange={handleEmailInputChange}
+              />
+            </Form.Field>
+            <Form.Field className="input-1">
+              <label>Mot de passe</label>
+              <input
+                placeholder="Veuillez insérer le mot de passe"
+                type="password"
+                name="password"
+                value={driver.password}
+                onChange={handlePasswordInputChange}
+              />
+            </Form.Field>
+            <Form.Field className="input-1">
+              <label>Numéro de téléphone</label>
+              <input
+                placeholder="Veuillez insérer le numéro de téléphone"
+                type="tel"
+                name="phone_number"
+                value={driver.phoneNumber}
+                onChange={handlePhoneNumberInputChange}
+              />
+            </Form.Field>
+            {/* <Form.Field>
+              <label>Image de profil</label>
+              <input type="file" placeholder="Last Name" onChange={this.handleChange} />
+            </Form.Field> */}
+            <Button className="button" type="submit">Créer un chauffeur</Button>
+          </Form>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default CreateDriver;
