@@ -16,6 +16,7 @@ import CreateDelivery from '../CreateDelivery';
 import CreateDriver from '../CreateDriver';
 import History from '../History';
 import DriverInfos from '../DriverInfos';
+import DeleteDriver from '../DeleteDriver';
 
 // == Composant
 const App = () => (
