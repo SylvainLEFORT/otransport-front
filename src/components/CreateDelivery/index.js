@@ -7,7 +7,7 @@ import NavBar from '../NavBar';
 const CreateDelivery = () => {
   const [delivery, setDelivery] = useState({
     merchandise: '',
-    volume: null,
+    volume: 0,
     comment: '',
   });
 
@@ -29,7 +29,7 @@ const CreateDelivery = () => {
     e.persist();
     setDelivery((delivery) => ({
       ...delivery,
-      volume: e.target.value,
+      volume: Number(e.target.value),
     }));
   };
 
@@ -126,8 +126,8 @@ const CreateDelivery = () => {
           <Form.Field>
             <label>Volume</label>
             <input
-              placeholder="Veuillez renseigner la quantité à livrer"
-              type="undefined"
+              placeholder="Veuillez renseigner le volume à livrer"
+              type="number"
               name="deliveryVolume"
               value={delivery.volume}
               onChange={handleDeliveryVolumeChange}
