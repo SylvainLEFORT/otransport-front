@@ -111,10 +111,6 @@ const CreateDriver = () => {
                 onChange={handleChange}
               />
             </Form.Field>
-            {/* <Form.Field>
-              <label>Image de profil</label>
-              <input type="file" placeholder="Last Name" onChange={this.handleChange} />
-            </Form.Field> */}
             <Button className="button" type="submit">Créer un chauffeur</Button>
           </Form>
         </div>
