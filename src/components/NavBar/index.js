@@ -14,7 +14,7 @@ const NavBar = () => (
             <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/deliveries_management">Gestion des livraisons</NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/current_deliveries">Livraisons en cours</NavLink>
+            <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/current_deliveries">Livraisons inachevés</NavLink>
           </li>
           <li>
             <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/create_delivery">Créer une livraison</NavLink>
