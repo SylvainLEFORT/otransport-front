@@ -71,9 +71,11 @@ const DriversManagement = () => {
                     <img src={info} alt="" className="info" />
                   </button>
                 </Link>
-                <button type="button" className="buttons-utils">
-                  <img src={edit} alt="" className="edit" />
-                </button>
+                <Link to={`/admin/update_driver/${item.id}`}>
+                  <button type="button" className="buttons-utils">
+                    <img src={edit} alt="" className="edit" />
+                  </button>
+                </Link>
                 <button type="button" className="buttons-utils" onClick={deleteDriver(item.id)}>
                   <img src={trash} alt="" className="trash" />
                 </button>

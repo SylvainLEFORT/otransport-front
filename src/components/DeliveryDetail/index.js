@@ -30,11 +30,15 @@ const DeliveryDetail = () => {
           <p>{delivery.customer.name}</p>
           <h2>Adresse</h2>
           <p>{delivery.customer.address}</p>
+          <h2>Numéro de téléphone</h2>
+          <p>{delivery.customer.phoneNumber}</p>
           <h2>Type de marchandise</h2>
           <p>{delivery.merchandise}</p>
           <h2>Quantité</h2>
           <p>{delivery.volume}</p>
-          <a href="http://localhost:8080/admin/current_deliveries">
+          <h2>Commentaire de livraison</h2>
+          <p>{delivery.comment}</p>
+          <a href="http://localhost:8080/admin/shipping_deliveries">
             <Button className="button">Retour</Button>
           </a>
         </div>
@@ -43,19 +47,21 @@ const DeliveryDetail = () => {
       <Mediaquery maxWidth={600}>
         <NavBar />
         <h1 className="title-phone">Détail de la livraison</h1>
+        {delivery && (
         <div className="details">
           <h2>Nom client</h2>
-          <p>Brico-Dépotte</p>
+          <p>{delivery.customer.name}</p>
           <h2>Adresse</h2>
-          <p>Rue de la vieille, Montpellier 34000 </p>
+          <p>{delivery.customer.address}</p>
           <h2>Type de marchandise</h2>
-          <p>Boites de cassoulets</p>
+          <p>{delivery.merchandise}</p>
           <h2>Quantité</h2>
-          <p>50 000 boites</p>
-          <a href="http://localhost:8080/admin/current_deliveries">
+          <p>{delivery.volume}</p>
+          <a href="http://localhost:8080/admin/shipping_deliveries">
             <Button className="button">Retour</Button>
           </a>
         </div>
+        )}
       </Mediaquery>
     </div>
   );
