@@ -132,7 +132,9 @@ const CreateDriver = () => {
                 onChange={handlePhoneNumberInputChange}
               />
             </Form.Field>
-            <Button className="button" type="submit">Créer un chauffeur</Button>
+            <a to="/admin/drivers_management">
+              <Button className="button" type="submit">Créer un chauffeur</Button>
+            </a>
           </Form>
         </div>
       </div>
