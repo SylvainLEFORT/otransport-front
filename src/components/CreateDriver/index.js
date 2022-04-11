@@ -1,6 +1,6 @@
 import { Button, Form } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 import NavBar from '../NavBar';
@@ -8,34 +8,56 @@ import NavBar from '../NavBar';
 import './createdriver.scss';
 
 const CreateDriver = () => {
-  const [drivers, setDriver] = useState('');
+  const [driver, setDriver] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    phoneNumber: '',
+  });
 
-  useEffect(() => {
-    axios.get('http://localhost:8000/api/drivers')
-      .then((res) => {
-        const resultDrive = res.data;
-        setDriver(resultDrive);
-      });
-  }, []);
+  const handleFirstNameInputChange = (e) => {
+    e.persist();
+    setDriver((driver) => ({
+      ...driver,
+      firstName: e.target.value,
+    }));
+  };
 
-  const handleChange = (e) => {
-    setDriver({
-      [e.target.name]: e.target.value,
-    });
+  const handleLastNameInputChange = (e) => {
+    e.persist();
+    setDriver((driver) => ({
+      ...driver,
+      lastName: e.target.value,
+    }));
+  };
+
+  const handleEmailInputChange = (e) => {
+    e.persist();
+    setDriver((driver) => ({
+      ...driver,
+      email: e.target.value,
+    }));
+  };
+
+  const handlePasswordInputChange = (e) => {
+    e.persist();
+    setDriver((driver) => ({
+      ...driver,
+      password: e.target.value,
+    }));
+  };
+
+  const handlePhoneNumberInputChange = (e) => {
+    e.persist();
+    setDriver((driver) => ({
+      ...driver,
+      phoneNumber: e.target.value,
+    }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const driver = JSON.stringify({
-      firstname: drivers.firstname,
-      lastname: drivers.lastname,
-      email: drivers.email,
-      password: drivers.password,
-      phone_number: drivers.phone_number,
-
-    });
-
     axios.post('http://localhost:8000/api/drivers', driver)
       .then((response) => {
         console.log(response);
@@ -44,7 +66,6 @@ const CreateDriver = () => {
         console.log(error);
       });
   };
-
   return (
     <div>
       <NavBar />
@@ -67,8 +88,8 @@ const CreateDriver = () => {
                 placeholder="Veuillez insérer le prénom"
                 type="text"
                 name="firstname"
-                value={drivers.firstname}
-                onChange={handleChange}
+                value={driver.firstName}
+                onChange={handleFirstNameInputChange}
               />
             </Form.Field>
             <Form.Field className="input-1">
@@ -77,8 +98,8 @@ const CreateDriver = () => {
                 placeholder="Veuillez insérer le nom"
                 type="text"
                 name="lastname"
-                value={drivers.lastname}
-                onChange={handleChange}
+                value={driver.lastName}
+                onChange={handleLastNameInputChange}
               />
             </Form.Field>
             <Form.Field className="input-1">
@@ -87,28 +108,28 @@ const CreateDriver = () => {
                 placeholder="Veuillez insérer l'e-mail"
                 type="email"
                 name="email"
-                value={drivers.email}
-                onChange={handleChange}
+                value={driver.email}
+                onChange={handleEmailInputChange}
               />
             </Form.Field>
             <Form.Field className="input-1">
               <label>Mot de passe</label>
               <input
                 placeholder="Veuillez insérer le mot de passe"
-                type="text"
+                type="password"
                 name="password"
-                value={drivers.password}
-                onChange={handleChange}
+                value={driver.password}
+                onChange={handlePasswordInputChange}
               />
             </Form.Field>
             <Form.Field className="input-1">
               <label>Numéro de téléphone</label>
               <input
                 placeholder="Veuillez insérer le numéro de téléphone"
-                type="text"
+                type="tel"
                 name="phone_number"
-                value={drivers.phone_number}
-                onChange={handleChange}
+                value={driver.phoneNumber}
+                onChange={handlePhoneNumberInputChange}
               />
             </Form.Field>
             <Button className="button" type="submit">Créer un chauffeur</Button>
@@ -116,7 +137,7 @@ const CreateDriver = () => {
         </div>
       </div>
     </div>
-);
+  );
 };
 
 export default CreateDriver;
