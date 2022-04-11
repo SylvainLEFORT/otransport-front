@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import './createdelivery.scss';
 import axios from 'axios';
 import { useState } from 'react';
@@ -19,7 +20,7 @@ const CreateDelivery = () => {
 
   const handleDeliveryMerchendiseChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
+    setDelivery(() => ({
       ...delivery,
       merchandise: e.target.value,
     }));
@@ -27,7 +28,7 @@ const CreateDelivery = () => {
 
   const handleDeliveryVolumeChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
+    setDelivery(() => ({
       ...delivery,
       volume: Number(e.target.value),
     }));
@@ -35,7 +36,7 @@ const CreateDelivery = () => {
 
   const handleDeliveryCommentChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
+    setDelivery(() => ({
       ...delivery,
       comment: e.target.value,
     }));
@@ -43,7 +44,7 @@ const CreateDelivery = () => {
 
   const handleCustomerNameChange = (e) => {
     e.persist();
-    setCustomer((customer) => ({
+    setCustomer(() => ({
       ...customer,
       name: e.target.value,
     }));
@@ -51,7 +52,7 @@ const CreateDelivery = () => {
 
   const handleCustomerAddressChange = (e) => {
     e.persist();
-    setCustomer((customer) => ({
+    setCustomer(() => ({
       ...customer,
       address: e.target.value,
     }));
@@ -59,7 +60,7 @@ const CreateDelivery = () => {
 
   const handleCustomerPhoneNumberChange = (e) => {
     e.persist();
-    setCustomer((customer) => ({
+    setCustomer(() => ({
       ...customer,
 
       phoneNumber: e.target.value,

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import './updatedelivery.scss';
 
 import { useState, useEffect } from 'react';
@@ -13,7 +14,7 @@ const UpdateDelivery = () => {
 
   const handleMerchandiseInputChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
+    setDelivery(() => ({
       ...delivery,
       merchandise: e.target.value,
     }));
@@ -21,7 +22,7 @@ const UpdateDelivery = () => {
 
   const handleVolumeInputChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
+    setDelivery(() => ({
       ...delivery,
       volume: Number(e.target.value),
     }));
@@ -29,7 +30,7 @@ const UpdateDelivery = () => {
 
   const handleCommentInputChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
+    setDelivery(() => ({
       ...delivery,
       comment: e.target.value,
     }));
@@ -37,7 +38,7 @@ const UpdateDelivery = () => {
 
   const handleCustomerNameInputChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
+    setDelivery(() => ({
       ...delivery,
       name: e.target.value,
     }));
@@ -45,7 +46,7 @@ const UpdateDelivery = () => {
 
   const handleCustomerAddressInputChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
+    setDelivery(() => ({
       ...delivery.customer,
       address: e.target.value,
     }));
@@ -53,7 +54,7 @@ const UpdateDelivery = () => {
 
   const handleCustomerPhoneNumberInputChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
+    setDelivery(() => ({
       ...delivery.customer,
       phoneNumber: e.target.value,
     }));
