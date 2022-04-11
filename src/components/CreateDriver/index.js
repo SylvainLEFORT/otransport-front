@@ -132,11 +132,9 @@ const CreateDriver = () => {
                 onChange={handlePhoneNumberInputChange}
               />
             </Form.Field>
-            {/* <Form.Field>
-              <label>Image de profil</label>
-              <input type="file" placeholder="Last Name" onChange={this.handleChange} />
-            </Form.Field> */}
-            <Button className="button" type="submit">Créer un chauffeur</Button>
+            <a to="/admin/drivers_management">
+              <Button className="button" type="submit">Créer un chauffeur</Button>
+            </a>
           </Form>
         </div>
       </div>

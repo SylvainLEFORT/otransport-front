@@ -61,6 +61,7 @@ const CreateDelivery = () => {
     e.persist();
     setCustomer((customer) => ({
       ...customer,
+
       phoneNumber: e.target.value,
     }));
   };
