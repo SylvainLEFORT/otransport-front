@@ -21,7 +21,7 @@ const CurrentDeliveries = () => {
       <Mediaquery minWidth={601}>
         <NavBar />
         <div className="current-deliveries">
-          <h1 className="title">Livraisons en cours</h1>
+          <h1 className="title">Livraisons inachevés</h1>
           <div className="trait" />
           <ul>
             {deliveries && deliveries.map((item) => (

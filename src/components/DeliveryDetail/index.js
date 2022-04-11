@@ -6,7 +6,7 @@ import { Button } from 'semantic-ui-react';
 import Mediaquery from 'react-responsive';
 import NavBar from '../NavBar';
 
-const DriverDetail = () => {
+const DeliveryDetail = () => {
   const [delivery, setDelivery] = useState(null);
 
   const { id } = useParams();
@@ -60,4 +60,4 @@ const DriverDetail = () => {
     </div>
   );
 };
-export default DriverDetail;
+export default DeliveryDetail;
