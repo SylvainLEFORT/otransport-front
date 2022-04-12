@@ -5,7 +5,7 @@ import NavBar from '../NavBar';
 
 const CreateDelivery = () => {
   const [delivery, setDelivery] = useState({
-    firstName: '',
+    customerName: '',
     lastName: '',
     email: '',
     password: '',
@@ -14,7 +14,7 @@ const CreateDelivery = () => {
 
   const handleCustomerNameInputChange = (e) => {
     e.persist();
-    setDriver((delivery) => ({
+    setDelivery((delivery) => ({
       ...delivery,
       firstName: e.target.value,
     }));
@@ -22,7 +22,7 @@ const CreateDelivery = () => {
 
   const handleLastNameInputChange = (e) => {
     e.persist();
-    setDriver((delivery) => ({
+    setDelivery((delivery) => ({
       ...delivery,
       lastName: e.target.value,
     }));
@@ -30,7 +30,7 @@ const CreateDelivery = () => {
 
   const handleEmailInputChange = (e) => {
     e.persist();
-    setDriver((delivery) => ({
+    setDelivery((delivery) => ({
       ...delivery,
       email: e.target.value,
     }));
@@ -38,7 +38,7 @@ const CreateDelivery = () => {
 
   const handlePasswordInputChange = (e) => {
     e.persist();
-    setDriver((delivery) => ({
+    setDelivery((delivery) => ({
       ...delivery,
       password: e.target.value,
     }));
@@ -46,7 +46,7 @@ const CreateDelivery = () => {
 
   const handlePhoneNumberInputChange = (e) => {
     e.persist();
-    setDriver((delivery) => ({
+    setDelivery((delivery) => ({
       ...delivery,
       phoneNumber: e.target.value,
     }));
