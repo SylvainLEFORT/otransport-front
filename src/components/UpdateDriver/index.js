@@ -1,26 +1,21 @@
+import './updatedriver.scss';
+import { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import axios from 'axios';
 
 import NavBar from '../NavBar';
 
-import './createdriver.scss';
+const UpdateDriver = () => {
+  const [driver, setDriver] = useState(null);
 
-const CreateDriver = () => {
-  const [driver, setDriver] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    phoneNumber: '',
-  });
+  const { id } = useParams();
 
   const handleFirstNameInputChange = (e) => {
     e.persist();
     setDriver((driver) => ({
       ...driver,
-      firstName: e.target.value,
+      firstname: e.target.value,
     }));
   };
 
@@ -28,7 +23,7 @@ const CreateDriver = () => {
     e.persist();
     setDriver((driver) => ({
       ...driver,
-      lastName: e.target.value,
+      lastname: e.target.value,
     }));
   };
 
@@ -56,90 +51,89 @@ const CreateDriver = () => {
     }));
   };
 
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/admin/drivers/${id}`)
+      .then((res) => {
+        const resultDrive = res.data;
+        console.log(resultDrive);
+        setDriver(resultDrive);
+      });
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:8000/api/admin/drivers', driver)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    axios.put(`http://localhost:8000/api/admin/drivers/${id}`, driver)
+      .then((response) => setDriver(response.data.updatedAt));
   };
+
   return (
     <div>
       <NavBar />
 
       <div className="create-driver">
 
-        <h1 className="titre">Création d'un chauffeur</h1>
+        <h1 className="titre">Modifier un chauffeur</h1>
 
         <div className="trait" />
 
         <Link to="/admin/drivers_management" className="return">
           <Button>Retour</Button>
         </Link>
-
+        {driver && (
         <div className="form">
           <Form onSubmit={handleSubmit}>
             <Form.Field className="input-1">
               <label>Prénom</label>
               <input
-                placeholder="Veuillez insérer le prénom"
                 type="text"
                 name="firstname"
-                value={driver.firstName}
+                defaultValue={driver.firstname}
                 onChange={handleFirstNameInputChange}
               />
             </Form.Field>
             <Form.Field className="input-1">
               <label>Nom</label>
               <input
-                placeholder="Veuillez insérer le nom"
                 type="text"
                 name="lastname"
-                value={driver.lastName}
+                defaultValue={driver.lastname}
                 onChange={handleLastNameInputChange}
               />
             </Form.Field>
             <Form.Field className="input-1">
               <label>E-mail</label>
               <input
-                placeholder="Veuillez insérer l'e-mail"
                 type="email"
                 name="email"
-                value={driver.email}
+                defaultValue={driver.email}
                 onChange={handleEmailInputChange}
               />
             </Form.Field>
             <Form.Field className="input-1">
               <label>Mot de passe</label>
               <input
-                placeholder="Veuillez insérer le mot de passe"
                 type="password"
                 name="password"
-                value={driver.password}
+                defaultValue={driver.password}
                 onChange={handlePasswordInputChange}
               />
             </Form.Field>
             <Form.Field className="input-1">
               <label>Numéro de téléphone</label>
               <input
-                placeholder="Veuillez insérer le numéro de téléphone"
                 type="tel"
                 name="phone_number"
-                value={driver.phoneNumber}
+                defaultValue={driver.phoneNumber}
                 onChange={handlePhoneNumberInputChange}
               />
             </Form.Field>
-            <a to="/admin/drivers_management">
-              <Button className="button" type="submit">Créer un chauffeur</Button>
-            </a>
+              <Button className="button" type="submit">Modifier le chauffeur</Button>
           </Form>
         </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default CreateDriver;
+export default UpdateDriver;

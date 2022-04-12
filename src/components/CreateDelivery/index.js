@@ -1,60 +1,75 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import './createdelivery.scss';
+import axios from 'axios';
 import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import NavBar from '../NavBar';
 
 const CreateDelivery = () => {
   const [delivery, setDelivery] = useState({
-    customerName: '',
-    lastName: '',
-    email: '',
-    password: '',
+    merchandise: '',
+    volume: 0,
+    comment: '',
+  });
+
+  const [customer, setCustomer] = useState({
+    name: '',
+    address: '',
     phoneNumber: '',
   });
 
-  const handleCustomerNameInputChange = (e) => {
+  const handleDeliveryMerchendiseChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
+    setDelivery(() => ({
       ...delivery,
-      firstName: e.target.value,
+      merchandise: e.target.value,
     }));
   };
 
-  const handleLastNameInputChange = (e) => {
+  const handleDeliveryVolumeChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
+    setDelivery(() => ({
       ...delivery,
-      lastName: e.target.value,
+      volume: Number(e.target.value),
     }));
   };
 
-  const handleEmailInputChange = (e) => {
+  const handleDeliveryCommentChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
+    setDelivery(() => ({
       ...delivery,
-      email: e.target.value,
+      comment: e.target.value,
     }));
   };
 
-  const handlePasswordInputChange = (e) => {
+  const handleCustomerNameChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
-      ...delivery,
-      password: e.target.value,
+    setCustomer(() => ({
+      ...customer,
+      name: e.target.value,
     }));
   };
 
-  const handlePhoneNumberInputChange = (e) => {
+  const handleCustomerAddressChange = (e) => {
     e.persist();
-    setDelivery((delivery) => ({
-      ...delivery,
+    setCustomer(() => ({
+      ...customer,
+      address: e.target.value,
+    }));
+  };
+
+  const handleCustomerPhoneNumberChange = (e) => {
+    e.persist();
+    setCustomer(() => ({
+      ...customer,
+
       phoneNumber: e.target.value,
     }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:8000/api/drivers', delivery)
+    axios.post('http://localhost:8000/api/admin/deliveries/create', { delivery, customer })
       .then((response) => {
         console.log(response);
       })
@@ -69,36 +84,66 @@ const CreateDelivery = () => {
       <div className="createdeliveries">
         <h1>Création d'une livraison</h1>
         <div className="trait" />
-        <Form className="form">
+        <Form className="form" onSubmit={handleSubmit}>
           <Form.Field>
-            <label>Nom client</label>
+            <label>Nom du client</label>
             <input
-              placeholder="Veillez renseigné le nom du client"
+              placeholder="Veuillez renseigner le nom du client"
               type="text"
-              name="customer name"
-              value={delivery.customer.name}
-              onChange={handleCustomerNameInputChange}
+              name="customerName"
+              value={customer.name}
+              onChange={handleCustomerNameChange}
             />
           </Form.Field>
           <Form.Field>
             <label>Adresse</label>
-            <input placeholder="Veillez renseigné l'adresse de livraison" />
-          </Form.Field>
-          <Form.Field>
-            <label>Type de produit</label>
-            <input placeholder="Veillez renseigné le type de produit à livré" />
-          </Form.Field>
-          <Form.Field>
-            <label>Quantité</label>
-            <input placeholder="Veillez renseigné la quantité à livré" />
+            <input
+              placeholder="Veuillez renseigner l'adresse de livraison"
+              type="text"
+              name="customerAddress"
+              value={customer.address}
+              onChange={handleCustomerAddressChange}
+            />
           </Form.Field>
           <Form.Field>
             <label>Numéro de téléphone</label>
-            <input placeholder="Veillez renseigné la quantité à livré" />
+            <input
+              placeholder="Veuillez renseigner le numéro de téléphone"
+              type="text"
+              name="customerPhoneNumber"
+              value={customer.phoneNumber}
+              onChange={handleCustomerPhoneNumberChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Type de marchandise</label>
+            <input
+              placeholder="Veuillez renseigner le type de marchandise"
+              type="text"
+              name="deliveryMerchandise"
+              value={delivery.merchandise}
+              onChange={handleDeliveryMerchendiseChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Volume</label>
+            <input
+              placeholder="Veuillez renseigner le volume à livrer"
+              type="number"
+              name="deliveryVolume"
+              value={delivery.volume}
+              onChange={handleDeliveryVolumeChange}
+            />
           </Form.Field>
           <Form.Field>
             <label>Commentaire</label>
-            <input placeholder="Veillez renseigné la quantité à livré" />
+            <input
+              placeholder="Tapez votre message ici"
+              type="text"
+              name="deliveryComment"
+              value={delivery.comment}
+              onChange={handleDeliveryCommentChange}
+            />
           </Form.Field>
           <Button className="button" type="submit">Créer la livraison</Button>
         </Form>
