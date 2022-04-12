@@ -19,3 +19,48 @@
 }
 
 }
+
+.driverList{
+  border: 2px solid lightgrey;
+  border-radius: 4px;
+  width: 100%;
+  height: 5em;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+
+  .global{
+    width: 80%;
+  }
+
+  .infosClient{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .infosClient-phone{
+
+  }
+
+  .utilitaire{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+  }
+  
+}
+
+.driverList-phone{
+  border: 2px solid lightgrey;
+  border-radius: 4px;
+  width: 90%;
+  height: 5em;
+  margin: auto;
+  margin-bottom: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content:space-around;
+
+}
