@@ -53,12 +53,14 @@ const PendingDeliveries = () => {
                 <span>{item.customer.address}</span>
                 <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>Détail</a>
                 <div className="utils">
-                  <button type="button" onClick={deleteDelivery(item.id)}>
+                  <button type="button" className="button-utils">
+                    <a href={`http://localhost:8080/admin/update_delivery/${item.id}`}>
+                      <img src={edit} alt="" />
+                    </a>
+                  </button>
+                  <button type="button" className="button-utils" onClick={deleteDelivery(item.id)}>
                     <img src={trash} alt="" />
                   </button>
-                  <a href={`http://localhost:8080/admin/update_delivery/${item.id}`}>
-                    <img src={edit} alt="" />
-                  </a>
                 </div>
               </li>
             ))}

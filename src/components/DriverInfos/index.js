@@ -11,7 +11,7 @@ const DriverInfos = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/drivers/${id}`)
+    axios.get(`http://localhost:8000/api/admin/drivers/${id}`)
       .then((res) => {
         const resultDrive = res.data;
         console.log(resultDrive);

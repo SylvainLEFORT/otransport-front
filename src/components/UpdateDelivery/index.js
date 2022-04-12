@@ -85,7 +85,7 @@ const UpdateDelivery = () => {
 
         <div className="trait" />
 
-        <Link to="/admin/drivers_management" className="return">
+        <Link to="/admin/pending_deliveries" className="return">
           <Button>Retour</Button>
         </Link>
         {delivery && (

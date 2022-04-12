@@ -52,7 +52,7 @@ const UpdateDriver = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/drivers/${id}`)
+    axios.get(`http://localhost:8000/api/admin/drivers/${id}`)
       .then((res) => {
         const resultDrive = res.data;
         console.log(resultDrive);
@@ -62,7 +62,7 @@ const UpdateDriver = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.put(`http://localhost:8000/api/drivers/${id}`, driver)
+    axios.put(`http://localhost:8000/api/admin/drivers/${id}`, driver)
       .then((response) => setDriver(response.data.updatedAt));
   };
 
