@@ -1,6 +1,6 @@
 export const initialState = {
   // contenu du champ nom du user
-  driverName: '',
+  username: '',
   // contenu du champ password du user
   password: '',
 };
