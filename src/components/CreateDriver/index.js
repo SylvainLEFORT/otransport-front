@@ -18,7 +18,7 @@ const CreateDriver = () => {
 
   const handleFirstNameInputChange = (e) => {
     e.persist();
-    setDriver((driver) => ({
+    setDriver(() => ({
       ...driver,
       firstName: e.target.value,
     }));
@@ -26,7 +26,7 @@ const CreateDriver = () => {
 
   const handleLastNameInputChange = (e) => {
     e.persist();
-    setDriver((driver) => ({
+    setDriver(() => ({
       ...driver,
       lastName: e.target.value,
     }));
@@ -34,7 +34,7 @@ const CreateDriver = () => {
 
   const handleEmailInputChange = (e) => {
     e.persist();
-    setDriver((driver) => ({
+    setDriver(() => ({
       ...driver,
       email: e.target.value,
     }));
@@ -42,15 +42,15 @@ const CreateDriver = () => {
 
   const handlePasswordInputChange = (e) => {
     e.persist();
-    setDriver((driver) => ({
+    setDriver(() => ({
       ...driver,
       password: e.target.value,
     }));
   };
 
   const handlePhoneNumberInputChange = (e) => {
-    e.persist();
-    setDriver((driver) => ({
+    e.persist()
+    setDriver(() => ({
       ...driver,
       phoneNumber: e.target.value,
     }));

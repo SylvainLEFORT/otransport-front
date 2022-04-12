@@ -24,7 +24,7 @@ const HeaderLogged = () => (
             </div>
           </Header>
           <Header as="h2" floated="left">
-            <Image src={Otransport} /><Link to="/admin/current_deliveries">' Transport</Link>
+            <Image src={Otransport} /><Link to="/admin/pending_deliveries">' Transport</Link>
           </Header>
         </Segment>
       </div>
