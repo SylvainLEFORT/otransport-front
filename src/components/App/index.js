@@ -31,7 +31,6 @@ const App = () => (
       <Route path="/driver/delivery/:id" element={<DriverDelivery />} />
       <Route path="/admin/shipping_deliveries" element={<ShippingDeliveries />} />
       <Route path="/admin/pending_deliveries" element={<PendingDeliveries />} />
-      {/* <Route path="/admin/deliveries_management" element={<DeliveriesManagement />} /> */}
       <Route path="/admin/drivers_management" element={<DriversManagement />} />
       <Route path="/admin/create_delivery" element={<CreateDelivery />} />
       <Route path="/admin/update_delivery/:id" element={<UpdateDelivery />} />
