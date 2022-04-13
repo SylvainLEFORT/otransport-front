@@ -4,6 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 
 import NavBar from '../NavBar';
+import HeaderLogged from '../Header';
 
 import './createdriver.scss';
 
@@ -68,6 +69,7 @@ const CreateDriver = () => {
   };
   return (
     <div>
+      <HeaderLogged />
       <NavBar />
 
       <div className="create-driver">

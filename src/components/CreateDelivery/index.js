@@ -3,6 +3,8 @@ import './createdelivery.scss';
 import axios from 'axios';
 import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
+
+import HeaderLogged from '../Header';
 import NavBar from '../NavBar';
 
 const CreateDelivery = () => {
@@ -80,6 +82,7 @@ const CreateDelivery = () => {
 
   return (
     <div>
+      <HeaderLogged />
       <NavBar />
       <div className="createdeliveries">
         <h1>Création d'une livraison</h1>

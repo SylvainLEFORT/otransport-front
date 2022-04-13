@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 import './styles.scss';
 import 'semantic-ui-css/semantic.min.css';
 
-import HeaderLogged from '../Header';
 import ShippingDeliveries from '../ShippingDeliveries';
 import PendingDeliveries from '../PendingDeliveries';
 // import DeliveriesManagement from '../DeliveriesManagement';
@@ -24,7 +23,6 @@ import DeliveryDetail from '../DeliveryDetail';
 // == Composant
 const App = () => (
   <div className="app">
-    <HeaderLogged />
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/driver" element={<Driver />} />

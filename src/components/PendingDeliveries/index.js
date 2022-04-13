@@ -8,6 +8,7 @@ import edit from 'src/assets/docs/edit.svg';
 import trash from 'src/assets/docs/trash.svg';
 
 import NavBar from '../NavBar';
+import HeaderLogged from '../Header';
 
 const PendingDeliveries = () => {
   const [deliveries, setDeliveries] = useState();
@@ -35,6 +36,7 @@ const PendingDeliveries = () => {
   return (
     <div>
       <Mediaquery minWidth={601}>
+        <HeaderLogged />
         <NavBar />
         <div className="pending-deliveries">
           <h1 className="title">Livraisons en attente</h1>
@@ -68,6 +70,7 @@ const PendingDeliveries = () => {
         </div>
       </Mediaquery>
       <Mediaquery maxWidth={600}>
+        <HeaderLogged />
         <NavBar />
         <div className="pending-deliveries">
           <h1 className="title">Livraisons en cours</h1>

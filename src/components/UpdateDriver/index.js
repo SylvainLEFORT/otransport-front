@@ -5,6 +5,7 @@ import { Button, Form } from 'semantic-ui-react';
 import axios from 'axios';
 
 import NavBar from '../NavBar';
+import HeaderLogged from '../Header';
 
 const UpdateDriver = () => {
   const [driver, setDriver] = useState(null);
@@ -13,7 +14,7 @@ const UpdateDriver = () => {
 
   const handleFirstNameInputChange = (e) => {
     e.persist();
-    setDriver((driver) => ({
+    setDriver(() => ({
       ...driver,
       firstname: e.target.value,
     }));
@@ -21,7 +22,7 @@ const UpdateDriver = () => {
 
   const handleLastNameInputChange = (e) => {
     e.persist();
-    setDriver((driver) => ({
+    setDriver(() => ({
       ...driver,
       lastname: e.target.value,
     }));
@@ -29,7 +30,7 @@ const UpdateDriver = () => {
 
   const handleEmailInputChange = (e) => {
     e.persist();
-    setDriver((driver) => ({
+    setDriver(() => ({
       ...driver,
       email: e.target.value,
     }));
@@ -37,7 +38,7 @@ const UpdateDriver = () => {
 
   const handlePasswordInputChange = (e) => {
     e.persist();
-    setDriver((driver) => ({
+    setDriver(() => ({
       ...driver,
       password: e.target.value,
     }));
@@ -45,7 +46,7 @@ const UpdateDriver = () => {
 
   const handlePhoneNumberInputChange = (e) => {
     e.persist();
-    setDriver((driver) => ({
+    setDriver(() => ({
       ...driver,
       phoneNumber: e.target.value,
     }));
@@ -68,6 +69,7 @@ const UpdateDriver = () => {
 
   return (
     <div>
+      <HeaderLogged />
       <NavBar />
 
       <div className="create-driver">
@@ -127,7 +129,7 @@ const UpdateDriver = () => {
                 onChange={handlePhoneNumberInputChange}
               />
             </Form.Field>
-              <Button className="button" type="submit">Modifier le chauffeur</Button>
+            <Button className="button" type="submit">Modifier le chauffeur</Button>
           </Form>
         </div>
         )}
