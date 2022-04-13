@@ -6,8 +6,7 @@ import Otransport from 'src/assets/docs/roue-O-transport.svg';
 import './header.scss';
 
 const HeaderLogged = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     sessionStorage.removeItem('jwtToken');
   };
 
