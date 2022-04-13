@@ -1,13 +1,18 @@
+import { useContext } from 'react';
 import { Header, Segment, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Mediaquery from 'react-responsive';
 import Patrick from 'src/assets/docs/patrick.png';
 import Otransport from 'src/assets/docs/roue-O-transport.svg';
+import AuthContext from '../../context/AuthProvider';
 import './header.scss';
 
 const HeaderLogged = () => {
+  const { setToken } = useContext(AuthContext);
+
   const handleSubmit = () => {
     sessionStorage.removeItem('jwtToken');
+    setToken(null);
   };
 
   return (

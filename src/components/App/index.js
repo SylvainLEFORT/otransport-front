@@ -1,4 +1,5 @@
 //   Import
+import { useEffect, useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import './styles.scss';
@@ -19,10 +20,15 @@ import History from '../History';
 import DriverInfos from '../DriverInfos';
 import DeliveryDetail from '../DeliveryDetail';
 import HeaderLogged from '../Header';
+import AuthContext from '../../context/AuthProvider';
 
 // == Composant
 const App = () => {
-  const token = sessionStorage.getItem('jwtToken');
+  const { token, setToken } = useContext(AuthContext);
+
+  useEffect(() => {
+    setToken(sessionStorage.getItem('jwtToken'));
+  }, []);
 
   const config = {
     headers: {
@@ -30,25 +36,28 @@ const App = () => {
     },
   };
   console.log(config);
-  const islogged = token;
 
   return (
     <div className="app">
-      { islogged && <HeaderLogged /> }
+      {token && <HeaderLogged />}
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/driver" element={<Driver />} />
-        <Route path="/driver/delivery/:id" element={<DriverDelivery />} />
-        <Route path="/admin/shipping_deliveries" element={<ShippingDeliveries />} />
-        <Route path="/admin/pending_deliveries" element={<PendingDeliveries />} />
-        <Route path="/admin/drivers_management" element={<DriversManagement />} />
-        <Route path="/admin/create_delivery" element={<CreateDelivery />} />
-        <Route path="/admin/update_delivery/:id" element={<UpdateDelivery />} />
-        <Route path="/admin/create_driver" element={<CreateDriver />} />
-        <Route path="/admin/update_driver/:id" element={<UpdateDriver />} />
-        <Route path="/admin/history" element={<History />} />
-        <Route path="/admin/driver_informations/:id" element={<DriverInfos />} />
-        <Route path="/admin/delivery_detail/:id" element={<DeliveryDetail />} />
+        {token && (
+          <>
+            <Route path="/driver" element={<Driver />} />
+            <Route path="/driver/delivery/:id" element={<DriverDelivery />} />
+            <Route path="/admin/shipping_deliveries" element={<ShippingDeliveries />} />
+            <Route path="/admin/pending_deliveries" element={<PendingDeliveries />} />
+            <Route path="/admin/drivers_management" element={<DriversManagement />} />
+            <Route path="/admin/create_delivery" element={<CreateDelivery />} />
+            <Route path="/admin/update_delivery/:id" element={<UpdateDelivery />} />
+            <Route path="/admin/create_driver" element={<CreateDriver />} />
+            <Route path="/admin/update_driver/:id" element={<UpdateDriver />} />
+            <Route path="/admin/history" element={<History />} />
+            <Route path="/admin/driver_informations/:id" element={<DriverInfos />} />
+            <Route path="/admin/delivery_detail/:id" element={<DeliveryDetail />} />
+          </>
+        )}
         <Route path="*" element={<Error />} />
       </Routes>
     </div>

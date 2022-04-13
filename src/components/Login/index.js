@@ -1,19 +1,23 @@
 import './login.scss';
 import { Image, Form } from 'semantic-ui-react';
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router';
 import logo from 'src/assets/docs/O-transport.svg';
 import axios from 'axios';
 import AuthContext from '../../context/AuthProvider';
+import ROLES from '../../constants/roles';
 
 const LOGIN_URL = 'http://localhost:8000/api/login_check';
 
 const Login = () => {
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth, setToken } = useContext(AuthContext);
 
   const [username, setUser] = useState('');
   const [password, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setErrMsg('');
@@ -42,6 +46,14 @@ const Login = () => {
       setPwd('');
       setSuccess(true);
       sessionStorage.setItem('jwtToken', accessToken);
+      setToken(accessToken);
+
+      if (roles.find((role) => role === ROLES.ADMIN)) {
+        navigate('./admin/shipping_deliveries');
+      }
+      else {
+        navigate('./driver');
+      }
     }
     catch (err) {
       if (!err?.response) {
