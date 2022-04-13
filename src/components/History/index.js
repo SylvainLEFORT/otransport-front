@@ -8,8 +8,16 @@ import HeaderLogged from '../Header';
 const History = () => {
   const [delivery, setDelivery] = useState(null);
 
+  const token = sessionStorage.getItem('jwtToken');
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   useEffect(() => {
-    axios.get('http://0.0.0.0:8000/api/admin/deliveries/completed')
+    axios.get('http://0.0.0.0:8000/api/admin/deliveries/completed', config)
       .then((res) => {
         const resultDelivery = res.data;
         console.log(resultDelivery);

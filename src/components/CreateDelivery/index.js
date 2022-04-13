@@ -69,9 +69,17 @@ const CreateDelivery = () => {
     }));
   };
 
+  const token = sessionStorage.getItem('jwtToken');
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:8000/api/admin/deliveries/create', { delivery, customer })
+    axios.post('http://localhost:8000/api/admin/deliveries/create', { delivery, customer }, config)
       .then((response) => {
         console.log(response);
       })

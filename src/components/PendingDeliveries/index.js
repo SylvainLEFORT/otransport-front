@@ -13,8 +13,16 @@ import HeaderLogged from '../Header';
 const PendingDeliveries = () => {
   const [deliveries, setDeliveries] = useState();
 
+  const token = sessionStorage.getItem('jwtToken');
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   useEffect(() => {
-    axios.get('http://0.0.0.0:8000/api/admin/deliveries/pending')
+    axios.get('http://0.0.0.0:8000/api/admin/deliveries/pending', config)
       .then((res) => {
         const resultDeliveries = res.data;
         console.log(resultDeliveries);
@@ -23,7 +31,7 @@ const PendingDeliveries = () => {
   }, []);
 
   const deleteDelivery = (readDeliveryId) => async () => {
-    await axios.delete(`http://localhost:8000/api/admin/deliveries/${readDeliveryId}`);
+    await axios.delete(`http://localhost:8000/api/admin/deliveries/${readDeliveryId}`, config);
     // On change la valeur de drivers pour supprimer le chauffeur des données front
     // sans devoir refaire un appel API
     setDeliveries((prevValue) => {

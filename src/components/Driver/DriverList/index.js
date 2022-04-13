@@ -8,8 +8,16 @@ import Mediaquery from 'react-responsive';
 const DriverList = () => {
   const [deliveries, setDeliveries] = useState();
 
+  const token = sessionStorage.getItem('jwtToken');
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   useEffect(() => {
-    axios.get('http://0.0.0.0:8000/api/admin/deliveries/shipping')
+    axios.get('/api/drivers/2/deliveries', config)
       .then((res) => {
         const resultDeliveries = res.data;
         console.log(resultDeliveries);

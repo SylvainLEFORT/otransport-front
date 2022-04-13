@@ -17,8 +17,16 @@ import NavBar from '../NavBar';
 const DriversManagement = () => {
   const [drivers, setDrivers] = useState();
 
+  const token = sessionStorage.getItem('jwtToken');
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   const deleteDriver = (readDriverId) => async () => {
-    await axios.delete(`http://localhost:8000/api/admin/drivers/${readDriverId}`);
+    await axios.delete(`http://localhost:8000/api/admin/drivers/${readDriverId}`, config);
     // On change la valeur de drivers pour supprimer le chauffeur des données front
     // sans devoir refaire un appel API
     setDrivers((prevValue) => {
@@ -29,7 +37,7 @@ const DriversManagement = () => {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/admin/drivers')
+    axios.get('http://localhost:8000/api/admin/drivers', config)
       .then((res) => {
         const driver = res.data;
         setDrivers(driver);

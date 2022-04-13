@@ -61,8 +61,16 @@ const UpdateDelivery = () => {
     }));
   };
 
+  const token = sessionStorage.getItem('jwtToken');
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/admin/deliveries/${id}`)
+    axios.get(`http://localhost:8000/api/admin/deliveries/${id}`, config)
       .then((res) => {
         const resultDelivery = res.data;
         console.log(resultDelivery);
@@ -72,7 +80,7 @@ const UpdateDelivery = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.put(`http://localhost:8000/api/admin/deliveries/${id}`, delivery)
+    axios.put(`http://localhost:8000/api/admin/deliveries/${id}`, delivery, config)
       .then((response) => setDelivery(response.data.updatedAt));
   };
 

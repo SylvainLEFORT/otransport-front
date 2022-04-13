@@ -13,8 +13,16 @@ const DeliveryDetail = () => {
 
   const { id } = useParams();
 
+  const token = sessionStorage.getItem('jwtToken');
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/admin/deliveries/${id}`)
+    axios.get(`http://localhost:8000/api/admin/deliveries/${id}`, config)
       .then((res) => {
         const resultDelivery = res.data;
         setDelivery(resultDelivery);
