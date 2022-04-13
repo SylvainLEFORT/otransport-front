@@ -155,6 +155,10 @@ const UpdateDelivery = () => {
                 onChange={handleCustomerPhoneNumberInputChange}
               />
             </Form.Field>
+            <label>Chauffeur</label>
+            <Link to={`/admin/update_delivery/${delivery.id}/affect_driver`}>
+              <button type="button">Choisir un chauffeur</button>
+            </Link>
             <Button className="button" type="submit">Modifier la livraison</Button>
           </Form>
         </div>

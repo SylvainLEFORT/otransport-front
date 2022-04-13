@@ -25,7 +25,6 @@ const PendingDeliveries = () => {
     axios.get('http://0.0.0.0:8000/api/admin/deliveries/pending', config)
       .then((res) => {
         const resultDeliveries = res.data;
-        console.log(resultDeliveries);
         setDeliveries(resultDeliveries);
       });
   }, []);
@@ -51,16 +50,18 @@ const PendingDeliveries = () => {
           <div className="trait" />
           <ul>
             <li className="pending-delivery">
-              <span style={{ fontWeight: 'bold' }} xs={3}>Id de la livraison</span>
-              <span style={{ fontWeight: 'bold' }} xs={3}>Client</span>
-              <span style={{ fontWeight: 'bold' }} xs={3}>Adresse</span>
-              <span style={{ fontWeight: 'bold' }} xs={3}>Détail de la livraison</span>
+              <span style={{ fontWeight: 'bold' }}>Id de la livraison</span>
+              <span style={{ fontWeight: 'bold' }}>Client</span>
+              <span style={{ fontWeight: 'bold' }}>Adresse</span>
+              <span style={{ fontWeight: 'bold' }}>Chauffeur</span>
+              <span style={{ fontWeight: 'bold' }}>Détail de la livraison</span>
             </li>
             {deliveries && deliveries.map((item) => (
               <li className="pending-delivery">
                 <a>{item.id}</a>
                 <span>{item.customer.name}</span>
                 <span>{item.customer.address}</span>
+                <span>{item.driver.firstname} {item.driver.lastname}</span>
                 <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>Détail</a>
                 <div className="utils">
                   <button type="button" className="button-utils">

@@ -6,7 +6,6 @@ import { Button } from 'semantic-ui-react';
 import Mediaquery from 'react-responsive';
 
 import NavBar from '../NavBar';
-import HeaderLogged from '../Header';
 
 const DeliveryDetail = () => {
   const [delivery, setDelivery] = useState(null);
@@ -32,7 +31,6 @@ const DeliveryDetail = () => {
   return (
     <div className="driver-delivery">
       <Mediaquery minWidth={601}>
-        <HeaderLogged />
         <NavBar />
         <h1>Détail de la livraison</h1>
         {delivery && (
@@ -49,6 +47,8 @@ const DeliveryDetail = () => {
           <p>{delivery.volume}</p>
           <h2>Commentaire de livraison</h2>
           <p>{delivery.comment}</p>
+          <h2>Chauffeur attribué</h2>
+          <p>{delivery.driver.firstname} {delivery.driver.lastname}</p>
           <a href="http://localhost:8080/admin/shipping_deliveries">
             <Button className="button">Retour</Button>
           </a>
@@ -56,7 +56,6 @@ const DeliveryDetail = () => {
         )}
       </Mediaquery>
       <Mediaquery maxWidth={600}>
-        <HeaderLogged />
         <NavBar />
         <h1 className="title-phone">Détail de la livraison</h1>
         {delivery && (
@@ -69,6 +68,8 @@ const DeliveryDetail = () => {
           <p>{delivery.merchandise}</p>
           <h2>Quantité</h2>
           <p>{delivery.volume}</p>
+          <h2>Chauffeur attribué</h2>
+          <p>{delivery.driver.firstname} {delivery.driver.lastname}</p>
           <a href="http://localhost:8080/admin/shipping_deliveries">
             <Button className="button">Retour</Button>
           </a>

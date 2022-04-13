@@ -15,6 +15,7 @@ import CreateDelivery from '../CreateDelivery';
 import UpdateDelivery from '../UpdateDelivery';
 import CreateDriver from '../CreateDriver';
 import UpdateDriver from '../UpdateDriver';
+import AffectDriver from '../AffectDriver';
 import History from '../History';
 import DriverInfos from '../DriverInfos';
 import DeliveryDetail from '../DeliveryDetail';
@@ -30,11 +31,10 @@ const App = () => {
     },
   };
   console.log(config);
-  const islogged = token;
 
   return (
     <div className="app">
-      ( islogged && <HeaderLogged />)
+      <HeaderLogged />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/driver" element={<Driver />} />
@@ -46,6 +46,7 @@ const App = () => {
         <Route path="/admin/update_delivery/:id" element={<UpdateDelivery />} />
         <Route path="/admin/create_driver" element={<CreateDriver />} />
         <Route path="/admin/update_driver/:id" element={<UpdateDriver />} />
+        <Route path="/admin/update_delivery/:id/affect_driver" element={<AffectDriver />} />
         <Route path="/admin/history" element={<History />} />
         <Route path="/admin/driver_informations/:id" element={<DriverInfos />} />
         <Route path="/admin/delivery_detail/:id" element={<DeliveryDetail />} />
