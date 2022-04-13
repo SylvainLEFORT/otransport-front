@@ -71,12 +71,15 @@
 
 .info {
   cursor:pointer;
+  filter: invert(62%) sepia(97%) saturate(430%) hue-rotate(179deg) brightness(91%) contrast(93%);
 }
 
 .edit {
   cursor:pointer;
+  filter: invert(70%) sepia(92%) saturate(3181%) hue-rotate(3deg) brightness(108%) contrast(103%);
 }
 
 .trash {
   cursor:pointer;
+  filter: invert(24%) sepia(71%) saturate(6991%) hue-rotate(354deg) brightness(92%) contrast(122%);
 }

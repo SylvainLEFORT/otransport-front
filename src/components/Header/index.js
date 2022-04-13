@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { Header, Segment, Image } from 'semantic-ui-react';
 import Mediaquery from 'react-responsive';
 import Patrick from 'src/assets/docs/patrick.png';
@@ -29,7 +30,7 @@ const HeaderLogged = () => {
                   justifyContent: 'flex-end',
                   marginTop: -20,
                 }}
-              ><a id="titre" href="/" onClick={handleSubmit}>Disconnect</a>
+              ><Link id="titre" to="/" onClick={handleSubmit}>Déconnexion</Link>
               </div>
             </Header>
             <Header as="h2" floated="left">
@@ -51,7 +52,7 @@ const HeaderLogged = () => {
                   justifyContent: 'flex-end',
                   marginTop: -20,
                 }}
-              ><a id="titre" href="/" onClick={handleSubmit}>Disconnect</a>
+              ><Link id="titre" to="/" onClick={handleSubmit}>Déconnexion</Link>
               </div>
             </Header>
           </Segment>

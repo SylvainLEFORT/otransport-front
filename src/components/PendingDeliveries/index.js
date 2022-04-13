@@ -54,9 +54,9 @@ const PendingDeliveries = () => {
             {deliveries && deliveries.map((item) => (
               <li className="pending-delivery">
                 <a>{item.id}</a>
-                <span>{item.customer.name}</span>
-                <span>{item.customer.address}</span>
-                <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>Détail</a>
+                <span xs={3}>{item.customer.name}</span>
+                <span xs={3}>{item.customer.address}</span>
+                <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`} xs={3}>Détail</a>
                 <div className="utils">
                   <button type="button" className="button-utils">
                     <a href={`http://localhost:8080/admin/update_delivery/${item.id}`}>
