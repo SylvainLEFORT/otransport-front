@@ -34,7 +34,7 @@ const App = () => {
 
   return (
     <div className="app">
-      ( islogged && <HeaderLogged />)
+      { islogged && <HeaderLogged /> }
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/driver" element={<Driver />} />
