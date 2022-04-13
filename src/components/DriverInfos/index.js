@@ -10,8 +10,16 @@ const DriverInfos = () => {
 
   const { id } = useParams();
 
+  const token = sessionStorage.getItem('jwtToken');
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/admin/drivers/${id}`)
+    axios.get(`http://localhost:8000/api/admin/drivers/${id}`, config)
       .then((res) => {
         const resultDrive = res.data;
         console.log(resultDrive);

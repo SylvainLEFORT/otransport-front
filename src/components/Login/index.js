@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import './login.scss';
 import { Image, Form } from 'semantic-ui-react';
 import { useState, useEffect, useContext } from 'react';
@@ -27,7 +28,8 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(LOGIN_URL,
+      const response = await axios.post(
+        LOGIN_URL,
         JSON.stringify({ username, password }),
         {
           headers: { 'Content-Type': 'application/json' },
@@ -37,7 +39,12 @@ const Login = () => {
       const roles = response?.data?.user.roles;
       const driverID = response?.data?.user.id;
       const driverFirstname = response?.data?.user.firstname;
-      setAuth({ username, password, roles, accessToken });
+      setAuth({
+        username,
+        password,
+        roles,
+        accessToken,
+      });
       setUser('');
       setPwd('');
       setSuccess(true);
