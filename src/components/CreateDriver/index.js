@@ -2,10 +2,7 @@ import { Button, Form } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
-
 import NavBar from '../NavBar';
-import HeaderLogged from '../Header';
-
 import './createdriver.scss';
 
 const CreateDriver = () => {
@@ -77,7 +74,6 @@ const CreateDriver = () => {
   };
   return (
     <div>
-      <HeaderLogged />
       <NavBar />
 
       <div className="create-driver">

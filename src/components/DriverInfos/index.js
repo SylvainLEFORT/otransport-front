@@ -3,10 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button } from 'semantic-ui-react';
 import { Link, useParams } from 'react-router-dom';
-
-
 import NavBar from '../NavBar';
-import HeaderLogged from '../Header';
 
 const DriverInfos = () => {
   const [driver, setDriver] = useState(null);
@@ -24,7 +21,6 @@ const DriverInfos = () => {
 
   return (
     <div>
-      <HeaderLogged />
       <NavBar />
       <h1>Détail du chauffeur</h1>
       {driver && (

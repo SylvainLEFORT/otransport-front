@@ -3,9 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import axios from 'axios';
-
 import NavBar from '../NavBar';
-import HeaderLogged from '../Header';
 
 const UpdateDriver = () => {
   const [driver, setDriver] = useState(null);
@@ -77,7 +75,6 @@ const UpdateDriver = () => {
 
   return (
     <div>
-      <HeaderLogged />
       <NavBar />
 
       <div className="create-driver">

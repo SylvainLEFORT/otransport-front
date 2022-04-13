@@ -4,9 +4,7 @@ import axios from 'axios';
 import { useParams } from 'react-router';
 import { Button } from 'semantic-ui-react';
 import Mediaquery from 'react-responsive';
-
 import NavBar from '../NavBar';
-import HeaderLogged from '../Header';
 
 const DeliveryDetail = () => {
   const [delivery, setDelivery] = useState(null);
@@ -32,7 +30,6 @@ const DeliveryDetail = () => {
   return (
     <div className="driver-delivery">
       <Mediaquery minWidth={601}>
-        <HeaderLogged />
         <NavBar />
         <h1>Détail de la livraison</h1>
         {delivery && (
@@ -56,7 +53,6 @@ const DeliveryDetail = () => {
         )}
       </Mediaquery>
       <Mediaquery maxWidth={600}>
-        <HeaderLogged />
         <NavBar />
         <h1 className="title-phone">Détail de la livraison</h1>
         {delivery && (
