@@ -9,6 +9,13 @@ const DriverDelivery = () => {
   const [deliveries, setDeliveries] = useState();
 
   const { id } = useParams();
+  const token = sessionStorage.getItem('jwtToken');
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
   const token = sessionStorage.getItem('jwtToken');
 
@@ -23,6 +30,7 @@ const DriverDelivery = () => {
       .then((res) => {
         const resultDeliveries = res.data;
         setDeliveries(resultDeliveries);
+        console.log(resultDeliveries);
       });
   }, []);
 
