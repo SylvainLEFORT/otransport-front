@@ -2,6 +2,7 @@ import './pendingdeliveries.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
+import info from 'src/assets/docs/info.svg';
 import edit from 'src/assets/docs/edit.svg';
 import trash from 'src/assets/docs/trash.svg';
 import NavBar from '../NavBar';
@@ -56,15 +57,19 @@ const PendingDeliveries = () => {
                 <a>{item.id}</a>
                 <span xs={3}>{item.customer.name}</span>
                 <span xs={3}>{item.customer.address}</span>
-                <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`} xs={3}>Détail</a>
                 <div className="utils">
                   <button type="button" className="button-utils">
+                    <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>
+                      <img src={info} alt="" className="info" />
+                    </a>
+                  </button>
+                  <button type="button" className="button-utils">
                     <a href={`http://localhost:8080/admin/update_delivery/${item.id}`}>
-                      <img src={edit} alt="" />
+                      <img src={edit} alt="" className="edit" />
                     </a>
                   </button>
                   <button type="button" className="button-utils" onClick={deleteDelivery(item.id)}>
-                    <img src={trash} alt="" />
+                    <img src={trash} alt="" className="trash" />
                   </button>
                 </div>
               </li>
