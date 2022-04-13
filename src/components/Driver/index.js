@@ -21,7 +21,6 @@ const Driver = () => {
     axios.get(`http://localhost:8000/api/drivers/${id}/deliveries`, config)
       .then((res) => {
         const resultDeliveries = res.data;
-        console.log(resultDeliveries);
         setDeliveries(resultDeliveries);
       });
   }, []);

@@ -34,13 +34,9 @@ const Login = () => {
         },
       );
       const accessToken = response?.data?.token;
-      console.log(accessToken);
       const roles = response?.data?.user.roles;
-      console.log(roles);
       const driverID = response?.data?.user.id;
-      console.log(driverID);
       const driverFirstname = response?.data?.user.firstname;
-      console.log(driverFirstname);
       setAuth({ username, password, roles, accessToken });
       setUser('');
       setPwd('');

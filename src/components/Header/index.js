@@ -29,7 +29,7 @@ const HeaderLogged = () => {
                   justifyContent: 'flex-end',
                   marginTop: -20,
                 }}
-              ><a href="/" onClick={handleSubmit}>Disconnect</a>
+              ><a id="titre" href="/" onClick={handleSubmit}>Disconnect</a>
               </div>
             </Header>
             <Header as="h2" floated="left">
@@ -51,7 +51,7 @@ const HeaderLogged = () => {
                   justifyContent: 'flex-end',
                   marginTop: -20,
                 }}
-              ><a href="/" onClick={handleSubmit}>Disconnect</a>
+              ><a id="titre" href="/" onClick={handleSubmit}>Disconnect</a>
               </div>
             </Header>
           </Segment>

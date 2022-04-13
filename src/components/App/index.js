@@ -35,7 +35,6 @@ const App = () => {
       Authorization: `Bearer ${token}`,
     },
   };
-  console.log(config);
 
   return (
     <div className="app">
