@@ -47,6 +47,8 @@ const Login = () => {
       setSuccess(true);
       sessionStorage.setItem('jwtToken', accessToken);
       setToken(accessToken);
+      sessionStorage.setItem('id', driverID);
+      sessionStorage.setItem('firstname', driverFirstname);
 
       if (roles.find((role) => role === ROLES.ADMIN)) {
         navigate('./admin/shipping_deliveries');

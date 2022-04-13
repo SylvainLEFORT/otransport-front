@@ -1,5 +1,4 @@
 import './driver.scss';
-
 import { Button } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -16,17 +15,10 @@ const Driver = () => {
     },
   };
 
-  useEffect(() => {
-    axios.get('http://0.0.0.0:8000/api/admin/deliveries/shipping', config)
-      .then((res) => {
-        const resultDeliveries = res.data;
-        console.log(resultDeliveries);
-        setDeliveries(resultDeliveries);
-      });
-  }, []);
+  const id = sessionStorage.getItem('id');
 
   useEffect(() => {
-    axios.get('http://0.0.0.0:8000/api/admin/deliveries/pending', config)
+    axios.get(`http://localhost:8000/api/drivers/${id}/deliveries`, config)
       .then((res) => {
         const resultDeliveries = res.data;
         console.log(resultDeliveries);
