@@ -1,7 +1,7 @@
 import './login.scss';
-import { Image, Form, Button } from 'semantic-ui-react';
-import logo from 'src/assets/docs/O-transport.svg';
+import { Image, Form } from 'semantic-ui-react';
 import { useState, useEffect, useContext } from 'react';
+import logo from 'src/assets/docs/O-transport.svg';
 import axios from 'axios';
 import AuthContext from '../../context/AuthProvider';
 
@@ -29,7 +29,7 @@ const Login = () => {
           headers: { 'Content-Type': 'application/json' },
         },
       );
-      const accessToken = response?.data?.token;
+      const accessToken = response?.data?.accessToken;
       console.log(accessToken);
       const roles = response?.data?.roles;
       setAuth({ username, password, roles, accessToken });
@@ -76,7 +76,7 @@ const Login = () => {
               value={password}
             />
           </Form.Field>
-          <Button type="submit">Se connecter</Button>
+          <button type="submit">Se connecter</button>
         </Form>
       </div>
     </div>

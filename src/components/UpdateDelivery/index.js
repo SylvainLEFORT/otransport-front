@@ -7,6 +7,7 @@ import { Button, Form } from 'semantic-ui-react';
 import axios from 'axios';
 
 import NavBar from '../NavBar';
+import HeaderLogged from '../Header';
 
 const UpdateDelivery = () => {
   const [delivery, setDelivery] = useState();
@@ -77,6 +78,7 @@ const UpdateDelivery = () => {
 
   return (
     <div>
+      <HeaderLogged />
       <NavBar />
 
       <div className="create-driver">

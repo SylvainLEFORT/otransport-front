@@ -3,7 +3,9 @@ import './shippingdeliveries.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
+
 import NavBar from '../NavBar';
+import HeaderLogged from '../Header';
 
 const ShippingDeliveries = () => {
   const [deliveries, setDeliveries] = useState();
@@ -20,6 +22,7 @@ const ShippingDeliveries = () => {
   return (
     <div>
       <Mediaquery minWidth={601}>
+        <HeaderLogged />
         <NavBar />
         <div className="shipping-deliveries">
           <h1 className="title">Livraisons en cours</h1>
@@ -43,6 +46,7 @@ const ShippingDeliveries = () => {
         </div>
       </Mediaquery>
       <Mediaquery maxWidth={600}>
+        <HeaderLogged />
         <NavBar />
         <div className="shipping-deliveries">
           <h1 className="title">Livraisons en cours</h1>

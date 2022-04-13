@@ -1,7 +1,9 @@
 import './history.scss';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import NavBar from '../NavBar';
+import HeaderLogged from '../Header';
 
 const History = () => {
   const [delivery, setDelivery] = useState(null);
@@ -17,6 +19,7 @@ const History = () => {
 
   return (
     <div>
+      <HeaderLogged />
       <NavBar />
       <div className="historique">
         <h1 className="title">Historique des livraisons</h1>

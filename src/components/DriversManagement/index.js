@@ -11,6 +11,7 @@ import info from 'src/assets/docs/info.svg';
 import edit from 'src/assets/docs/edit.svg';
 import trash from 'src/assets/docs/trash.svg';
 
+import HeaderLogged from '../Header';
 import NavBar from '../NavBar';
 
 const DriversManagement = () => {
@@ -38,6 +39,7 @@ const DriversManagement = () => {
   return (
     <div>
       <Mediaquery minWidth={601}>
+        <HeaderLogged />
         <NavBar />
         <div className="drivers-management">
           <h1 className="title">Gestion des chauffeurs</h1>
@@ -85,6 +87,7 @@ const DriversManagement = () => {
         </ul>
       </Mediaquery>
       <Mediaquery maxWidth={600}>
+        <HeaderLogged />
         <NavBar />
         <div className="drivers-management">
           <h1 className="title">Gestion des chauffeurs</h1>
