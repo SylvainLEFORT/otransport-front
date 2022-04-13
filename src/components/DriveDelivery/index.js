@@ -17,14 +17,6 @@ const DriverDelivery = () => {
     },
   };
 
-  const token = sessionStorage.getItem('jwtToken');
-
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
-
   useEffect(() => {
     axios.get(`http://localhost:8000/api/admin/deliveries/${id}`, config)
       .then((res) => {
