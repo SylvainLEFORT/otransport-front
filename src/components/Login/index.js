@@ -51,7 +51,7 @@ const Login = () => {
         setErrMsg('Missing Username or Password');
       }
       else if (err.response?.status === 401) {
-        setErrMsg('Unauthorized');
+        setErrMsg('Email ou mot de passe incorrect');
       }
       else {
         setErrMsg('Login Failed');
@@ -64,6 +64,8 @@ const Login = () => {
       <Image className="logo" src={logo} size="medium" />
       <div className="form">
         <Form onSubmit={handleSubmit}>
+          <p>Bienvenue</p>
+          <span className="error"> { errMsg } </span>
           <Form.Field>
             <label>E-mail</label>
             <input
