@@ -41,7 +41,7 @@ const History = () => {
                 </div>
                 <div className="detail-2">
                   <span>Attribuée à : {item.driver.lastname} {item.driver.firstname}</span>
-                  <span>{moment(item.updatedAt).format('DD/MM/YYYY HH:mm')}</span>
+                  <span>{moment(item.updated_at).format('DD/MM/YYYY HH:mm')}</span>
                 </div>
               </li>
             )))}
