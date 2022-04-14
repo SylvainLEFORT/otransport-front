@@ -138,6 +138,7 @@ const CreateDelivery = () => {
             <input
               placeholder="Veuillez renseigner le volume à livrer"
               type="number"
+              max="20"
               name="deliveryVolume"
               value={delivery.volume}
               onChange={handleDeliveryVolumeChange}
