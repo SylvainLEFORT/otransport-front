@@ -146,7 +146,7 @@ const UpdateDelivery = () => {
               />
             </Form.Field>
             <Form.Field className="input-1">
-              <label>Quantité (en mètre/cube)</label>
+              <label>Quantité</label>
               <input
                 type="number"
                 name="volume"
@@ -192,7 +192,7 @@ const UpdateDelivery = () => {
             </Form.Field>
             <Form.Field className="input-1">
               <label>Affectation d'un chauffeur</label>
-              <select onChange={handleDeliveriesDriverInputChange} value={delivery.driver.id}>
+              <select onChange={handleDeliveriesDriverInputChange} value={delivery.driver?.id || ''}>
                 {drivers && drivers.map((item) => (
                   <option value={item.id}> {item.id} {item.firstname} {item.lastname}</option>
                 ))}
