@@ -1,5 +1,6 @@
 import './history.scss';
 import { useState, useEffect } from 'react';
+import moment from 'moment';
 import axios from 'axios';
 import NavBar from '../NavBar';
 
@@ -40,7 +41,7 @@ const History = () => {
                 </div>
                 <div className="detail-2">
                   <span>Attribuée à : {item.driver.lastname} {item.driver.firstname}</span>
-                  <span>{item.created_at}</span>
+                  <span>{moment(item.updatedAt).format('DD/MM/YYYY HH:mm')}</span>
                 </div>
               </li>
             )))}
