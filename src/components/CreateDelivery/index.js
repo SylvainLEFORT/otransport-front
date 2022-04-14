@@ -2,6 +2,7 @@
 import './createdelivery.scss';
 import axios from 'axios';
 import { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import NavBar from '../NavBar';
 
@@ -80,6 +81,7 @@ const CreateDelivery = () => {
     axios.post('http://localhost:8000/api/admin/deliveries/create', { delivery, customer }, config)
       .then((response) => {
         console.log(response);
+        window.location = 'http://localhost:8080/admin/pending_deliveries';
       })
       .catch((error) => {
         console.log(error);
