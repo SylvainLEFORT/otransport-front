@@ -5,6 +5,7 @@ import Mediaquery from 'react-responsive';
 import info from 'src/assets/docs/info.svg';
 import edit from 'src/assets/docs/edit.svg';
 import trash from 'src/assets/docs/trash.svg';
+import affect from 'src/assets/docs/affect.svg';
 import NavBar from '../NavBar';
 
 const PendingDeliveries = () => {
@@ -58,6 +59,11 @@ const PendingDeliveries = () => {
                 <span xs={3}>{item.customer.name}</span>
                 <span xs={3}>{item.customer.address}</span>
                 <div className="utils">
+                  <button type="button" className="button-utils">
+                    <a href={`http://localhost:8080/admin/driver_affect_deliveries/${item.id}`}>
+                      <img src={affect} alt="" className="affect" />
+                    </a>
+                  </button>
                   <button type="button" className="button-utils">
                     <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>
                       <img src={info} alt="" className="info" />

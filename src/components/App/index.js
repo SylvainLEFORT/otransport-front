@@ -21,6 +21,7 @@ import DriverInfos from '../DriverInfos';
 import DeliveryDetail from '../DeliveryDetail';
 import HeaderLogged from '../Header';
 import AuthContext from '../../context/AuthProvider';
+import AffectDriver from '../AffectDriver';
 
 // == Composant
 const App = () => {
@@ -55,6 +56,7 @@ const App = () => {
             <Route path="/admin/history" element={<History />} />
             <Route path="/admin/driver_informations/:id" element={<DriverInfos />} />
             <Route path="/admin/delivery_detail/:id" element={<DeliveryDetail />} />
+            <Route path="/admin/driver_affect_deliveries/:id" element={<AffectDriver />} />
           </>
         )}
         <Route path="*" element={<Error />} />
