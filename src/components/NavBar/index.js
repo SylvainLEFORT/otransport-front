@@ -9,11 +9,8 @@ const NavBar = () => (
       <div className="nav">
         <ul className="list">
           <li>
-            <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/drivers_management">Gestion des chauffeurs</NavLink>
+            <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/create_delivery">Créer une livraison</NavLink>
           </li>
-          {/* <li>
-            <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/deliveries_management">Gestion des livraisons</NavLink>
-          </li> */}
           <li>
             <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/pending_deliveries">Livraisons en attente</NavLink>
           </li>
@@ -21,10 +18,10 @@ const NavBar = () => (
             <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/shipping_deliveries">Livraisons en cours</NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/create_delivery">Créer une livraison</NavLink>
+            <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/history">Livraisons terminées</NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/history">Historique</NavLink>
+            <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/drivers_management">Gestion des chauffeurs</NavLink>
           </li>
         </ul>
       </div>
@@ -36,7 +33,7 @@ const NavBar = () => (
             <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/drivers_management">Gestion des chauffeurs</NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/deliveries_management">Gestion des livraisons</NavLink>
+            <NavLink className={({ isActive }) => (isActive ? 'nav-link nav-link--selected' : 'nav-link')} to="/admin/shipping_deliveries">Livraisons en cours</NavLink>
           </li>
         </ul>
       </div>
