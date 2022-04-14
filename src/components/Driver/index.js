@@ -29,7 +29,7 @@ const Driver = () => {
     <div>
       <div>
         <div className="global">
-          <h1 className="titre">Livraisons en cours</h1>
+          <h1 className="titre">Mes livraisons</h1>
           {deliveries && deliveries.map((item) => (
             <Mediaquery minWidth={601}>
               <div className="driverList">
