@@ -39,7 +39,7 @@ const DriverDelivery = () => {
               <p>{deliveries.customer.address}</p>
               <h2>Type de marchandise</h2>
               <p>{deliveries.merchandise}</p>
-              <h2>Quantité</h2>
+              <h2>Quantité (en mètre/cube)</h2>
               <p>{deliveries.volume}</p>
               <a href="http://localhost:8080/driver">
                 <Button className="button">Retour</Button>

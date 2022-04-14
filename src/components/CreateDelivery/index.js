@@ -134,7 +134,7 @@ const CreateDelivery = () => {
             />
           </Form.Field>
           <Form.Field>
-            <label>Volume</label>
+            <label>Volume (en mètre/cube)</label>
             <input
               placeholder="Veuillez renseigner le volume à livrer"
               type="number"

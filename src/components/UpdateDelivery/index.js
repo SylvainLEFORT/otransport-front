@@ -37,7 +37,7 @@ const UpdateDelivery = () => {
   const handleCustomerNameInputChange = (e) => {
     e.persist();
     setDelivery(() => ({
-      ...delivery,
+      ...delivery.customer,
       name: e.target.value,
     }));
   };
@@ -107,7 +107,7 @@ const UpdateDelivery = () => {
               />
             </Form.Field>
             <Form.Field className="input-1">
-              <label>Quantité</label>
+              <label>Quantité (en mètre/cube)</label>
               <input
                 type="number"
                 name="volume"

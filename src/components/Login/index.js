@@ -11,7 +11,7 @@ import ROLES from '../../constants/roles';
 const LOGIN_URL = 'http://localhost:8000/api/login_check';
 
 const Login = () => {
-  const { setAuth, setToken } = useContext(AuthContext);
+  const { setAuth, setToken, setFirstname } = useContext(AuthContext);
 
   const [username, setUser] = useState('');
   const [password, setPwd] = useState('');
@@ -52,6 +52,7 @@ const Login = () => {
       setToken(accessToken);
       sessionStorage.setItem('id', driverID);
       sessionStorage.setItem('firstname', driverFirstname);
+      setFirstname(driverFirstname);
 
       if (roles.find((role) => role === ROLES.ADMIN)) {
         navigate('./admin/shipping_deliveries');

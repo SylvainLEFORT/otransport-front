@@ -9,10 +9,13 @@ import './header.scss';
 
 const HeaderLogged = () => {
   const { setToken } = useContext(AuthContext);
+  const { setFirstname } = useContext(AuthContext);
   const firstname = sessionStorage.getItem('firstname');
   const handleSubmit = () => {
     sessionStorage.removeItem('jwtToken');
+    sessionStorage.removeItem('firstname');
     setToken(null);
+    setFirstname('');
   };
 
   return (
@@ -21,7 +24,7 @@ const HeaderLogged = () => {
         <div className="header-desktop">
           <Segment clearing>
             <Header as="h2" floated="right">
-              <Image circular src={Patrick} /> {firstname}
+              <p>{firstname}</p>
               <div
                 className="disconnect"
                 style={{
