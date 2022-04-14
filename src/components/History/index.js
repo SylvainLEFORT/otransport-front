@@ -28,7 +28,7 @@ const History = () => {
     <div>
       <NavBar />
       <div className="historique">
-        <h1 className="title">Historique des livraisons</h1>
+        <h1 className="title">Livraisons terminées</h1>
         <div className="trait" />
         <div className="deliveries-management">
           <ul>
