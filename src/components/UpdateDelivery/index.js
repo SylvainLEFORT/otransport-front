@@ -8,7 +8,6 @@ import NavBar from '../NavBar';
 
 const UpdateDelivery = () => {
   const [delivery, setDelivery] = useState();
-  const [drivers, setDrivers] = useState();
   const { id } = useParams();
 
   const handleMerchandiseInputChange = (e) => {
@@ -65,22 +64,6 @@ const UpdateDelivery = () => {
     }));
   };
 
-  const handleDeliveriesDriverInputChange = (e) => {
-    e.persist();
-
-    const driverDelivery = drivers.find((driver) => driver.id === parseInt(e.target.value, 10));
-
-    setDelivery(() => ({
-      ...delivery,
-      driver: {
-        ...delivery.driver,
-        id: driverDelivery.id,
-        firstname: driverDelivery.firstname,
-        lastname: driverDelivery.lastname,
-      },
-    }));
-  };
-
   const token = sessionStorage.getItem('jwtToken');
 
   const config = {
@@ -95,15 +78,6 @@ const UpdateDelivery = () => {
         const resultDelivery = res.data;
         console.log(resultDelivery);
         setDelivery(resultDelivery);
-      });
-  }, []);
-
-  useEffect(() => {
-    axios.get('http://localhost:8000/api/admin/drivers', config)
-      .then((res) => {
-        const resultDrivers = res.data;
-        console.log(resultDrivers);
-        setDrivers(resultDrivers);
       });
   }, []);
 
@@ -183,14 +157,6 @@ const UpdateDelivery = () => {
                 defaultValue={delivery.customer.phoneNumber}
                 onChange={handleCustomerPhoneNumberInputChange}
               />
-            </Form.Field>
-            <Form.Field className="input-1">
-              <label>Affectation d'un chauffeur</label>
-              <select onChange={handleDeliveriesDriverInputChange} value={delivery.driver.id}>
-                {drivers && drivers.map((item) => (
-                  <option value={item.id}> {item.id} {item.firstname} {item.lastname}</option>
-                ))}
-              </select>
             </Form.Field>
             <Button className="button" type="submit">Modifier la livraison</Button>
           </Form>

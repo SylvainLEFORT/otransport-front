@@ -49,13 +49,7 @@ const DeliveryDetail = () => {
           <p>{delivery.volume}</p>
           <h2>Commentaire de livraison</h2>
           <p>{delivery.comment}</p>
-<<<<<<< HEAD
-          <Link to="/admin/shipping_deliveries">
-            <Button className="button">Retour</Button>
-          </Link>
-=======
           <Button className="button" onClick={() => navigate(-1)}>Retour</Button>
->>>>>>> 74082e932bcd1b318b09de26789adf66d0c7fbdf
         </div>
         )}
       </Mediaquery>
