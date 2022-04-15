@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Button, Form } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import NavBar from '../NavBar';
@@ -67,6 +68,7 @@ const CreateDriver = () => {
     axios.post('http://localhost:8000/api/admin/drivers', driver, config)
       .then((response) => {
         console.log(response);
+        window.location = 'http://localhost:8080/admin/drivers_management';
       })
       .catch((error) => {
         console.log(error);
