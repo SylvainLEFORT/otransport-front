@@ -3,6 +3,7 @@ import './pendingdeliveries.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Grid } from 'semantic-ui-react';
 import Mediaquery from 'react-responsive';
 import info from 'src/assets/docs/info.svg';
 import edit from 'src/assets/docs/edit.svg';
@@ -49,36 +50,46 @@ const PendingDeliveries = () => {
           <h1 className="title">Livraisons en attente</h1>
           <ul>
             <li className="pending-delivery">
-              <span style={{ fontWeight: 'bold' }} xs={3}>Chauffeur attribué</span>
-              <span style={{ fontWeight: 'bold' }} xs={3}>Client</span>
-              <span style={{ fontWeight: 'bold' }} xs={3}>Adresse</span>
-              <span style={{ fontWeight: 'bold' }} xs={3}>Détail de la livraison</span>
+              <Grid className="grid-drivers">
+                <Grid.Row>
+                  <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Chauffeur attribué</span></Grid.Column>
+                  <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Client</span></Grid.Column>
+                  <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Adresse</span></Grid.Column>
+                  <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Détail de la livraison</span></Grid.Column>
+                </Grid.Row>
+              </Grid>
             </li>
             {deliveries && deliveries.map((item) => (
               <li className="pending-delivery">
-                <p>{item.driver?.firstname || 'Non attribuée'}</p>
-                <span xs={3}>{item.customer.name}</span>
-                <span xs={3}>{item.customer.address}</span>
-                <div className="utils">
-                  <button type="button" className="button-utils">
-                    <Link to={`/admin/driver_affect_deliveries/${item.id}`}>
-                      <img src={affect} alt="" className="affect" />
-                    </Link>
-                  </button>
-                  <button type="button" className="button-utils">
-                    <Link to={`/admin/delivery_detail/${item.id}`}>
-                      <img src={info} alt="" className="info" />
-                    </Link>
-                  </button>
-                  <button type="button" className="button-utils">
-                    <Link to={`/admin/update_delivery/${item.id}`}>
-                      <img src={edit} alt="" className="edit" />
-                    </Link>
-                  </button>
-                  <button type="button" className="button-utils" onClick={deleteDelivery(item.id)}>
-                    <img src={trash} alt="" className="trash" />
-                  </button>
-                </div>
+                <Grid className="grid-deliveries">
+                  <Grid.Row>
+                    <Grid.Column width={4}><p>{item.driver?.firstname || 'Non attribuée'}</p></Grid.Column>
+                    <Grid.Column width={4}><span>{item.customer.name}</span></Grid.Column>
+                    <Grid.Column width={4}><span>{item.customer.address}</span></Grid.Column>
+                    <Grid.Column width={4}>
+                      <div className="pending-utils">
+                        <button type="button" className="button-utils">
+                          <Link to={`/admin/driver_affect_deliveries/${item.id}`}>
+                            <img src={affect} alt="" className="affect" />
+                          </Link>
+                        </button>
+                        <button type="button" className="button-utils">
+                          <Link to={`/admin/delivery_detail/${item.id}`}>
+                            <img src={info} alt="" className="info" />
+                          </Link>
+                        </button>
+                        <button type="button" className="button-utils">
+                          <Link to={`/admin/update_delivery/${item.id}`}>
+                            <img src={edit} alt="" className="edit" />
+                          </Link>
+                        </button>
+                        <button type="button" className="button-utils" onClick={deleteDelivery(item.id)}>
+                          <img src={trash} alt="" className="trash" />
+                        </button>
+                      </div>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
               </li>
             ))}
           </ul>

@@ -20,12 +20,13 @@
   }
   
 }
-.affect{
-  width: 22px;
+
+.grid-deliveries {
+  width:100%;
 }
 
-img{
-  margin-right: 10px;
+.affect{
+  width: 22px;
 }
 
 .affect, .info, .edit, .trash{
@@ -41,9 +42,6 @@ img{
   border:none;
 }
 
-.utils {
+.pending-utils {
   border:none;
-  display:flex;
-  align-content:flex-end;
-  justify-content:space-between;
 }
