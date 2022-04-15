@@ -2,6 +2,7 @@ import './shippingdeliveries.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
+import info from 'src/assets/docs/info.svg';
 import NavBar from '../NavBar';
 
 const ShippingDeliveries = () => {
@@ -43,7 +44,11 @@ const ShippingDeliveries = () => {
                 <a>{item.id}</a>
                 <span>{item.driver.lastname} {item.driver.firstname}</span>
                 <span>{item.customer.name}</span>
-                <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>Détail</a>
+                <button type="button" className="button-utils">
+                  <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>
+                    <img src={info} alt="" className="info" />
+                  </a>
+                </button>
               </li>
             ))}
           </ul>
@@ -60,7 +65,11 @@ const ShippingDeliveries = () => {
                 <a>{item.id}</a>
                 <span>{item.driver.lastname} {item.driver.firstname}</span>
                 <span>{item.customer.name}</span>
-                <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>Détail</a>
+                <button type="button" className="button-utils">
+                  <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>
+                    <img src={info} alt="" className="info" />
+                  </a>
+                </button>
               </li>
             ))}
           </ul>

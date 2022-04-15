@@ -52,7 +52,7 @@ const DriversManagement = () => {
 
           <div className="button">
             <Link to="/admin/create_driver">
-              <Button>Ajouter un chauffeur</Button>
+              <Button className="add-driver">Ajouter un chauffeur</Button>
             </Link>
           </div>
         </div>

@@ -13,6 +13,14 @@
     margin: auto;
     width: 600px;
   }
+
+  .ui.form .field>label {
+    color: rgba(0,0,0,.87);
+    display: block;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 0.5em;
+  }
   
   h1{
     font-size: 50px;
@@ -21,5 +29,15 @@
     margin-top:25px;
     margin-bottom: 100px;
     width: 200px;
+  }
+
+  .ui.form .field {
+    width:90%;
+  }
+
+  .delivery-create{
+    background-color: #315BFC;
+    color: white;
+
   }
 }

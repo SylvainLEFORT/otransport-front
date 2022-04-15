@@ -23,6 +23,14 @@
 .affect{
   width: 22px;
 }
+
+img{
+  margin-right: 10px;
+}
+
+.affect:hover, .info:hover, .edit:hover, .trash:hover{
+  transform: scale(1.5);
+}
 .button-utils {
   background-color:transparent;
   border:none;

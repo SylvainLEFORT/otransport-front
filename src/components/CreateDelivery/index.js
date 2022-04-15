@@ -136,7 +136,7 @@ const CreateDelivery = () => {
             />
           </Form.Field>
           <Form.Field>
-            <label>Volume (en mètre/cube)</label>
+            <label>Volume (en m³)</label>
             <input
               placeholder="Veuillez renseigner le volume à livrer"
               type="number"
@@ -156,7 +156,7 @@ const CreateDelivery = () => {
               onChange={handleDeliveryCommentChange}
             />
           </Form.Field>
-          <Button className="button" type="submit">Créer la livraison</Button>
+          <Button className="button delivery-create" type="submit">Créer la livraison</Button>
         </Form>
       </div>
     </div>

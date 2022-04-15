@@ -46,7 +46,7 @@ const HeaderLogged = () => {
         <div className="header-phone">
           <Segment clearing>
             <Header as="h2" floated="right">
-              <Image circular src={Patrick} /> {firstname}
+              <p> {firstname} </p>
               <div
                 className="disconnect"
                 style={{

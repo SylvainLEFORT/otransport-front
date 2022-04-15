@@ -87,7 +87,7 @@ const Login = () => {
           <Form.Field>
             <label>E-mail</label>
             <input
-              placeholder="veuillez insérer votre E-mail"
+              placeholder="Votre E-mail"
               type="email"
               onChange={(e) => setUser(e.target.value)}
               value={username}
@@ -97,12 +97,12 @@ const Login = () => {
             <label>Mot de passe</label>
             <input
               type="password"
-              placeholder="veuillez écrire votre mot de passe"
+              placeholder="Votre mot de passe"
               onChange={(e) => setPwd(e.target.value)}
               value={password}
             />
           </Form.Field>
-          <button type="submit">Se connecter</button>
+          <button type="submit" className="connect">Se connecter</button>
         </Form>
       </div>
     </div>

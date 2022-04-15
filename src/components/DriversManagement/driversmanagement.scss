@@ -58,6 +58,11 @@
   padding-right:10em;
 }
 
+button.ui.button.add-driver{
+  background-color: #315BFC;
+  color:white;
+}
+
 .button-phone {
   display:flex;
   justify-content:center;
@@ -83,3 +88,5 @@
   cursor:pointer;
   filter: invert(24%) sepia(71%) saturate(6991%) hue-rotate(354deg) brightness(92%) contrast(122%);
 }
+
+

@@ -140,7 +140,7 @@ const CreateDriver = () => {
               />
             </Form.Field>
             <a to="/admin/drivers_management">
-              <Button className="button" type="submit">Créer un chauffeur</Button>
+              <Button className="button add-driver" type="submit">Créer un chauffeur</Button>
             </a>
           </Form>
         </div>

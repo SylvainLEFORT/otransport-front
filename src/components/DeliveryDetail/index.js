@@ -34,7 +34,7 @@ const DeliveryDetail = () => {
         <h1>Détail de la livraison</h1>
         {delivery && (
         <div className="details">
-          <h2>Nom client</h2>
+          <h2>Nom du client</h2>
           <p>{delivery.customer.name}</p>
           <h2>Adresse</h2>
           <p>{delivery.customer.address}</p>
@@ -42,7 +42,7 @@ const DeliveryDetail = () => {
           <p>{delivery.customer.phoneNumber}</p>
           <h2>Type de marchandise</h2>
           <p>{delivery.merchandise}</p>
-          <h2>Quantité (en mètre/cube)</h2>
+          <h2>Quantité (en m³)</h2>
           <p>{delivery.volume}</p>
           <h2>Commentaire de livraison</h2>
           <p>{delivery.comment}</p>
