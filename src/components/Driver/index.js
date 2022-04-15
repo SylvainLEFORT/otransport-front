@@ -29,9 +29,9 @@ const Driver = () => {
     <div>
       <div>
         <div className="global">
-          {deliveries && deliveries.map((item) => (
-            <Mediaquery minWidth={601}>
-              <h1 className="titre">Mes livraisons</h1>
+          <Mediaquery minWidth={601}>
+            <h1 className="titre">Mes livraisons</h1>
+            {deliveries && deliveries.map((item) => (
               <a href={`http://localhost:8080/driver/delivery/${item.id}`}>
                 <Button className="button detail" type="submit">
                   <div className="infosClient">
@@ -41,7 +41,7 @@ const Driver = () => {
                   <div className="utilitaire">
                     <p className="statut">{(() => {
                       switch (item.status) {
-                        case 0: return 'En attende de livraison';
+                        case 0: return 'En attente de livraison';
                         case 1: return 'En cours de livraison';
                         default: return '';
                       }
@@ -50,8 +50,8 @@ const Driver = () => {
                   </div>
                 </Button>
               </a>
-            </Mediaquery>
-          ))}
+            ))}
+          </Mediaquery>
         </div>
 
         <div>
