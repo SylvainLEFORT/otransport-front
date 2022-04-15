@@ -38,7 +38,10 @@ const UpdateDelivery = () => {
     e.persist();
     setDelivery(() => ({
       ...delivery,
-      name: e.target.value,
+      customer: {
+        ...delivery.customer,
+        name: e.target.value,
+      },
     }));
   };
 
@@ -105,34 +108,7 @@ const UpdateDelivery = () => {
         <div className="form">
           <Form onSubmit={handleSubmit}>
             <Form.Field className="input-1">
-              <label>Marchandise</label>
-              <input
-                type="text"
-                name="merchandise"
-                defaultValue={delivery.merchandise}
-                onChange={handleMerchandiseInputChange}
-              />
-            </Form.Field>
-            <Form.Field className="input-1">
-              <label>Quantité</label>
-              <input
-                type="number"
-                name="volume"
-                defaultValue={delivery.volume}
-                onChange={handleVolumeInputChange}
-              />
-            </Form.Field>
-            <Form.Field className="input-1">
-              <label>Commentaire de livraison</label>
-              <input
-                type="text"
-                name="comment"
-                defaultValue={delivery.comment}
-                onChange={handleCommentInputChange}
-              />
-            </Form.Field>
-            <Form.Field className="input-1">
-              <label>Client</label>
+              <label>Nom du client</label>
               <input
                 type="text"
                 name="customerName"
@@ -156,6 +132,33 @@ const UpdateDelivery = () => {
                 name="phone_number"
                 defaultValue={delivery.customer.phoneNumber}
                 onChange={handleCustomerPhoneNumberInputChange}
+              />
+            </Form.Field>
+            <Form.Field className="input-1">
+              <label>Type de marchandise</label>
+              <input
+                type="text"
+                name="merchandise"
+                defaultValue={delivery.merchandise}
+                onChange={handleMerchandiseInputChange}
+              />
+            </Form.Field>
+            <Form.Field className="input-1">
+              <label>Volume</label>
+              <input
+                type="number"
+                name="volume"
+                defaultValue={delivery.volume}
+                onChange={handleVolumeInputChange}
+              />
+            </Form.Field>
+            <Form.Field className="input-1">
+              <label>Commentaire de livraison</label>
+              <input
+                type="text"
+                name="comment"
+                defaultValue={delivery.comment}
+                onChange={handleCommentInputChange}
               />
             </Form.Field>
             <Button className="button" type="submit">Modifier la livraison</Button>

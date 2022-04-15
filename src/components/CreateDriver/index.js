@@ -81,7 +81,9 @@ const CreateDriver = () => {
 
         <h1 className="titre">Création d'un chauffeur</h1>
 
-        <div className="trait" />
+        <Link to="/admin/drivers_management" className="return">
+          <Button>Retour</Button>
+        </Link>
 
         <div className="form">
           <Form onSubmit={handleSubmit}>
