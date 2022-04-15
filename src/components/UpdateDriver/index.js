@@ -80,9 +80,6 @@ const UpdateDriver = () => {
       <div className="create-driver">
 
         <h1 className="titre">Modifier un chauffeur</h1>
-
-        <div className="trait" />
-
         <Link to="/admin/drivers_management" className="return">
           <Button>Retour</Button>
         </Link>

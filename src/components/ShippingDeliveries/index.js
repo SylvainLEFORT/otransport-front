@@ -31,7 +31,6 @@ const ShippingDeliveries = () => {
         <NavBar />
         <div className="shipping-deliveries">
           <h1 className="title">Livraisons en cours</h1>
-          <div className="trait" />
           <ul>
             <li className="shipping-delivery">
               <span style={{ fontWeight: 'bold' }} xs={3}>Id de la livraison</span>
@@ -58,7 +57,6 @@ const ShippingDeliveries = () => {
         <NavBar />
         <div className="shipping-deliveries">
           <h1 className="title">Livraisons en cours</h1>
-          <div className="trait" />
           <ul>
             {deliveries && deliveries.map((item) => (
               <li className="shipping-delivery">

@@ -93,7 +93,7 @@ const CreateDelivery = () => {
       <NavBar />
       <div className="createdeliveries">
         <h1>Création d'une livraison</h1>
-        <div className="trait" />
+
         <Form className="form" onSubmit={handleSubmit}>
           <Form.Field>
             <label>Nom du client</label>

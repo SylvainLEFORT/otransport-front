@@ -44,7 +44,7 @@ const AffectDriver = () => {
       <NavBar />
       <h1 className="title">Affectation chauffeur</h1>
       <div className="pending-deliveries">
-        <div className="trait" />
+
         <ul>
           <li className="pending-delivery">
             <span style={{ fontWeight: 'bold' }} xs={3}>Nom</span>

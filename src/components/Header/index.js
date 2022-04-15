@@ -20,11 +20,11 @@ const HeaderLogged = () => {
 
   return (
     <div>
-      <Mediaquery minWidth={601}>
+      <Mediaquery minWidth={700}>
         <div className="header-desktop">
           <Segment clearing>
             <Header as="h2" floated="right">
-              <p>{firstname}</p>
+              <p> Bienvenue {firstname}</p>
               <div
                 className="disconnect"
                 style={{
@@ -42,11 +42,11 @@ const HeaderLogged = () => {
           </Segment>
         </div>
       </Mediaquery>
-      <Mediaquery maxWidth={600}>
+      <Mediaquery maxWidth={701}>
         <div className="header-phone">
           <Segment clearing>
             <Header as="h2" floated="right">
-              <p> {firstname} </p>
+              <p> Bienvenue {firstname} </p>
               <div
                 className="disconnect"
                 style={{

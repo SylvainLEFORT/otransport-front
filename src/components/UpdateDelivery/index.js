@@ -124,9 +124,6 @@ const UpdateDelivery = () => {
       <div className="create-driver">
 
         <h1 className="titre">Modifier une livraison</h1>
-
-        <div className="trait" />
-
         <Link to="/admin/pending_deliveries" className="return">
           <Button>Retour</Button>
         </Link>
