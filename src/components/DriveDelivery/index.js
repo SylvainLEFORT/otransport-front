@@ -1,6 +1,6 @@
 import { Button } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
 import './driverdelivery.scss';
@@ -9,6 +9,7 @@ const DriverDelivery = () => {
   const [deliveries, setDeliveries] = useState();
 
   const { id } = useParams();
+  const navigate = useNavigate();
   const token = sessionStorage.getItem('jwtToken');
 
   const config = {
@@ -45,9 +46,7 @@ const DriverDelivery = () => {
               <p>{deliveries.volume}</p>
               <h2>Commentaire</h2>
               <p>{deliveries.comment}</p>
-              <a href="http://localhost:8080/driver">
-                <Button className="button">Retour</Button>
-              </a>
+              <Button className="button" onClick={() => navigate(-1)}>Retour</Button>
             </div>
           </Mediaquery>
         )}
@@ -66,9 +65,7 @@ const DriverDelivery = () => {
               <p>{deliveries.merchandise}</p>
               <h2>Quantité</h2>
               <p>{deliveries.volume}</p>
-              <a href="http://localhost:8080/driver">
-                <Button className="button">Retour</Button>
-              </a>
+              <Button className="button" onClick={() => navigate(-1)}>Retour</Button>
             </div>
           </Mediaquery>
         )}

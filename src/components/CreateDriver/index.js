@@ -83,10 +83,6 @@ const CreateDriver = () => {
 
         <div className="trait" />
 
-        <Link to="/admin/drivers_management" className="return">
-          <Button>Retour</Button>
-        </Link>
-
         <div className="form">
           <Form onSubmit={handleSubmit}>
             <Form.Field className="input-1">

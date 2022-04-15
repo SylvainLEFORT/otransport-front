@@ -1,6 +1,7 @@
 import './driver.scss';
 import { Button } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
 
@@ -32,7 +33,7 @@ const Driver = () => {
           <Mediaquery minWidth={601}>
             <h1 className="titre">Mes livraisons</h1>
             {deliveries && deliveries.map((item) => (
-              <a href={`http://localhost:8080/driver/delivery/${item.id}`}>
+              <Link to={`delivery/${item.id}`}>
                 <Button className="button detail" type="submit">
                   <div className="infosClient">
                     <p className="client">{item.customer.name}</p>
@@ -49,22 +50,23 @@ const Driver = () => {
                     </p>
                   </div>
                 </Button>
-              </a>
+              </Link>
             ))}
           </Mediaquery>
         </div>
 
         <div>
-          {deliveries && deliveries.map((item) => (
-            <div>
-              <Mediaquery maxWidth={600}>
-                <a href={`http://localhost:8080/driver/delivery/${item.id}`}>
+          <div>
+            <Mediaquery maxWidth={600}>
+              <h1 className="titre">Mes livraisons</h1>
+              {deliveries && deliveries.map((item) => (
+                <Link to={`delivery/${item.id}`}>
                   <Button className="button detail" type="submit">
                     <div className="infosClient-phone">
                       <p className="client">{item.customer.name}</p>
                       <p className="client">{(() => {
                         switch (item.status) {
-                          case 0: return 'En attende de livraison';
+                          case 0: return 'En attente de livraison';
                           case 1: return 'En cours de livraison';
                           default: return '';
                         }
@@ -72,10 +74,10 @@ const Driver = () => {
                       </p>
                     </div>
                   </Button>
-                </a>
-              </Mediaquery>
-            </div>
-          ))}
+                </Link>
+              ))}
+            </Mediaquery>
+          </div>
         </div>
       </div>
     </div>
