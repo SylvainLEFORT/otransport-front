@@ -72,7 +72,9 @@ const CreateDriver = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await axios.post('http://localhost:8000/api/admin/drivers', driver, config);
+    const response = await axios.post('http://localhost:8000/api/admin/drivers', driver, config)
+      .then(window.location = 'http://localhost:8080/admin/drivers_management');
+
     const errors = [];
     errors.push(response.data.firstname);
     errors.push(response.data.lastname);
@@ -96,7 +98,6 @@ const CreateDriver = () => {
 
         <div className="form">
           <Form onSubmit={handleSubmit}>
-            {/* <span className="success"> { success }</span> */}
             { errMsg && (
               <div>
                 <Form.Field className="input-1">
