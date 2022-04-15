@@ -38,7 +38,9 @@ const UpdateDelivery = () => {
     e.persist();
     setDelivery(() => ({
       ...delivery,
-      name: e.target.value,
+      customer: {
+        name: e.target.value,
+      },
     }));
   };
 

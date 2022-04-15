@@ -2,7 +2,6 @@
 import './createdelivery.scss';
 import axios from 'axios';
 import { useState } from 'react';
-import { withRouter } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import NavBar from '../NavBar';
 
