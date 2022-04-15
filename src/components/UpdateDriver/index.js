@@ -72,7 +72,7 @@ const UpdateDriver = () => {
     axios.put(`http://localhost:8000/api/admin/drivers/${id}`, driver, config)
       .then((response) => {
         setDriver(response.data.updatedAt);
-        window.location = 'http://localhost:8080/admin/pending_deliveries';
+        window.location = 'http://localhost:8080/admin/drivers_management';
       });
   };
 
