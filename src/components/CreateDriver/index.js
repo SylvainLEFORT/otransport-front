@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Button, Form } from 'semantic-ui-react';
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import NavBar from '../NavBar';
 import './createdriver.scss';
@@ -13,6 +14,12 @@ const CreateDriver = () => {
     password: '',
     phoneNumber: '',
   });
+
+  const [errMsg, setErrMsg] = useState('');
+
+  useEffect(() => {
+    setErrMsg([]);
+  }, [driver]);
 
   const handleFirstNameInputChange = (e) => {
     e.persist();
@@ -62,16 +69,19 @@ const CreateDriver = () => {
     },
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    axios.post('http://localhost:8000/api/admin/drivers', driver, config)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+
+    const response = await axios.post('http://localhost:8000/api/admin/drivers', driver, config);
+    const errors = [];
+    errors.push(response.data.firstname);
+    errors.push(response.data.lastname);
+    errors.push(response.data.email);
+    errors.push(response.data.password);
+    errors.push(response.data.phoneNumber);
+    setErrMsg(errors);
   };
+
   return (
     <div>
       <NavBar />
@@ -86,56 +96,66 @@ const CreateDriver = () => {
 
         <div className="form">
           <Form onSubmit={handleSubmit}>
-            <Form.Field className="input-1">
-              <label>Prénom</label>
-              <input
-                placeholder="Veuillez insérer le prénom"
-                type="text"
-                name="firstname"
-                value={driver.firstName}
-                onChange={handleFirstNameInputChange}
-              />
-            </Form.Field>
-            <Form.Field className="input-1">
-              <label>Nom</label>
-              <input
-                placeholder="Veuillez insérer le nom"
-                type="text"
-                name="lastname"
-                value={driver.lastName}
-                onChange={handleLastNameInputChange}
-              />
-            </Form.Field>
-            <Form.Field className="input-1">
-              <label>E-mail</label>
-              <input
-                placeholder="Veuillez insérer l'e-mail"
-                type="email"
-                name="email"
-                value={driver.email}
-                onChange={handleEmailInputChange}
-              />
-            </Form.Field>
-            <Form.Field className="input-1">
-              <label>Mot de passe</label>
-              <input
-                placeholder="Veuillez insérer le mot de passe"
-                type="password"
-                name="password"
-                value={driver.password}
-                onChange={handlePasswordInputChange}
-              />
-            </Form.Field>
-            <Form.Field className="input-1">
-              <label>Numéro de téléphone</label>
-              <input
-                placeholder="Veuillez insérer le numéro de téléphone"
-                type="tel"
-                name="phone_number"
-                value={driver.phoneNumber}
-                onChange={handlePhoneNumberInputChange}
-              />
-            </Form.Field>
+            {/* <span className="success"> { success }</span> */}
+            { errMsg && (
+              <div>
+                <Form.Field className="input-1">
+                  <label>Prénom</label>
+                  <span className="error">{ errMsg[0] } </span>
+                  <input
+                    placeholder="Veuillez insérer le prénom"
+                    type="text"
+                    name="firstname"
+                    value={driver.firstName}
+                    onChange={handleFirstNameInputChange}
+                  />
+                </Form.Field>
+                <Form.Field className="input-1">
+                  <label>Nom</label>
+                  <span className="error">{errMsg[1]} </span>
+                  <input
+                    placeholder="Veuillez insérer le nom"
+                    type="text"
+                    name="lastname"
+                    value={driver.lastName}
+                    onChange={handleLastNameInputChange}
+                  />
+                </Form.Field>
+                <Form.Field className="input-1">
+                  <label>E-mail</label>
+                  <span className="error">{errMsg[2]} </span>
+                  <input
+                    placeholder="Veuillez insérer l'e-mail"
+                    type="email"
+                    name="email"
+                    value={driver.email}
+                    onChange={handleEmailInputChange}
+                  />
+                </Form.Field>
+                <Form.Field className="input-1">
+                  <label>Mot de passe</label>
+                  <span className="error">{errMsg[3]} </span>
+                  <input
+                    placeholder="Veuillez insérer le mot de passe"
+                    type="password"
+                    name="password"
+                    value={driver.password}
+                    onChange={handlePasswordInputChange}
+                  />
+                </Form.Field>
+                <Form.Field className="input-1">
+                  <label>Numéro de téléphone</label>
+                  <span className="error">{errMsg[4]} </span>
+                  <input
+                    placeholder="Veuillez insérer le numéro de téléphone"
+                    type="tel"
+                    name="phone_number"
+                    value={driver.phoneNumber}
+                    onChange={handlePhoneNumberInputChange}
+                  />
+                </Form.Field>
+              </div>
+            )}
             <a to="/admin/drivers_management">
               <Button className="button add-driver" type="submit">Créer un chauffeur</Button>
             </a>

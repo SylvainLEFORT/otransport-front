@@ -55,7 +55,7 @@ const PendingDeliveries = () => {
                   <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Chauffeur attribué</span></Grid.Column>
                   <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Client</span></Grid.Column>
                   <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Adresse</span></Grid.Column>
-                  <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Détail de la livraison</span></Grid.Column>
+                  <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Actions</span></Grid.Column>
                 </Grid.Row>
               </Grid>
             </li>
