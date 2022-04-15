@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import { Button } from 'semantic-ui-react';
 import Mediaquery from 'react-responsive';
 import NavBar from '../NavBar';
+import { Link } from 'react-router-dom';
 
 const DeliveryDetail = () => {
   const [delivery, setDelivery] = useState(null);
@@ -46,9 +47,9 @@ const DeliveryDetail = () => {
           <p>{delivery.volume}</p>
           <h2>Commentaire de livraison</h2>
           <p>{delivery.comment}</p>
-          <a href="http://localhost:8080/admin/shipping_deliveries">
+          <Link to="/admin/shipping_deliveries">
             <Button className="button">Retour</Button>
-          </a>
+          </Link>
         </div>
         )}
       </Mediaquery>
