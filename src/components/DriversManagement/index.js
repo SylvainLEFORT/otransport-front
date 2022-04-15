@@ -93,9 +93,9 @@ const DriversManagement = () => {
           <h1 className="title">Gestion des chauffeurs</h1>
 
           <div className="button">
-            <a href="http://localhost:8080/admin/create_driver">
+            <Link to="/admin/create_driver">
               <Button>Ajouter un chauffeur</Button>
-            </a>
+            </Link>
           </div>
         </div>
         <ul>

@@ -5,6 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import Mediaquery from 'react-responsive';
 import NavBar from '../NavBar';
+import { Link } from 'react-router-dom';
 
 const DeliveryDetail = () => {
   const [delivery, setDelivery] = useState(null);

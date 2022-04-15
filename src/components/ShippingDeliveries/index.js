@@ -4,6 +4,7 @@ import axios from 'axios';
 import Mediaquery from 'react-responsive';
 import info from 'src/assets/docs/info.svg';
 import NavBar from '../NavBar';
+import { Link } from 'react-router-dom';
 
 const ShippingDeliveries = () => {
   const [deliveries, setDeliveries] = useState();
@@ -44,9 +45,9 @@ const ShippingDeliveries = () => {
                 <span>{item.driver.lastname} {item.driver.firstname}</span>
                 <span>{item.customer.name}</span>
                 <button type="button" className="button-utils">
-                  <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>
+                  <Link to={`/admin/delivery_detail/${item.id}`}>
                     <img src={info} alt="" className="info" />
-                  </a>
+                  </Link>
                 </button>
               </li>
             ))}
