@@ -106,7 +106,7 @@ const Login = () => {
           <button type="submit" className="connect">Se connecter</button>
         </Form>
       </div>
-      <Link className="createdby" to="">Create by Team O'transport </Link>
+      <Link className="createdby" to="/developpers">Created by Team O'transport <br /> O'clock students </Link>
     </div>
   );
 };
