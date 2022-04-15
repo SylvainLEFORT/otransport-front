@@ -72,9 +72,7 @@ const CreateDriver = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await axios.post('http://localhost:8000/api/admin/drivers', driver, config)
-      .then(window.location = 'http://localhost:8080/admin/drivers_management');
-
+    const response = await axios.post('http://localhost:8000/api/admin/drivers', driver, config);
     const errors = [];
     errors.push(response.data.firstname);
     errors.push(response.data.lastname);
@@ -82,6 +80,9 @@ const CreateDriver = () => {
     errors.push(response.data.password);
     errors.push(response.data.phoneNumber);
     setErrMsg(errors);
+    if (response.status === 201) {
+      window.location = 'http://localhost:8080/admin/drivers_management';
+    }
   };
 
   return (
