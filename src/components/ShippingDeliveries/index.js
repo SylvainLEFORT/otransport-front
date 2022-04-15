@@ -34,14 +34,14 @@ const ShippingDeliveries = () => {
           <h1 className="title">Livraisons en cours</h1>
           <ul>
             <li className="shipping-delivery">
-              <span style={{ fontWeight: 'bold' }} xs={3}>Id de la livraison</span>
+              <span style={{ fontWeight: 'bold' }} xs={3}>Numéro de livraison</span>
               <span style={{ fontWeight: 'bold' }} xs={3}>Chauffeur</span>
               <span style={{ fontWeight: 'bold' }} xs={3}>Client</span>
               <span style={{ fontWeight: 'bold' }} xs={3}>Détail de la livraison</span>
             </li>
             {deliveries && deliveries.map((item) => (
               <li className="shipping-delivery">
-                <a>{item.id}</a>
+                <span>{item.id}</span>
                 <span>{item.driver.lastname} {item.driver.firstname}</span>
                 <span>{item.customer.name}</span>
                 <button type="button" className="button-utils">
