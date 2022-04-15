@@ -28,6 +28,11 @@ img{
   margin-right: 10px;
 }
 
+.affect, .info, .edit, .trash{
+  transition-property: transform;
+  transition-duration: 0.5s;
+}
+
 .affect:hover, .info:hover, .edit:hover, .trash:hover{
   transform: scale(1.5);
 }
