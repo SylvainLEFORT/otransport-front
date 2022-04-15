@@ -91,9 +91,14 @@ const DriverDelivery = () => {
               <p>{deliveries.merchandise}</p>
               <h2>Quantité</h2>
               <p>{deliveries.volume}</p>
-              <a href="http://localhost:8080/driver">
-                <Button className="button">Retour</Button>
-              </a>
+              <div>{(() => {
+                switch (deliveries.status) {
+                  case 0: return <Button className="start-button" onClick={sendStatusStartDelivery}>Commencer la livraison</Button>;
+                  case 1: return <Button className="end-button" onClick={sendStatusEndDelivery}>Terminer la livraison</Button>;
+                  default: return '';
+                }
+              })()}
+              </div>
             </div>
           </Mediaquery>
         )}

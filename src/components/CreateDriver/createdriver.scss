@@ -29,6 +29,7 @@
 
   .ui.form .field>label {
     color: rgba(0,0,0,.87);
+    cursor:default;
     display: block;
     font-size: 1.2em;
     font-weight: 700;
@@ -37,8 +38,3 @@
 
 }
 
-.return {
-  display:flex;
-  flex-direction:flex-start;
-  padding-left:10em;
-}
