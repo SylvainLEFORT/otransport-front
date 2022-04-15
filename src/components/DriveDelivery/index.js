@@ -33,14 +33,18 @@ const DriverDelivery = () => {
           <Mediaquery minWidth={601}>
             <h1>Détail de la livraison</h1>
             <div className="details">
-              <h2>Nom client</h2>
+              <h2>Nom du client</h2>
               <p>{deliveries.customer.name}</p>
               <h2>Adresse</h2>
               <p>{deliveries.customer.address}</p>
+              <h2>Numéro de téléphone</h2>
+              <p>{deliveries.customer.phoneNumber}</p>
               <h2>Type de marchandise</h2>
               <p>{deliveries.merchandise}</p>
-              <h2>Quantité (en mètre/cube)</h2>
+              <h2>Quantité (en m³)</h2>
               <p>{deliveries.volume}</p>
+              <h2>Commentaire</h2>
+              <p>{deliveries.comment}</p>
               <a href="http://localhost:8080/driver">
                 <Button className="button">Retour</Button>
               </a>
@@ -54,7 +58,7 @@ const DriverDelivery = () => {
           <Mediaquery maxWidth={600}>
             <h1 className="title-phone">Détail de la livraison</h1>
             <div className="details">
-              <h2>Nom client</h2>
+              <h2>Nom du client</h2>
               <p>{deliveries.customer.name}</p>
               <h2>Adresse</h2>
               <p>{deliveries.customer.address}</p>

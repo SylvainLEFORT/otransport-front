@@ -1,7 +1,7 @@
 import './deliverydetail.scss';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import Mediaquery from 'react-responsive';
 import NavBar from '../NavBar';
@@ -11,6 +11,8 @@ const DeliveryDetail = () => {
   const [delivery, setDelivery] = useState(null);
 
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const token = sessionStorage.getItem('jwtToken');
 
@@ -47,9 +49,13 @@ const DeliveryDetail = () => {
           <p>{delivery.volume}</p>
           <h2>Commentaire de livraison</h2>
           <p>{delivery.comment}</p>
+<<<<<<< HEAD
           <Link to="/admin/shipping_deliveries">
             <Button className="button">Retour</Button>
           </Link>
+=======
+          <Button className="button" onClick={() => navigate(-1)}>Retour</Button>
+>>>>>>> 74082e932bcd1b318b09de26789adf66d0c7fbdf
         </div>
         )}
       </Mediaquery>
@@ -66,9 +72,7 @@ const DeliveryDetail = () => {
           <p>{delivery.merchandise}</p>
           <h2>Quantité</h2>
           <p>{delivery.volume}</p>
-          <a href="http://localhost:8080/admin/shipping_deliveries">
-            <Button className="button">Retour</Button>
-          </a>
+          <Button className="button" onClick={() => navigate(-1)}>Retour</Button>
         </div>
         )}
       </Mediaquery>

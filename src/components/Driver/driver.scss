@@ -40,10 +40,6 @@
     flex-direction: column;
   }
 
-  .infosClient-phone{
-
-  }
-
   .utilitaire{
     display: flex;
     justify-content: space-between;
@@ -65,4 +61,22 @@
   align-items: center;
   justify-content:space-around;
 
+}
+
+button.ui.button.detail{
+  width: 100%;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+}
+
+
+button.ui.button:hover{
+  background-color: #85c2f7;
+}
+
+.title-phone{
+  font-size: 30px;
 }

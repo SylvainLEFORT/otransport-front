@@ -47,9 +47,6 @@ const DriversManagement = () => {
         <NavBar />
         <div className="drivers-management">
           <h1 className="title">Gestion des chauffeurs</h1>
-
-          <div className="trait" />
-
           <div className="button">
             <Link to="/admin/create_driver">
               <Button className="add-driver">Ajouter un chauffeur</Button>
@@ -94,8 +91,6 @@ const DriversManagement = () => {
         <NavBar />
         <div className="drivers-management">
           <h1 className="title">Gestion des chauffeurs</h1>
-
-          <div className="trait" />
 
           <div className="button">
             <Link to="/admin/create_driver">

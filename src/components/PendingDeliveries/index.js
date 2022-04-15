@@ -47,7 +47,6 @@ const PendingDeliveries = () => {
         <NavBar />
         <div className="pending-deliveries">
           <h1 className="title">Livraisons en attente</h1>
-          <div className="trait" />
           <ul>
             <li className="pending-delivery">
               <span style={{ fontWeight: 'bold' }} xs={3}>Id de la livraison</span>
@@ -89,7 +88,6 @@ const PendingDeliveries = () => {
         <NavBar />
         <div className="pending-deliveries">
           <h1 className="title">Livraisons en cours</h1>
-          <div className="trait" />
           <ul>
             {deliveries && deliveries.map((item) => (
               <li className="pending-delivery">
