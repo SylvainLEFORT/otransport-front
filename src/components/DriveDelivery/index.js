@@ -1,15 +1,16 @@
 import { Button } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
 import './driverdelivery.scss';
 
 const DriverDelivery = () => {
   const [deliveries, setDeliveries] = useState();
-
   const { id } = useParams();
   const token = sessionStorage.getItem('jwtToken');
+  const idDriver = sessionStorage.getItem('id');
 
   const config = {
     headers: {
@@ -26,12 +27,31 @@ const DriverDelivery = () => {
       });
   }, []);
 
+  const sendStatusStartDelivery = () => {
+    axios.get(`http://localhost:8000/api/drivers/${idDriver}/deliveries/${id}/start`, config)
+      .then((response) => {
+        console.log(response);
+        window.location = 'http://localhost:8080/driver';
+      });
+  };
+
+  const sendStatusEndDelivery = () => {
+    axios.get(`http://localhost:8000/api/drivers/${idDriver}/deliveries/${id}/end`, config)
+      .then((response) => {
+        console.log(response);
+        window.location = 'http://localhost:8080/driver';
+      });
+  };
+
   return (
     <div>
       <div className="driver-delivery">
         {deliveries && (
           <Mediaquery minWidth={601}>
             <h1>Détail de la livraison</h1>
+            <Link to="/driver">
+              <Button className="button">Retour</Button>
+            </Link>
             <div className="details">
               <h2>Nom du client</h2>
               <p>{deliveries.customer.name}</p>
@@ -45,9 +65,14 @@ const DriverDelivery = () => {
               <p>{deliveries.volume}</p>
               <h2>Commentaire</h2>
               <p>{deliveries.comment}</p>
-              <a href="http://localhost:8080/driver">
-                <Button className="button">Retour</Button>
-              </a>
+              <div>{(() => {
+                switch (deliveries.status) {
+                  case 0: return <Button className="start-button" onClick={sendStatusStartDelivery}>Commencer la livraison</Button>;
+                  case 1: return <Button className="end-button" onClick={sendStatusEndDelivery}>Terminer la livraison</Button>;
+                  default: return '';
+                }
+              })()}
+              </div>
             </div>
           </Mediaquery>
         )}

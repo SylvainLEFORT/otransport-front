@@ -49,14 +49,14 @@ const PendingDeliveries = () => {
           <h1 className="title">Livraisons en attente</h1>
           <ul>
             <li className="pending-delivery">
-              <span style={{ fontWeight: 'bold' }} xs={3}>Id de la livraison</span>
+              <span style={{ fontWeight: 'bold' }} xs={3}>Chauffeur attribué</span>
               <span style={{ fontWeight: 'bold' }} xs={3}>Client</span>
               <span style={{ fontWeight: 'bold' }} xs={3}>Adresse</span>
               <span style={{ fontWeight: 'bold' }} xs={3}>Détail de la livraison</span>
             </li>
             {deliveries && deliveries.map((item) => (
               <li className="pending-delivery">
-                <a>{item.id}</a>
+                <p>{item.driver?.firstname || 'Non attribuée'}</p>
                 <span xs={3}>{item.customer.name}</span>
                 <span xs={3}>{item.customer.address}</span>
                 <div className="utils">
