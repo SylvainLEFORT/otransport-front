@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Button, Form } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import NavBar from '../NavBar';

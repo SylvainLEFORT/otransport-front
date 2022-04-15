@@ -1,6 +1,6 @@
 import './driversmanagement.scss';
 
-import { Button } from 'semantic-ui-react';
+import { Button, Grid } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -56,33 +56,41 @@ const DriversManagement = () => {
         <ul>
           {drivers && drivers.map((item) => (
             <li className="driver-list">
-              <img src={Patrick} alt="" className="avatar" />
-              <span>{item.firstname}</span>
-              <span>{item.lastname}</span>
-              <span>{item.email}</span>
-              <span>{(() => {
-                switch (item.status) {
-                  case 0: return <span className="dot-green" />;
-                  case 1: return <span className="dot-red" />;
-                  default: return 'Disponible';
-                }
-              })()}
-              </span>
-              <div className="driver-utils">
-                <Link to={`/admin/driver_informations/${item.id}`}>
-                  <button type="button" className="buttons-utils">
-                    <img src={info} alt="" className="info" />
-                  </button>
-                </Link>
-                <Link to={`/admin/update_driver/${item.id}`}>
-                  <button type="button" className="buttons-utils">
-                    <img src={edit} alt="" className="edit" />
-                  </button>
-                </Link>
-                <button type="button" className="buttons-utils" onClick={deleteDriver(item.id)}>
-                  <img src={trash} alt="" className="trash" />
-                </button>
-              </div>
+              <Grid className="grid-drivers">
+                <Grid.Row>
+                  <Grid.Column width={2}><img src={Patrick} alt="" className="avatar" /></Grid.Column>
+                  <Grid.Column width={3}><span>{item.firstname}</span></Grid.Column>
+                  <Grid.Column width={3}><span>{item.lastname}</span></Grid.Column>
+                  <Grid.Column width={3}><span>{item.email}</span></Grid.Column>
+                  <Grid.Column width={2}>
+                    <span>{(() => {
+                      switch (item.status) {
+                        case 0: return <span className="dot-green" />;
+                        case 1: return <span className="dot-red" />;
+                        default: return 'Disponible';
+                      }
+                    })()}
+                    </span>
+                  </Grid.Column>
+                  <Grid.Column width={1}>
+                    <div className="driver-utils">
+                      <Link to={`/admin/driver_informations/${item.id}`}>
+                        <button type="button" className="buttons-utils">
+                          <img src={info} alt="" className="info" />
+                        </button>
+                      </Link>
+                      <Link to={`/admin/update_driver/${item.id}`}>
+                        <button type="button" className="buttons-utils">
+                          <img src={edit} alt="" className="edit" />
+                        </button>
+                      </Link>
+                      <button type="button" className="buttons-utils" onClick={deleteDriver(item.id)}>
+                        <img src={trash} alt="" className="trash" />
+                      </button>
+                    </div>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
             </li>
           ))}
         </ul>

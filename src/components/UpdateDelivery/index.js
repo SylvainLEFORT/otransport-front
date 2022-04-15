@@ -39,7 +39,10 @@ const UpdateDelivery = () => {
     setDelivery(() => ({
       ...delivery,
       customer: {
+<<<<<<< HEAD
         ...delivery.customer,
+=======
+>>>>>>> 06c828e44f6f5ee747caf58069655714383f4732
         name: e.target.value,
       },
     }));
