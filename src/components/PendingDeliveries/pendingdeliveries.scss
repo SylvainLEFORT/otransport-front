@@ -24,10 +24,6 @@
   width: 22px;
 }
 
-img{
-  margin-right: 10px;
-}
-
 .affect, .info, .edit, .trash{
   transition-property: transform;
   transition-duration: 0.5s;
@@ -41,9 +37,6 @@ img{
   border:none;
 }
 
-.utils {
+.pending-utils {
   border:none;
-  display:flex;
-  align-content:flex-end;
-  justify-content:space-between;
 }

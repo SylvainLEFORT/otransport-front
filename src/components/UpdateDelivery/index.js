@@ -91,6 +91,7 @@ const UpdateDelivery = () => {
       .then((response) => {
         console.log(response);
         setDelivery(response.data.updatedAt);
+        window.location = 'http://localhost:8080/admin/pending_deliveries';
       });
   };
 
