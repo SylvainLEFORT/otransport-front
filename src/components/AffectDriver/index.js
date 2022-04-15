@@ -1,5 +1,5 @@
 import './affectdriver.scss';
-import { Form } from 'semantic-ui-react';
+import { Form, Button, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import affect from 'src/assets/docs/affect.svg';
 import { useState, useEffect } from 'react';
@@ -32,6 +32,7 @@ const AffectDriver = () => {
       .then((response) => {
         console.log(response);
         setDrivers(response.data.updatedAt);
+        window.location = 'http://localhost:8080/admin/pending_deliveries';
       });
   };
 
@@ -47,33 +48,42 @@ const AffectDriver = () => {
 
         <ul>
           <li className="pending-delivery">
-            <span style={{ fontWeight: 'bold' }} xs={3}>Nom</span>
-            <span style={{ fontWeight: 'bold' }} xs={3}>Prénom</span>
-            <span style={{ fontWeight: 'bold' }} xs={3}>Choisir un chauffeur</span>
+            <Grid className="grid-affectDriver">
+              <Grid.Row>
+                <Grid.Column width={5}><span style={{ fontWeight: 'bold' }}>Nom</span></Grid.Column>
+                <Grid.Column width={5}><span style={{ fontWeight: 'bold' }}>Prénom</span></Grid.Column>
+                <Grid.Column width={5}><span style={{ fontWeight: 'bold' }}>Choisir un chauffeur</span></Grid.Column>
+              </Grid.Row>
+            </Grid>
           </li>
           <Form onSubmit={handleSubmit}>
             {driver && driver.map((item) => (
               <li className="pending-delivery">
-                <p type="text" value={item.id}>{item.lastname}</p>
-                <span xs={3}>{item.firstname}</span>
-                <span xs={3}>{item.lastnames}</span>
-                <div className="utils">
-                  <button
-                    type="submit"
-                    value={item.id}
-                    onClick={sendIDDriver(item.id)}
-                    className="button-utils"
-                    name="button"
-                  >
-                    <img src={affect} alt="" className="affect" />
-                  </button>
-                </div>
+                <Grid className="grid-affectDriver">
+                  <Grid.Row>
+                    <Grid.Column width={5}><span type="text" value={item.id} className="name-affect">{item.lastname}</span></Grid.Column>
+                    <Grid.Column width={5}><span className="name-affect">{item.firstname}</span></Grid.Column>
+                    <Grid.Column width={5}>
+                      <div className="affect-utils">
+                        <button
+                          type="submit"
+                          value={item.id}
+                          onClick={sendIDDriver(item.id)}
+                          className="button-utils"
+                          name="button"
+                        >
+                          <img src={affect} alt="" className="affect" />
+                        </button>
+                      </div>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
               </li>
             ))}
           </Form>
         </ul>
         <Link to="/admin/pending_deliveries">
-          <button type="button">Retour</button>
+          <Button type="button" className="affect-backButton">Retour</Button>
         </Link>
       </div>
     </div>
