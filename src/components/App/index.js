@@ -22,6 +22,7 @@ import DeliveryDetail from '../DeliveryDetail';
 import HeaderLogged from '../Header';
 import AuthContext from '../../context/AuthProvider';
 import AffectDriver from '../AffectDriver';
+import Developpers from '../Developpers';
 
 // == Composant
 const App = () => {
@@ -60,6 +61,7 @@ const App = () => {
           </>
         )}
         <Route path="*" element={<Error />} />
+        <Route path="/developpers" element={<Developpers />} />
       </Routes>
     </div>
   );
