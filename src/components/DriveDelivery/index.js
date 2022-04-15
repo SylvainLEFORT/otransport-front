@@ -49,9 +49,14 @@ const DriverDelivery = () => {
         {deliveries && (
           <Mediaquery minWidth={601}>
             <h1>Détail de la livraison</h1>
-            <Link to="/driver">
-              <Button className="button">Retour</Button>
-            </Link>
+            <div>{(() => {
+              switch (deliveries.status) {
+                case 0: return <Button className="start-button" onClick={sendStatusStartDelivery}>Commencer la livraison</Button>;
+                case 1: return <Button className="end-button" onClick={sendStatusEndDelivery}>Terminer la livraison</Button>;
+                default: return '';
+              }
+            })()}
+            </div>
             <div className="details">
               <h2>Nom du client</h2>
               <p>{deliveries.customer.name}</p>
@@ -61,18 +66,13 @@ const DriverDelivery = () => {
               <p>{deliveries.customer.phoneNumber}</p>
               <h2>Type de marchandise</h2>
               <p>{deliveries.merchandise}</p>
-              <h2>Quantité (en m³)</h2>
+              <h2>Volume (en m³)</h2>
               <p>{deliveries.volume}</p>
               <h2>Commentaire</h2>
               <p>{deliveries.comment}</p>
-              <div>{(() => {
-                switch (deliveries.status) {
-                  case 0: return <Button className="start-button" onClick={sendStatusStartDelivery}>Commencer la livraison</Button>;
-                  case 1: return <Button className="end-button" onClick={sendStatusEndDelivery}>Terminer la livraison</Button>;
-                  default: return '';
-                }
-              })()}
-              </div>
+              <Link to="/driver">
+                <Button className="button">Retour</Button>
+              </Link>
             </div>
           </Mediaquery>
         )}
@@ -83,14 +83,6 @@ const DriverDelivery = () => {
           <Mediaquery maxWidth={600}>
             <h1 className="title-phone">Détail de la livraison</h1>
             <div className="details">
-              <h2>Nom du client</h2>
-              <p>{deliveries.customer.name}</p>
-              <h2>Adresse</h2>
-              <p>{deliveries.customer.address}</p>
-              <h2>Type de marchandise</h2>
-              <p>{deliveries.merchandise}</p>
-              <h2>Quantité</h2>
-              <p>{deliveries.volume}</p>
               <div>{(() => {
                 switch (deliveries.status) {
                   case 0: return <Button className="start-button" onClick={sendStatusStartDelivery}>Commencer la livraison</Button>;
@@ -99,6 +91,21 @@ const DriverDelivery = () => {
                 }
               })()}
               </div>
+              <h2>Nom du client</h2>
+              <p>{deliveries.customer.name}</p>
+              <h2>Adresse</h2>
+              <p>{deliveries.customer.address}</p>
+              <h2>Numéro de téléphone</h2>
+              <p>{deliveries.customer.phoneNumber}</p>
+              <h2>Type de marchandise</h2>
+              <p>{deliveries.merchandise}</p>
+              <h2>Volume (en m³)</h2>
+              <p>{deliveries.volume}</p>
+              <h2>Commentaire</h2>
+              <p>{deliveries.comment}</p>
+              <Link to="/driver">
+                <Button className="button">Retour</Button>
+              </Link>
             </div>
           </Mediaquery>
         )}

@@ -58,7 +58,7 @@ const Driver = () => {
         <div>
           <div>
             <Mediaquery maxWidth={600}>
-              <h1 className="titre">Mes livraisons</h1>
+              <h1 className="title-phone">Mes livraisons</h1>
               {deliveries && deliveries.map((item) => (
                 <Link to={`delivery/${item.id}`}>
                   <Button className="button detail" type="submit">
