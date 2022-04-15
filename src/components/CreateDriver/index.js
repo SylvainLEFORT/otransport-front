@@ -1,11 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Button, Form } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import { useState, useEffect } from 'react';
-=======
-import { useState } from 'react';
->>>>>>> dcbeb81ddf395d97ee5c6ee9c156f3dbf266b7fd
 import axios from 'axios';
 import NavBar from '../NavBar';
 import './createdriver.scss';
@@ -76,7 +72,9 @@ const CreateDriver = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await axios.post('http://localhost:8000/api/admin/drivers', driver, config);
+    const response = await axios.post('http://localhost:8000/api/admin/drivers', driver, config)
+      .then(window.location = 'http://localhost:8080/admin/drivers_management');
+
     const errors = [];
     errors.push(response.data.firstname);
     errors.push(response.data.lastname);
@@ -100,7 +98,6 @@ const CreateDriver = () => {
 
         <div className="form">
           <Form onSubmit={handleSubmit}>
-            {/* <span className="success"> { success }</span> */}
             { errMsg && (
               <div>
                 <Form.Field className="input-1">

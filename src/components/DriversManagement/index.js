@@ -56,7 +56,7 @@ const DriversManagement = () => {
         <ul>
           {drivers && drivers.map((item) => (
             <li className="driver-list">
-              <Grid className="grid-drivers">
+              <Grid className="grid-deliveries">
                 <Grid.Row>
                   <Grid.Column width={2}><img src={Patrick} alt="" className="avatar" /></Grid.Column>
                   <Grid.Column width={3}><span>{item.firstname}</span></Grid.Column>
