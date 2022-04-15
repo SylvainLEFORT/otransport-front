@@ -61,11 +61,11 @@ const PendingDeliveries = () => {
             </li>
             {deliveries && deliveries.map((item) => (
               <li className="pending-delivery">
-                <Grid className="grid-drivers">
+                <Grid className="grid-deliveries">
                   <Grid.Row>
                     <Grid.Column width={4}><p>{item.driver?.firstname || 'Non attribuée'}</p></Grid.Column>
-                    <Grid.Column width={4}><span xs={3}>{item.customer.name}</span></Grid.Column>
-                    <Grid.Column width={4}><span xs={3}>{item.customer.address}</span></Grid.Column>
+                    <Grid.Column width={4}><span>{item.customer.name}</span></Grid.Column>
+                    <Grid.Column width={4}><span>{item.customer.address}</span></Grid.Column>
                     <Grid.Column width={4}>
                       <div className="pending-utils">
                         <button type="button" className="button-utils">
