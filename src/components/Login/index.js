@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import './login.scss';
+import { Link } from 'react-router-dom';
 import { Image, Form } from 'semantic-ui-react';
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router';
@@ -105,6 +106,7 @@ const Login = () => {
           <button type="submit" className="connect">Se connecter</button>
         </Form>
       </div>
+      <Link className="createdby" to="">Create by Team O'transport </Link>
     </div>
   );
 };

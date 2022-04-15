@@ -54,7 +54,7 @@ const AffectDriver = () => {
           <Form onSubmit={handleSubmit}>
             {driver && driver.map((item) => (
               <li className="pending-delivery">
-                <a type="text" value={item.id}>{item.id}</a>
+                <p type="text" value={item.id}>{item.lastname}</p>
                 <span xs={3}>{item.firstname}</span>
                 <span xs={3}>{item.lastnames}</span>
                 <div className="utils">
