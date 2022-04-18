@@ -42,8 +42,8 @@ const Driver = () => {
                   <div className="utilitaire">
                     <p className="statut">{(() => {
                       switch (item.status) {
-                        case 0: return 'En attente de livraison';
-                        case 1: return 'En cours de livraison';
+                        case 0: return <span className="pending">En attente de livraison</span>;
+                        case 1: return <span className="shipping">En cours de livraison</span>;
                         default: return '';
                       }
                     })()}
@@ -66,8 +66,8 @@ const Driver = () => {
                       <p className="client">{item.customer.name}</p>
                       <p className="client">{(() => {
                         switch (item.status) {
-                          case 0: return 'En attente de livraison';
-                          case 1: return 'En cours de livraison';
+                          case 0: return <span className="pending">En attente de livraison</span>;
+                          case 1: return <span className="shipping">En cours de livraison</span>;
                           default: return '';
                         }
                       })()}

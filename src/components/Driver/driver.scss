@@ -78,6 +78,13 @@ button.ui.button.detail{
   margin-bottom: 20px;
 }
 
+.pending{
+  color: green;
+}
+
+.shipping{
+  color:red;
+}
 
 button.ui.button:hover{
   background-color: #C8BCAC;
