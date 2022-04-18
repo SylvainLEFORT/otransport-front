@@ -40,7 +40,7 @@ const History = () => {
                   <span>Descriptif livraison : {item.merchandise} / {item.volume}</span>
                 </div>
                 <div className="detail-2">
-                  <span>Attribuée à : {item.driver.lastname} {item.driver.firstname}</span>
+                  <span>Attribuée à : {item.driver?.lastname || '-'} {item.driver?.firstname || '-'} </span>
                   <span>Terminée le : {moment(item.updated_at).format('DD/MM/YYYY HH:mm')}</span>
                 </div>
               </li>

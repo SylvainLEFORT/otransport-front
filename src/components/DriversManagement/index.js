@@ -84,9 +84,16 @@ const DriversManagement = () => {
                           <img src={edit} alt="" className="edit" />
                         </button>
                       </Link>
-                      <button type="button" className="buttons-utils" onClick={deleteDriver(item.id)}>
-                        <img src={trash} alt="" className="trash" />
-                      </button>
+                      <div>{(() => {
+                        if (item.status === 0) {
+                          return (
+                            <button type="button" className="buttons-utils" onClick={deleteDriver(item.id)}>
+                              <img src={trash} alt="" className="trash" />
+                            </button>
+                          );
+                        }
+                      })()}
+                      </div>
                     </div>
                   </Grid.Column>
                 </Grid.Row>

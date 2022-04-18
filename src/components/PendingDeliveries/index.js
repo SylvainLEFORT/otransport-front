@@ -63,7 +63,7 @@ const PendingDeliveries = () => {
               <li className="pending-delivery">
                 <Grid className="grid-deliveries">
                   <Grid.Row>
-                    <Grid.Column width={4}><p>{item.driver?.firstname || 'Non attribuée'}</p></Grid.Column>
+                    <Grid.Column width={4}><p>{item.driver?.lastname || 'Non attribuée'}</p></Grid.Column>
                     <Grid.Column width={4}><span>{item.customer.name}</span></Grid.Column>
                     <Grid.Column width={4}><span>{item.customer.address}</span></Grid.Column>
                     <Grid.Column width={4}>
