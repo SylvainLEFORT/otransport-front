@@ -23,14 +23,17 @@ const DriversManagement = () => {
   };
 
   const deleteDriver = (readDriverId) => async () => {
-    await axios.delete(`http://localhost:8000/api/admin/drivers/${readDriverId}`, config);
-    // On change la valeur de drivers pour supprimer le chauffeur des données front
-    // sans devoir refaire un appel API
-    setDrivers((prevValue) => {
+    const confirmed = window.confirm('Etes-vous sûr de vouloir supprimer le chauffeur ?');
+    if (confirmed) {
+      await axios.delete(`http://localhost:8000/api/admin/drivers/${readDriverId}`, config);
+      // On change la valeur de drivers pour supprimer le chauffeur des données front
+      // sans devoir refaire un appel API
+      setDrivers((prevValue) => {
       // On filter le tableau pour garder tous les chauffeurs sauf celui qu'on a supprimé
-      const newDrivers = prevValue.filter((driver) => driver.id !== readDriverId);
-      return newDrivers;
-    });
+        const newDrivers = prevValue.filter((driver) => driver.id !== readDriverId);
+        return newDrivers;
+      });
+    }
   };
 
   useEffect(() => {
@@ -54,6 +57,17 @@ const DriversManagement = () => {
           </div>
         </div>
         <ul>
+          <li className="driver-list">
+            <Grid className="grid-drivers">
+              <Grid.Row>
+                <Grid.Column width={2}><span /></Grid.Column>
+                <Grid.Column width={3}><span style={{ fontWeight: 'bold' }}>Prénom</span></Grid.Column>
+                <Grid.Column width={3}><span style={{ fontWeight: 'bold' }}>Nom</span></Grid.Column>
+                <Grid.Column width={3}><span style={{ fontWeight: 'bold' }}>Email</span></Grid.Column>
+                <Grid.Column width={2}><span style={{ fontWeight: 'bold' }}>Disponibilité</span></Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </li>
           {drivers && drivers.map((item) => (
             <li className="driver-list">
               <Grid className="grid-deliveries">
@@ -91,8 +105,9 @@ const DriversManagement = () => {
                               <img src={trash} alt="" className="trash" />
                             </button>
                           );
-                        }
-                      })()}
+                        } return null;
+                      }
+                      )()}
                       </div>
                     </div>
                   </Grid.Column>

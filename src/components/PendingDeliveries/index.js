@@ -32,14 +32,17 @@ const PendingDeliveries = () => {
   }, []);
 
   const deleteDelivery = (readDeliveryId) => async () => {
-    await axios.delete(`http://localhost:8000/api/admin/deliveries/${readDeliveryId}`, config);
-    // On change la valeur de drivers pour supprimer le chauffeur des données front
-    // sans devoir refaire un appel API
-    setDeliveries((prevValue) => {
-      // On filter le tableau pour garder tous les chauffeurs sauf celui qu'on a supprimé
-      const newDelivery = prevValue.filter((delivery) => delivery.id !== readDeliveryId);
-      return newDelivery;
-    });
+    const confirmed = window.confirm('Etes-vous sûr de vouloir supprimer la livraison ?');
+    if (confirmed) {
+      await axios.delete(`http://localhost:8000/api/admin/deliveries/${readDeliveryId}`, config);
+      // On change la valeur de drivers pour supprimer le chauffeur des données front
+      // sans devoir refaire un appel API
+      setDeliveries((prevValue) => {
+        // On filter le tableau pour garder tous les chauffeurs sauf celui qu'on a supprimé
+        const newDelivery = prevValue.filter((delivery) => delivery.id !== readDeliveryId);
+        return newDelivery;
+      });
+    }
   };
 
   return (
