@@ -2,9 +2,15 @@
 @use 'vars';
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&display=swap');
 
+
+html{ 
+  background-color: #F2F5F9;
+}
+
 body {
   font-family: sans-serif;
   background-color: vars.$global-background;
+  background-color: #F2F5F9;
 }
 
 #root {

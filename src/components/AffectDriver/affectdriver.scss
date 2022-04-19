@@ -1,0 +1,61 @@
+.board{
+
+  .title{
+
+  }
+
+  .main{
+
+  }
+
+
+}
+
+button.ui.button.affect-backButton {
+  margin-top:1em;
+}
+
+.grid-affectDriver {
+  width:100%;
+}
+
+.pending-deliveries {
+  height: 100%;
+  // border: 2px solid black;
+  margin-top: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.pending-delivery{
+  display:flex;
+  // justify-content:space-around;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  padding-bottom:1.5em;
+  padding-top:1.5em;
+  border-bottom: 1px solid lightgray;
+
+  & a {
+    text-decoration:underline ;
+  }
+  
+}
+.affect{
+  width: 22px;
+}
+.button-utils {
+  background-color:transparent;
+  border:none;
+}
+
+.name-affect {
+  display:flex;
+  justify-content: center;
+}
+
+.affect-utils {
+  border:none;
+  display:flex;
+  justify-content:center;
+}

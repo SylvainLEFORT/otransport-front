@@ -1,15 +1,22 @@
-.driver{
+.global{
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 80%;
   margin: auto;
+  margin-top: 1em;
+  padding-top: 2em;
 
   .titre{
     font-size: 50px;
   }
 
 }
+
+.driver-deliveries {
+  padding-bottom:1em;
+}
+
 .driver-phone{
 
 .titre-phone{
@@ -18,4 +25,71 @@
   margin-bottom: 20px;
 }
 
+}
+
+.driverList{
+  border: 2px solid lightgrey;
+  border-radius: 4px;
+  width: 100%;
+  height: 5em;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+
+  .global{
+    width: 80%;
+  }
+
+  .infosClient{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .utilitaire{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+  }
+  
+}
+
+.driverList-phone{
+  border: 2px solid lightgrey;
+  border-radius: 4px;
+  width: 90%;
+  height: 5em;
+  margin: auto;
+  margin-bottom: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content:space-around;
+
+}
+
+button.ui.button.detail{
+  width: 100%;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.pending{
+  color: green;
+}
+
+.shipping{
+  color:red;
+}
+
+button.ui.button:hover{
+  background-color: #C8BCAC;
+}
+
+.title-phone{
+  font-size: 30px;
 }

@@ -1,13 +1,19 @@
 .header-desktop{
   margin: auto;
 }
+
+div.ui.clearing.segment{
+  background-color: #C8BCAC;
+  border-radius: 10px;
+}
 .header-phone{
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-
-  .image-avatar{
-    width: 40px;
-  }
+.ui.right.floated.header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

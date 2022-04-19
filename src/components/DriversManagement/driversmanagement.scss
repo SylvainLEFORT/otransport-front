@@ -9,6 +9,10 @@
   font-size: 30px;
 }
 
+.grid-drivers {
+  width:100%;
+}
+
 .driver-list {
   display:flex;
   justify-content:space-around;
@@ -36,10 +40,31 @@
   block-size:50px;
 }
 
+.dot-green {
+  height: 25px;
+  width: 25px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red {
+  height: 25px;
+  width: 25px;
+  background-color: rgb(230, 68, 68);
+  border-radius: 50%;
+  display: inline-block;
+}
+
 .button {
   display:flex;
   justify-content:flex-end;
   padding-right:10em;
+}
+
+button.ui.button.add-driver{
+  background-color: #315BFC;
+  color:white;
 }
 
 .button-phone {
@@ -48,14 +73,24 @@
   align-items: center;
 }
 
+.buttons-utils {
+  border:none;
+  background-color:transparent;
+}
+
 .info {
   cursor:pointer;
+  filter: invert(62%) sepia(97%) saturate(430%) hue-rotate(179deg) brightness(91%) contrast(93%);
 }
 
 .edit {
   cursor:pointer;
+  filter: invert(70%) sepia(92%) saturate(3181%) hue-rotate(3deg) brightness(108%) contrast(103%);
 }
 
 .trash {
   cursor:pointer;
+  filter: invert(24%) sepia(71%) saturate(6991%) hue-rotate(354deg) brightness(92%) contrast(122%);
 }
+
+
