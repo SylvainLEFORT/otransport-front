@@ -8,11 +8,13 @@ import Mediaquery from 'react-responsive';
 import info from 'src/assets/docs/info.svg';
 import edit from 'src/assets/docs/edit.svg';
 import trash from 'src/assets/docs/trash.svg';
+import FlashMessage from 'react-flash-message';
 import affect from 'src/assets/docs/affect.svg';
 import NavBar from '../NavBar';
 
 const PendingDeliveries = () => {
   const [deliveries, setDeliveries] = useState();
+  const [status, setStatus] = useState(false);
 
   const token = sessionStorage.getItem('jwtToken');
 
@@ -35,6 +37,7 @@ const PendingDeliveries = () => {
     const confirmed = window.confirm('Etes-vous sûr de vouloir supprimer la livraison ?');
     if (confirmed) {
       await axios.delete(`http://localhost:8000/api/admin/deliveries/${readDeliveryId}`, config);
+      setStatus(true);
       // On change la valeur de drivers pour supprimer le chauffeur des données front
       // sans devoir refaire un appel API
       setDeliveries((prevValue) => {
@@ -51,6 +54,11 @@ const PendingDeliveries = () => {
         <NavBar />
         <div className="pending-deliveries">
           <h1 className="title">Livraisons en attente</h1>
+          {status && (
+          <FlashMessage duration={5000}>
+            <strong className="flash-message">Livraison supprimée !</strong>
+          </FlashMessage>
+          )}
           <ul>
             <li className="pending-delivery">
               <Grid className="grid-drivers">
@@ -63,7 +71,7 @@ const PendingDeliveries = () => {
               </Grid>
             </li>
             {deliveries && deliveries.map((item) => (
-              <li className="pending-delivery">
+              <li className="pending-delivery" key={item.id}>
                 <Grid className="grid-deliveries">
                   <Grid.Row>
                     <Grid.Column width={4}><p>{item.driver?.lastname || 'Non attribuée'}</p></Grid.Column>
@@ -104,7 +112,7 @@ const PendingDeliveries = () => {
           <h1 className="title">Livraisons en cours</h1>
           <ul>
             {deliveries && deliveries.map((item) => (
-              <li className="pending-delivery">
+              <li className="pending-delivery" key={item.id}>
                 <a>{item.id}</a>
                 <span>{item.customer.name}</span>
                 <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>Détail</a>

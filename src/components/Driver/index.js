@@ -33,7 +33,7 @@ const Driver = () => {
           <Mediaquery minWidth={601}>
             <h1 className="titre">Mes livraisons</h1>
             {deliveries && deliveries.map((item) => (
-              <Link to={`delivery/${item.id}`}>
+              <Link to={`delivery/${item.id}`} key={item.id}>
                 <Button className="button detail" type="submit">
                   <div className="infosClient">
                     <p className="client">{item.customer.name}</p>
@@ -60,7 +60,7 @@ const Driver = () => {
             <Mediaquery maxWidth={600}>
               <h1 className="title-phone">Mes livraisons</h1>
               {deliveries && deliveries.map((item) => (
-                <Link to={`delivery/${item.id}`}>
+                <Link to={`delivery/${item.id}`} key={item.id}>
                   <Button className="button detail" type="submit">
                     <div className="infosClient-phone">
                       <p className="client">{item.customer.name}</p>
