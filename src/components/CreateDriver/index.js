@@ -1,11 +1,19 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+
+// == Import style
+import './createdriver.scss';
+
+// == Import dependencies
 import { Button, Form } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import axios from 'axios';
-import NavBar from '../NavBar';
-import './createdriver.scss';
 
+// == Import required components
+import NavBar from '../NavBar';
+
+//  == Component
 const CreateDriver = () => {
   const [driver, setDriver] = useState({
     firstName: '',
@@ -16,6 +24,8 @@ const CreateDriver = () => {
   });
 
   const [errMsg, setErrMsg] = useState('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setErrMsg([]);
@@ -81,7 +91,8 @@ const CreateDriver = () => {
     errors.push(response.data.phoneNumber);
     setErrMsg(errors);
     if (response.status === 201) {
-      window.location = 'http://localhost:8080/admin/drivers_management';
+      const message = 'Chauffeur créé !';
+      navigate('/admin/drivers_management', { state: { message } });
     }
   };
 
@@ -168,4 +179,5 @@ const CreateDriver = () => {
   );
 };
 
+// == Export component
 export default CreateDriver;

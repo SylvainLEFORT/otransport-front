@@ -1,12 +1,20 @@
+// == Import style
 import './shippingdeliveries.scss';
+
+// == Import dependencies
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid } from 'semantic-ui-react';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
+
+// == Import required assets
 import info from 'src/assets/docs/info.svg';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+//  == Component
 const ShippingDeliveries = () => {
   const [deliveries, setDeliveries] = useState();
 
@@ -45,7 +53,7 @@ const ShippingDeliveries = () => {
               </Grid>
             </li>
             {deliveries && deliveries.map((item) => (
-              <li className="shipping-delivery">
+              <li className="shipping-delivery" key={item.id}>
                 <Grid className="grid-deliveries">
                   <Grid.Row>
                     <Grid.Column width={4}><span>{item.id}</span></Grid.Column>
@@ -73,7 +81,7 @@ const ShippingDeliveries = () => {
           <h1 className="title">Livraisons en cours</h1>
           <ul>
             {deliveries && deliveries.map((item) => (
-              <li className="shipping-delivery">
+              <li className="shipping-delivery" key={item.id}>
                 <a>{item.id}</a>
                 <span>{item.driver.lastname} {item.driver.firstname}</span>
                 <span>{item.customer.name}</span>
@@ -91,4 +99,5 @@ const ShippingDeliveries = () => {
   );
 };
 
+// == Export component
 export default ShippingDeliveries;

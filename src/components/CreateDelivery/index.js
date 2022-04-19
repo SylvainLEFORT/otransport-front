@@ -1,10 +1,18 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+
+// == Import style
 import './createdelivery.scss';
-import axios from 'axios';
+
+// == Import dependencies
 import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
+import { useNavigate } from 'react-router';
+import axios from 'axios';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+// == Component
 const CreateDelivery = () => {
   const [delivery, setDelivery] = useState({
     merchandise: '',
@@ -17,6 +25,8 @@ const CreateDelivery = () => {
     address: '',
     phoneNumber: '',
   });
+
+  const navigate = useNavigate();
 
   const handleDeliveryMerchendiseChange = (e) => {
     e.persist();
@@ -80,7 +90,8 @@ const CreateDelivery = () => {
     axios.post('http://localhost:8000/api/admin/deliveries/create', { delivery, customer }, config)
       .then((response) => {
         console.log(response);
-        window.location = 'http://localhost:8080/admin/pending_deliveries';
+        const message = 'Livraison créée !';
+        navigate('/admin/pending_deliveries', { state: { message } });
       })
       .catch((error) => {
         console.log(error);
@@ -162,4 +173,5 @@ const CreateDelivery = () => {
   );
 };
 
+// == Export component
 export default CreateDelivery;

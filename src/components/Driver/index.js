@@ -1,10 +1,14 @@
+// == Import style
 import './driver.scss';
+
+// == Import dependencies
 import { Button } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
 
+//  == Component
 const Driver = () => {
   const [deliveries, setDeliveries] = useState();
 
@@ -33,7 +37,7 @@ const Driver = () => {
           <Mediaquery minWidth={601}>
             <h1 className="titre">Mes livraisons</h1>
             {deliveries && deliveries.map((item) => (
-              <Link to={`delivery/${item.id}`}>
+              <Link to={`delivery/${item.id}`} key={item.id}>
                 <Button className="button detail" type="submit">
                   <div className="infosClient">
                     <p className="client">{item.customer.name}</p>
@@ -60,7 +64,7 @@ const Driver = () => {
             <Mediaquery maxWidth={600}>
               <h1 className="title-phone">Mes livraisons</h1>
               {deliveries && deliveries.map((item) => (
-                <Link to={`delivery/${item.id}`}>
+                <Link to={`delivery/${item.id}`} key={item.id}>
                   <Button className="button detail" type="submit">
                     <div className="infosClient-phone">
                       <p className="client">{item.customer.name}</p>
@@ -84,4 +88,5 @@ const Driver = () => {
   );
 };
 
+// == Export component
 export default Driver;

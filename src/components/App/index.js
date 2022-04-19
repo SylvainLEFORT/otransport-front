@@ -1,10 +1,12 @@
-//   Import
+// == Import dependencies
 import { useEffect, useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+// == Import style
 import './styles.scss';
 import 'semantic-ui-css/semantic.min.css';
 
+// == Import required components
 import ShippingDeliveries from '../ShippingDeliveries';
 import PendingDeliveries from '../PendingDeliveries';
 import DriversManagement from '../DriversManagement';
@@ -43,7 +45,7 @@ const App = () => {
       {token && <HeaderLogged />}
       <Routes>
         <Route path="/" element={<Login />} />
-        {token && (
+        { token && (
           <>
             <Route path="/driver" element={<Driver />} />
             <Route path="/driver/delivery/:id" element={<DriverDelivery />} />
@@ -66,5 +68,6 @@ const App = () => {
     </div>
   );
 };
-// == Export
+
+// == Export component
 export default App;

@@ -1,19 +1,28 @@
+// == Import style
 import './driversmanagement.scss';
 
+// == Import dependencies
 import { Button, Grid } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
+import FlashMessage from 'react-flash-message';
+
+// == Import required assets
 import Patrick from 'src/assets/docs/patrick.png';
 import info from 'src/assets/docs/info.svg';
 import edit from 'src/assets/docs/edit.svg';
 import trash from 'src/assets/docs/trash.svg';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+//  == Component
 const DriversManagement = () => {
   const [drivers, setDrivers] = useState();
-
+  const [status, setStatus] = useState(false);
+  const location = useLocation();
   const token = sessionStorage.getItem('jwtToken');
 
   const config = {
@@ -28,6 +37,7 @@ const DriversManagement = () => {
       await axios.delete(`http://localhost:8000/api/admin/drivers/${readDriverId}`, config);
       // On change la valeur de drivers pour supprimer le chauffeur des données front
       // sans devoir refaire un appel API
+      setStatus(true);
       setDrivers((prevValue) => {
       // On filter le tableau pour garder tous les chauffeurs sauf celui qu'on a supprimé
         const newDrivers = prevValue.filter((driver) => driver.id !== readDriverId);
@@ -50,6 +60,16 @@ const DriversManagement = () => {
         <NavBar />
         <div className="drivers-management">
           <h1 className="title">Gestion des chauffeurs</h1>
+          {status && (
+          <FlashMessage duration={5000}>
+            <strong className="flash-message">Chauffeur supprimé !</strong>
+          </FlashMessage>
+          )}
+          {location.state?.message && (
+          <FlashMessage duration={5000}>
+            <strong className="flash-message"> {location.state.message}</strong>
+          </FlashMessage>
+          )}
           <div className="button">
             <Link to="/admin/create_driver">
               <Button className="add-driver">Ajouter un chauffeur</Button>
@@ -69,7 +89,7 @@ const DriversManagement = () => {
             </Grid>
           </li>
           {drivers && drivers.map((item) => (
-            <li className="driver-list">
+            <li className="driver-list" key={item.id}>
               <Grid className="grid-deliveries">
                 <Grid.Row>
                   <Grid.Column width={2}><img src={Patrick} alt="" className="avatar" /></Grid.Column>
@@ -159,4 +179,5 @@ const DriversManagement = () => {
   );
 };
 
+// == Export component
 export default DriversManagement;

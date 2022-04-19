@@ -1,11 +1,17 @@
+// == Import style
 import './deliverydetail.scss';
+
+// == Import dependencies
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
+import axios from 'axios';
 import Mediaquery from 'react-responsive';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+//  == Component
 const DeliveryDetail = () => {
   const [delivery, setDelivery] = useState(null);
 
@@ -72,4 +78,6 @@ const DeliveryDetail = () => {
     </div>
   );
 };
+
+// == Export component
 export default DeliveryDetail;

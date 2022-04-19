@@ -1,13 +1,21 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+// == Import style
 import './updatedriver.scss';
+
+// == Import dependencies
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
+import { useNavigate } from 'react-router';
 import axios from 'axios';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+//  == Component
 const UpdateDriver = () => {
   const [driver, setDriver] = useState(null);
-
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const handleFirstNameInputChange = (e) => {
@@ -72,7 +80,8 @@ const UpdateDriver = () => {
     axios.put(`http://localhost:8000/api/admin/drivers/${id}`, driver, config)
       .then((response) => {
         setDriver(response.data.updatedAt);
-        window.location = 'http://localhost:8080/admin/drivers_management';
+        const message = 'Chauffeur modifié !';
+        navigate('/admin/drivers_management', { state: { message } });
       });
   };
 
@@ -143,4 +152,5 @@ const UpdateDriver = () => {
   );
 };
 
+// == Export component
 export default UpdateDriver;

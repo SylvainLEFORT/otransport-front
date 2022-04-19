@@ -1,8 +1,13 @@
 /* eslint-disable max-len */
+
+// == Import style
 import './navbar.scss';
+
+// == Import dependencies
 import Mediaquery from 'react-responsive';
 import { NavLink } from 'react-router-dom';
 
+//  == Component
 const NavBar = () => (
   <div>
     <Mediaquery minWidth={601}>
@@ -41,4 +46,5 @@ const NavBar = () => (
   </div>
 );
 
+// == Export component
 export default NavBar;
