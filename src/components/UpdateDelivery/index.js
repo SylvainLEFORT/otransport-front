@@ -7,6 +7,7 @@ import './updatedelivery.scss';
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
+import { useNavigate } from 'react-router';
 import axios from 'axios';
 
 // == Import required components
@@ -16,6 +17,7 @@ import NavBar from '../NavBar';
 const UpdateDelivery = () => {
   const [delivery, setDelivery] = useState();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const handleMerchandiseInputChange = (e) => {
     e.persist();
@@ -98,7 +100,7 @@ const UpdateDelivery = () => {
       .then((response) => {
         console.log(response);
         setDelivery(response.data.updatedAt);
-        window.location = 'http://localhost:8080/admin/pending_deliveries';
+        navigate('/admin/pending_deliveries');
       });
   };
 

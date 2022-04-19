@@ -29,9 +29,11 @@ import Developpers from '../Developpers';
 // == Composant
 const App = () => {
   const { token, setToken } = useContext(AuthContext);
+  const { roles, setRoles } = useContext(AuthContext);
 
   useEffect(() => {
     setToken(sessionStorage.getItem('jwtToken'));
+    setRoles(sessionStorage.getItem('roles'));
   }, []);
 
   const config = {
@@ -45,7 +47,7 @@ const App = () => {
       {token && <HeaderLogged />}
       <Routes>
         <Route path="/" element={<Login />} />
-        {token && (
+        { token && (
           <>
             <Route path="/driver" element={<Driver />} />
             <Route path="/driver/delivery/:id" element={<DriverDelivery />} />

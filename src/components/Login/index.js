@@ -22,7 +22,7 @@ const LOGIN_URL = 'http://localhost:8000/api/login_check';
 
 //  == Component
 const Login = () => {
-  const { setAuth, setToken, setFirstname } = useContext(AuthContext);
+  const { setAuth, setToken, setFirstname, setRoles } = useContext(AuthContext);
 
   const [username, setUser] = useState('');
   const [password, setPwd] = useState('');
@@ -64,6 +64,8 @@ const Login = () => {
       sessionStorage.setItem('id', driverID);
       sessionStorage.setItem('firstname', driverFirstname);
       setFirstname(driverFirstname);
+      sessionStorage.setItem('roles', roles);
+      setRoles(roles);
 
       if (roles.find((role) => role === ROLES.ADMIN)) {
         navigate('./admin/shipping_deliveries');
