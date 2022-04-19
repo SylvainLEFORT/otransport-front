@@ -1,11 +1,15 @@
+// == Import style
+import './driverdelivery.scss';
+
+// == Import dependencies
 import { Button } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
-import './driverdelivery.scss';
 
+//  == Component
 const DriverDelivery = () => {
   const [deliveries, setDeliveries] = useState();
   const { id } = useParams();
@@ -114,4 +118,5 @@ const DriverDelivery = () => {
   );
 };
 
+// == Export component
 export default DriverDelivery;

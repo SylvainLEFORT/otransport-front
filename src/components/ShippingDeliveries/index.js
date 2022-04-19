@@ -1,12 +1,20 @@
+// == Import style
 import './shippingdeliveries.scss';
+
+// == Import dependencies
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid } from 'semantic-ui-react';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
+
+// == Import required assets
 import info from 'src/assets/docs/info.svg';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+//  == Component
 const ShippingDeliveries = () => {
   const [deliveries, setDeliveries] = useState();
 
@@ -91,4 +99,5 @@ const ShippingDeliveries = () => {
   );
 };
 
+// == Export component
 export default ShippingDeliveries;

@@ -1,10 +1,14 @@
+// == Import style
 import './driver.scss';
+
+// == Import dependencies
 import { Button } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
 
+//  == Component
 const Driver = () => {
   const [deliveries, setDeliveries] = useState();
 
@@ -84,4 +88,5 @@ const Driver = () => {
   );
 };
 
+// == Export component
 export default Driver;

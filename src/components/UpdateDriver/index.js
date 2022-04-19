@@ -1,11 +1,18 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+// == Import style
 import './updatedriver.scss';
+
+// == Import dependencies
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+//  == Component
 const UpdateDriver = () => {
   const [driver, setDriver] = useState(null);
   const navigate = useNavigate();
@@ -145,4 +152,5 @@ const UpdateDriver = () => {
   );
 };
 
+// == Export component
 export default UpdateDriver;

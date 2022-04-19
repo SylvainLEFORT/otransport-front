@@ -1,11 +1,18 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+
+// == Import style
 import './createdelivery.scss';
-import axios from 'axios';
+
+// == Import dependencies
 import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import { useNavigate } from 'react-router';
+import axios from 'axios';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+// == Component
 const CreateDelivery = () => {
   const [delivery, setDelivery] = useState({
     merchandise: '',
@@ -166,4 +173,5 @@ const CreateDelivery = () => {
   );
 };
 
+// == Export component
 export default CreateDelivery;

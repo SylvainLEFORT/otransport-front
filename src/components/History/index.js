@@ -1,9 +1,15 @@
+// == Import style
 import './history.scss';
+
+// == Import dependencies
 import { useState, useEffect } from 'react';
 import moment from 'moment';
 import axios from 'axios';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+//  == Component
 const History = () => {
   const [delivery, setDelivery] = useState(null);
 
@@ -51,4 +57,6 @@ const History = () => {
     </div>
   );
 };
+
+// == Export component
 export default History;
