@@ -1,12 +1,19 @@
+// == Import style
+import './header.scss';
+
+// == Import dependencies
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Segment, Image } from 'semantic-ui-react';
 import Mediaquery from 'react-responsive';
-import Patrick from 'src/assets/docs/patrick.png';
-import Otransport from 'src/assets/docs/roue-O-transport.svg';
-import AuthContext from '../../context/AuthProvider';
-import './header.scss';
 
+// == Import required assets
+import Otransport from 'src/assets/docs/roue-O-transport.svg';
+
+// == Import required components
+import AuthContext from '../../context/AuthProvider';
+
+//  == Component
 const HeaderLogged = () => {
   const { setToken } = useContext(AuthContext);
   const { setFirstname } = useContext(AuthContext);
@@ -64,4 +71,6 @@ const HeaderLogged = () => {
     </div>
   );
 };
+
+// == Export component
 export default HeaderLogged;

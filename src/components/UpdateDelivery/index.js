@@ -1,11 +1,18 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+
+// == Import style
 import './updatedelivery.scss';
+
+// == Import dependencies
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import axios from 'axios';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+//  == Component
 const UpdateDelivery = () => {
   const [delivery, setDelivery] = useState();
   const { id } = useParams();
@@ -171,4 +178,5 @@ const UpdateDelivery = () => {
   );
 };
 
+// == Export component
 export default UpdateDelivery;

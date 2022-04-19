@@ -1,6 +1,10 @@
+// == Import style
 import './error.scss';
+
+// == Import dependencies
 import { useNavigate } from 'react-router-dom';
 
+// == Import required components
 const Error = () => {
   const navigate = useNavigate();
 
@@ -13,4 +17,5 @@ const Error = () => {
   );
 };
 
+// == Export component
 export default Error;

@@ -1,10 +1,16 @@
+// == Import style
 import './driverinfos.scss';
+
+// == Import dependencies
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Button } from 'semantic-ui-react';
 import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+//  == Component
 const DriverInfos = () => {
   const [driver, setDriver] = useState(null);
 
@@ -57,4 +63,5 @@ const DriverInfos = () => {
   );
 };
 
+// == Export component
 export default DriverInfos;

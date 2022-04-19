@@ -1,11 +1,18 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+
+// == Import style
+import './createdriver.scss';
+
+// == Import dependencies
 import { Button, Form } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import NavBar from '../NavBar';
-import './createdriver.scss';
 
+// == Import required components
+import NavBar from '../NavBar';
+
+//  == Component
 const CreateDriver = () => {
   const [driver, setDriver] = useState({
     firstName: '',
@@ -168,4 +175,5 @@ const CreateDriver = () => {
   );
 };
 
+// == Export component
 export default CreateDriver;

@@ -1,10 +1,13 @@
+// == Import style
 import './developpers.scss';
-import { Card } from 'semantic-ui-react';
+
+// == Import required pictures
 import francois from 'src/assets/docs/francois.jpg';
 import celia from 'src/assets/docs/celia.png';
 import sylvain from 'src/assets/docs/sylvain.jpeg';
 import joffrey from 'src/assets/docs/joffrey.png';
 
+//  == Component
 const Developpers = () => (
   <div className="general">
     <h1 className="team-general-title">Notre équipe</h1>
@@ -37,4 +40,5 @@ const Developpers = () => (
   </div>
 );
 
+// == Export component
 export default Developpers;

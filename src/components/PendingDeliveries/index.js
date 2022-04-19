@@ -1,17 +1,24 @@
+// == Import style
 import './pendingdeliveries.scss';
 
+// == Import dependencies
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Grid } from 'semantic-ui-react';
+import axios from 'axios';
 import Mediaquery from 'react-responsive';
+import FlashMessage from 'react-flash-message';
+
+// == Import required assets
 import info from 'src/assets/docs/info.svg';
 import edit from 'src/assets/docs/edit.svg';
 import trash from 'src/assets/docs/trash.svg';
-import FlashMessage from 'react-flash-message';
 import affect from 'src/assets/docs/affect.svg';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+//  == Component
 const PendingDeliveries = () => {
   const [deliveries, setDeliveries] = useState();
   const [status, setStatus] = useState(false);
@@ -125,4 +132,5 @@ const PendingDeliveries = () => {
   );
 };
 
+// == Export component
 export default PendingDeliveries;

@@ -1,16 +1,26 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+
+// == Import style
 import './login.scss';
+
+// == Import dependencies
 import { Link } from 'react-router-dom';
 import { Image, Form } from 'semantic-ui-react';
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router';
-import logo from 'src/assets/docs/O-transport.svg';
 import axios from 'axios';
+
+// == Import required assets
+import logo from 'src/assets/docs/O-transport.svg';
+
+// == Import required context and contants
 import AuthContext from '../../context/AuthProvider';
 import ROLES from '../../constants/roles';
 
+// == URL API for identification
 const LOGIN_URL = 'http://localhost:8000/api/login_check';
 
+//  == Component
 const Login = () => {
   const { setAuth, setToken, setFirstname } = useContext(AuthContext);
 
@@ -111,4 +121,5 @@ const Login = () => {
   );
 };
 
+// == Export component
 export default Login;

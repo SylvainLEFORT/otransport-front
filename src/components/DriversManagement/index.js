@@ -1,17 +1,24 @@
+// == Import style
 import './driversmanagement.scss';
 
+// == Import dependencies
 import { Button, Grid } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
+import FlashMessage from 'react-flash-message';
+
+// == Import required assets
 import Patrick from 'src/assets/docs/patrick.png';
 import info from 'src/assets/docs/info.svg';
 import edit from 'src/assets/docs/edit.svg';
 import trash from 'src/assets/docs/trash.svg';
-import FlashMessage from 'react-flash-message';
+
+// == Import required components
 import NavBar from '../NavBar';
 
+//  == Component
 const DriversManagement = () => {
   const [drivers, setDrivers] = useState();
   const [status, setStatus] = useState(false);
@@ -167,4 +174,5 @@ const DriversManagement = () => {
   );
 };
 
+// == Export component
 export default DriversManagement;
