@@ -9,10 +9,12 @@ import Patrick from 'src/assets/docs/patrick.png';
 import info from 'src/assets/docs/info.svg';
 import edit from 'src/assets/docs/edit.svg';
 import trash from 'src/assets/docs/trash.svg';
+import FlashMessage from 'react-flash-message';
 import NavBar from '../NavBar';
 
 const DriversManagement = () => {
   const [drivers, setDrivers] = useState();
+  const [status, setStatus] = useState(false);
 
   const token = sessionStorage.getItem('jwtToken');
 
@@ -28,6 +30,7 @@ const DriversManagement = () => {
       await axios.delete(`http://localhost:8000/api/admin/drivers/${readDriverId}`, config);
       // On change la valeur de drivers pour supprimer le chauffeur des données front
       // sans devoir refaire un appel API
+      setStatus(true);
       setDrivers((prevValue) => {
       // On filter le tableau pour garder tous les chauffeurs sauf celui qu'on a supprimé
         const newDrivers = prevValue.filter((driver) => driver.id !== readDriverId);
@@ -56,6 +59,11 @@ const DriversManagement = () => {
             </Link>
           </div>
         </div>
+        {status && (
+        <FlashMessage duration={5000}>
+          <strong className="flash-message">Chauffeur supprimé !</strong>
+        </FlashMessage>
+        )}
         <ul>
           <li className="driver-list">
             <Grid className="grid-drivers">
@@ -69,7 +77,7 @@ const DriversManagement = () => {
             </Grid>
           </li>
           {drivers && drivers.map((item) => (
-            <li className="driver-list">
+            <li className="driver-list" key={item.id}>
               <Grid className="grid-deliveries">
                 <Grid.Row>
                   <Grid.Column width={2}><img src={Patrick} alt="" className="avatar" /></Grid.Column>

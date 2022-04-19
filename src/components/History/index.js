@@ -33,7 +33,7 @@ const History = () => {
         <div className="deliveries-management">
           <ul>
             {delivery && delivery.map((item) => ((
-              <li className="delivery">
+              <li className="delivery" key={item.id}>
                 <div className="detail-1">
                   <span>{item.customer.name}</span>
                   <span>{item.customer.address}</span>
