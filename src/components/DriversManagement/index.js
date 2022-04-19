@@ -2,7 +2,7 @@ import './driversmanagement.scss';
 
 import { Button, Grid } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Mediaquery from 'react-responsive';
 import Patrick from 'src/assets/docs/patrick.png';
@@ -15,7 +15,7 @@ import NavBar from '../NavBar';
 const DriversManagement = () => {
   const [drivers, setDrivers] = useState();
   const [status, setStatus] = useState(false);
-
+  const location = useLocation();
   const token = sessionStorage.getItem('jwtToken');
 
   const config = {
@@ -53,17 +53,22 @@ const DriversManagement = () => {
         <NavBar />
         <div className="drivers-management">
           <h1 className="title">Gestion des chauffeurs</h1>
+          {status && (
+          <FlashMessage duration={5000}>
+            <strong className="flash-message">Chauffeur supprimé !</strong>
+          </FlashMessage>
+          )}
+          {location.state?.message && (
+          <FlashMessage duration={5000}>
+            <strong className="flash-message"> {location.state.message}</strong>
+          </FlashMessage>
+          )}
           <div className="button">
             <Link to="/admin/create_driver">
               <Button className="add-driver">Ajouter un chauffeur</Button>
             </Link>
           </div>
         </div>
-        {status && (
-        <FlashMessage duration={5000}>
-          <strong className="flash-message">Chauffeur supprimé !</strong>
-        </FlashMessage>
-        )}
         <ul>
           <li className="driver-list">
             <Grid className="grid-drivers">

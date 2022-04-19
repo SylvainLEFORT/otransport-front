@@ -3,6 +3,7 @@ import './createdelivery.scss';
 import axios from 'axios';
 import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
+import { useNavigate } from 'react-router';
 import NavBar from '../NavBar';
 
 const CreateDelivery = () => {
@@ -17,6 +18,8 @@ const CreateDelivery = () => {
     address: '',
     phoneNumber: '',
   });
+
+  const navigate = useNavigate();
 
   const handleDeliveryMerchendiseChange = (e) => {
     e.persist();
@@ -80,7 +83,8 @@ const CreateDelivery = () => {
     axios.post('http://localhost:8000/api/admin/deliveries/create', { delivery, customer }, config)
       .then((response) => {
         console.log(response);
-        window.location = 'http://localhost:8080/admin/pending_deliveries';
+        const message = 'Livraison créée !';
+        navigate('/admin/pending_deliveries', { state: { message } });
       })
       .catch((error) => {
         console.log(error);

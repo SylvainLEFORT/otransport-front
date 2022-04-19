@@ -93,7 +93,8 @@ const UpdateDelivery = () => {
       .then((response) => {
         console.log(response);
         setDelivery(response.data.updatedAt);
-        navigate('/admin/pending_deliveries');
+        const message = 'Livraison modifiée !';
+        navigate('/admin/pending_deliveries', { state: { message } });
       });
   };
 

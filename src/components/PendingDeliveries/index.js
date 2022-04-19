@@ -2,7 +2,7 @@ import './pendingdeliveries.scss';
 
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Grid } from 'semantic-ui-react';
 import Mediaquery from 'react-responsive';
 import info from 'src/assets/docs/info.svg';
@@ -15,7 +15,7 @@ import NavBar from '../NavBar';
 const PendingDeliveries = () => {
   const [deliveries, setDeliveries] = useState();
   const [status, setStatus] = useState(false);
-
+  const location = useLocation();
   const token = sessionStorage.getItem('jwtToken');
 
   const config = {
@@ -59,14 +59,20 @@ const PendingDeliveries = () => {
             <strong className="flash-message">Livraison supprimée !</strong>
           </FlashMessage>
           )}
+          {location.state?.message && (
+          <FlashMessage duration={5000}>
+            <strong className="flash-message"> {location.state.message}</strong>
+          </FlashMessage>
+          )}
           <ul>
             <li className="pending-delivery">
               <Grid className="grid-drivers">
                 <Grid.Row>
-                  <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Chauffeur attribué</span></Grid.Column>
-                  <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Client</span></Grid.Column>
+                  <Grid.Column width={3}><span style={{ fontWeight: 'bold' }}>Numéro de livraison</span></Grid.Column>
+                  <Grid.Column width={3}><span style={{ fontWeight: 'bold' }}>Chauffeur attribué</span></Grid.Column>
+                  <Grid.Column width={3}><span style={{ fontWeight: 'bold' }}>Client</span></Grid.Column>
                   <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Adresse</span></Grid.Column>
-                  <Grid.Column width={4}><span style={{ fontWeight: 'bold' }}>Actions</span></Grid.Column>
+                  <Grid.Column width={3}><span style={{ fontWeight: 'bold' }}>Actions</span></Grid.Column>
                 </Grid.Row>
               </Grid>
             </li>
@@ -74,10 +80,11 @@ const PendingDeliveries = () => {
               <li className="pending-delivery" key={item.id}>
                 <Grid className="grid-deliveries">
                   <Grid.Row>
-                    <Grid.Column width={4}><p>{item.driver?.lastname || 'Non attribuée'}</p></Grid.Column>
-                    <Grid.Column width={4}><span>{item.customer.name}</span></Grid.Column>
+                    <Grid.Column width={3}><p>{item.id}</p></Grid.Column>
+                    <Grid.Column width={3}><p>{item.driver?.lastname || 'Non attribuée'}</p></Grid.Column>
+                    <Grid.Column width={3}><span>{item.customer.name}</span></Grid.Column>
                     <Grid.Column width={4}><span>{item.customer.address}</span></Grid.Column>
-                    <Grid.Column width={4}>
+                    <Grid.Column width={3}>
                       <div className="pending-utils">
                         <button type="button" className="button-utils">
                           <Link to={`/admin/driver_affect_deliveries/${item.id}`}>

@@ -3,7 +3,7 @@ import { Form, Button, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import affect from 'src/assets/docs/affect.svg';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 import axios from 'axios';
 import NavBar from '../NavBar';
 
@@ -11,6 +11,8 @@ const AffectDriver = () => {
   const [driver, setDrivers] = useState();
   const { id } = useParams();
   const token = sessionStorage.getItem('jwtToken');
+
+  const navigate = useNavigate();
 
   const config = {
     headers: {
@@ -32,7 +34,8 @@ const AffectDriver = () => {
       .then((response) => {
         console.log(response);
         setDrivers(response.data.updatedAt);
-        window.location = 'http://localhost:8080/admin/pending_deliveries';
+        const message = 'Chauffeur affecté à la livraison !';
+        navigate('/admin/pending_deliveries', { state: { message } });
       });
   };
 
