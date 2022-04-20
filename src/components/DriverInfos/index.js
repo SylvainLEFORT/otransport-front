@@ -45,7 +45,7 @@ const DriverInfos = () => {
           <p>{driver.email}</p>
           <h2>Numéro de téléphone</h2>
           <p>{driver.phoneNumber}</p>
-          <h2>Status</h2>
+          <h2>Statut</h2>
           <span>{(() => {
             switch (driver.status) {
               case 0: return 'Disponible';
