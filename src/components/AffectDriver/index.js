@@ -66,7 +66,7 @@ const AffectDriver = () => {
           </li>
           <Form onSubmit={handleSubmit}>
             {driver && driver.map((item) => (
-              <li className="pending-delivery">
+              <li className="pending-delivery" key={item.id}>
                 <Grid className="grid-affectDriver">
                   <Grid.Row>
                     <Grid.Column width={5}><span type="text" value={item.id} className="name-affect">{item.lastname}</span></Grid.Column>
