@@ -32,7 +32,7 @@ const PendingDeliveries = () => {
   };
 
   useEffect(() => {
-    axios.get('http://0.0.0.0:8000/api/admin/deliveries/pending', config)
+    axios.get('http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/pending', config)
       .then((res) => {
         const resultDeliveries = res.data;
         console.log(resultDeliveries);
@@ -43,7 +43,7 @@ const PendingDeliveries = () => {
   const deleteDelivery = (readDeliveryId) => async () => {
     const confirmed = window.confirm('Etes-vous sûr de vouloir supprimer la livraison ?');
     if (confirmed) {
-      await axios.delete(`http://localhost:8000/api/admin/deliveries/${readDeliveryId}`, config);
+      await axios.delete(`http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/${readDeliveryId}`, config);
       setStatus(true);
       // On change la valeur de drivers pour supprimer le chauffeur des données front
       // sans devoir refaire un appel API

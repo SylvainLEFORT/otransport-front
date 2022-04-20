@@ -25,7 +25,7 @@ const DriverInfos = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/admin/drivers/${id}`, config)
+    axios.get(`http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/drivers/${id}`, config)
       .then((res) => {
         const resultDrive = res.data;
         console.log(resultDrive);

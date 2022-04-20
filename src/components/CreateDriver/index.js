@@ -82,7 +82,7 @@ const CreateDriver = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await axios.post('http://localhost:8000/api/admin/drivers', driver, config);
+    const response = await axios.post('http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/drivers', driver, config);
     const errors = [];
     errors.push(response.data.firstname);
     errors.push(response.data.lastname);

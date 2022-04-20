@@ -34,7 +34,7 @@ const DriversManagement = () => {
   const deleteDriver = (readDriverId) => async () => {
     const confirmed = window.confirm('Etes-vous sûr de vouloir supprimer le chauffeur ?');
     if (confirmed) {
-      await axios.delete(`http://localhost:8000/api/admin/drivers/${readDriverId}`, config);
+      await axios.delete(`http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/drivers/${readDriverId}`, config);
       // On change la valeur de drivers pour supprimer le chauffeur des données front
       // sans devoir refaire un appel API
       setStatus(true);
@@ -47,7 +47,7 @@ const DriversManagement = () => {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/admin/drivers', config)
+    axios.get('http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/drivers', config)
       .then((res) => {
         const driver = res.data;
         setDrivers(driver);

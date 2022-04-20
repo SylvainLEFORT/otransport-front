@@ -1,0 +1,83 @@
+# Query: localhost:8000
+# ContextLines: 1
+
+17 résultats - Fichiers 11
+
+src/components/AffectDriver/index.js:
+  28    useEffect(() => {
+  29:     axios.get('http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/drivers', config)
+  30        .then((res) => {
+
+  37    const sendIDDriver = (readDriverId) => () => {
+  38:     axios.put(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/${id}/affect`, { id: readDriverId }, config)
+  39        .then((response) => {
+
+src/components/CreateDelivery/index.js:
+  89      event.preventDefault();
+  90:     axios.post('http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/create', { delivery, customer }, config)
+  91        .then((response) => {
+
+src/components/CreateDriver/index.js:
+  84  
+  85:     const response = await axios.post('http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/drivers', driver, config);
+  86      const errors = [];
+
+src/components/DeliveryDetail/index.js:
+  30    useEffect(() => {
+  31:     axios.get(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/${id}`, config)
+  32        .then((res) => {
+
+src/components/DriveDelivery/index.js:
+  25    useEffect(() => {
+  26:     axios.get(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/${id}`, config)
+  27        .then((res) => {
+
+  34    const sendStatusStartDelivery = () => {
+  35:     axios.get(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/drivers/${idDriver}/deliveries/${id}/start`, config)
+  36        .then((response) => {
+
+  42    const sendStatusEndDelivery = () => {
+  43:     axios.get(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/drivers/${idDriver}/deliveries/${id}/end`, config)
+  44        .then((response) => {
+
+src/components/Driver/index.js:
+  25    useEffect(() => {
+  26:     axios.get(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/drivers/${id}/deliveries`, config)
+  27        .then((res) => {
+
+src/components/DriverInfos/index.js:
+  27    useEffect(() => {
+  28:     axios.get(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/drivers/${id}`, config)
+  29        .then((res) => {
+
+src/components/DriversManagement/index.js:
+  36      if (confirmed) {
+  37:       await axios.delete(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/drivers/${readDriverId}`, config);
+  38        // On change la valeur de drivers pour supprimer le chauffeur des données front
+
+  49    useEffect(() => {
+  50:     axios.get('http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/drivers', config)
+  51        .then((res) => {
+
+src/components/PendingDeliveries/index.js:
+  45      if (confirmed) {
+  46:       await axios.delete(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/${readDeliveryId}`, config);
+  47        setStatus(true);
+
+src/components/UpdateDelivery/index.js:
+  87    useEffect(() => {
+  88:     axios.get(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/${id}`, config)
+  89        .then((res) => {
+
+  98      console.log(delivery);
+  99:     axios.put(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/${id}`, delivery, config)
+  100        .then((response) => {
+
+src/components/UpdateDriver/index.js:
+  69    useEffect(() => {
+  70:     axios.get(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/drivers/${id}`, config)
+  71        .then((res) => {
+
+  79      event.preventDefault();
+  80:     axios.put(`http://http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/drivers/${id}`, driver, config)
+  81        .then((response) => {

@@ -23,7 +23,7 @@ const DriverDelivery = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/admin/deliveries/${id}`, config)
+    axios.get(`http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/${id}`, config)
       .then((res) => {
         const resultDeliveries = res.data;
         setDeliveries(resultDeliveries);
@@ -32,7 +32,7 @@ const DriverDelivery = () => {
   }, []);
 
   const sendStatusStartDelivery = () => {
-    axios.get(`http://localhost:8000/api/drivers/${idDriver}/deliveries/${id}/start`, config)
+    axios.get(`http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/drivers/${idDriver}/deliveries/${id}/start`, config)
       .then((response) => {
         console.log(response);
         window.location = 'http://localhost:8080/driver';
@@ -40,7 +40,7 @@ const DriverDelivery = () => {
   };
 
   const sendStatusEndDelivery = () => {
-    axios.get(`http://localhost:8000/api/drivers/${idDriver}/deliveries/${id}/end`, config)
+    axios.get(`http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/drivers/${idDriver}/deliveries/${id}/end`, config)
       .then((response) => {
         console.log(response);
         window.location = 'http://localhost:8080/driver';

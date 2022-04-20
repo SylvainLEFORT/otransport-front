@@ -27,7 +27,7 @@ const ShippingDeliveries = () => {
   };
 
   useEffect(() => {
-    axios.get('http://0.0.0.0:8000/api/admin/deliveries/shipping', config)
+    axios.get('http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/shipping', config)
       .then((res) => {
         const resultDeliveries = res.data;
         console.log(resultDeliveries);

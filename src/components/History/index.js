@@ -22,7 +22,7 @@ const History = () => {
   };
 
   useEffect(() => {
-    axios.get('http://0.0.0.0:8000/api/admin/deliveries/completed', config)
+    axios.get('http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/completed', config)
       .then((res) => {
         const resultDelivery = res.data;
         console.log(resultDelivery);

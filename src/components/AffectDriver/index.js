@@ -26,7 +26,7 @@ const AffectDriver = () => {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/admin/drivers', config)
+    axios.get('http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/drivers', config)
       .then((res) => {
         const drivers = res.data;
         console.log(drivers);
@@ -35,7 +35,7 @@ const AffectDriver = () => {
   }, []);
 
   const sendIDDriver = (readDriverId) => () => {
-    axios.put(`http://localhost:8000/api/admin/deliveries/${id}/affect`, { id: readDriverId }, config)
+    axios.put(`http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/admin/deliveries/${id}/affect`, { id: readDriverId }, config)
       .then((response) => {
         console.log(response);
         setDrivers(response.data.updatedAt);
