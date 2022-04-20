@@ -35,7 +35,7 @@ const DriverDelivery = () => {
     axios.get(`http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/drivers/${idDriver}/deliveries/${id}/start`, config)
       .then((response) => {
         console.log(response);
-        window.location = 'http://localhost:8080/driver';
+        window.location = 'http://sylvainlefort-server.eddi.cloud/driver';
       });
   };
 
@@ -43,7 +43,7 @@ const DriverDelivery = () => {
     axios.get(`http://baltidus-server.eddi.cloud/apotheose/projet-03-o-transport-back/public/api/drivers/${idDriver}/deliveries/${id}/end`, config)
       .then((response) => {
         console.log(response);
-        window.location = 'http://localhost:8080/driver';
+        window.location = 'http://sylvainlefort-server.eddi.cloud/driver';
       });
   };
 

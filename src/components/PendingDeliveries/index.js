@@ -127,9 +127,9 @@ const PendingDeliveries = () => {
           <ul>
             {deliveries && deliveries.map((item) => (
               <li className="pending-delivery" key={item.id}>
-                <a>{item.id}</a>
-                <span>{item.customer.name}</span>
-                <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>Détail</a>
+                <Link to={`/admin/update_delivery/${item.id}`}>
+                  <img src={edit} alt="" className="edit" />
+                </Link>
               </li>
             ))}
           </ul>
