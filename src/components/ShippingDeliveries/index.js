@@ -27,7 +27,7 @@ const ShippingDeliveries = () => {
   };
 
   useEffect(() => {
-    axios.get('http://0.0.0.0:8000/api/admin/deliveries/shipping', config)
+    axios.get('http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/admin/deliveries/shipping', config)
       .then((res) => {
         const resultDeliveries = res.data;
         console.log(resultDeliveries);
@@ -86,9 +86,9 @@ const ShippingDeliveries = () => {
                 <span>{item.driver.lastname} {item.driver.firstname}</span>
                 <span>{item.customer.name}</span>
                 <button type="button" className="button-utils">
-                  <a href={`http://localhost:8080/admin/delivery_detail/${item.id}`}>
+                  <Link to={`/admin/delivery_detail/${item.id}`}>
                     <img src={info} alt="" className="info" />
-                  </a>
+                  </Link>
                 </button>
               </li>
             ))}

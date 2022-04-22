@@ -85,7 +85,7 @@ const UpdateDelivery = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/admin/deliveries/${id}`, config)
+    axios.get(`http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/admin/deliveries/${id}`, config)
       .then((res) => {
         const resultDelivery = res.data;
         console.log(resultDelivery);
@@ -96,7 +96,7 @@ const UpdateDelivery = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(delivery);
-    axios.put(`http://localhost:8000/api/admin/deliveries/${id}`, delivery, config)
+    axios.put(`http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/admin/deliveries/${id}`, delivery, config)
       .then((response) => {
         console.log(response);
         setDelivery(response.data.updatedAt);

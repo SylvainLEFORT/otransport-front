@@ -18,7 +18,7 @@ import AuthContext from '../../context/AuthProvider';
 import ROLES from '../../constants/roles';
 
 // == URL API for identification
-const LOGIN_URL = 'http://localhost:8000/api/login_check';
+const LOGIN_URL = 'http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/login_check';
 
 //  == Component
 const Login = () => {

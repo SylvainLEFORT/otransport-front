@@ -25,7 +25,7 @@ const DriverInfos = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/admin/drivers/${id}`, config)
+    axios.get(`http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/admin/drivers/${id}`, config)
       .then((res) => {
         const resultDrive = res.data;
         console.log(resultDrive);

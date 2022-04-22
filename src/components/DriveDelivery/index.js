@@ -23,7 +23,7 @@ const DriverDelivery = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/admin/deliveries/${id}`, config)
+    axios.get(`http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/admin/deliveries/${id}`, config)
       .then((res) => {
         const resultDeliveries = res.data;
         setDeliveries(resultDeliveries);
@@ -32,18 +32,18 @@ const DriverDelivery = () => {
   }, []);
 
   const sendStatusStartDelivery = () => {
-    axios.get(`http://localhost:8000/api/drivers/${idDriver}/deliveries/${id}/start`, config)
+    axios.get(`http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/drivers/${idDriver}/deliveries/${id}/start`, config)
       .then((response) => {
         console.log(response);
-        window.location = 'http://localhost:8080/driver';
+        window.location = 'http://celia-tosic-server.eddi.cloud/driver';
       });
   };
 
   const sendStatusEndDelivery = () => {
-    axios.get(`http://localhost:8000/api/drivers/${idDriver}/deliveries/${id}/end`, config)
+    axios.get(`http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/drivers/${idDriver}/deliveries/${id}/end`, config)
       .then((response) => {
         console.log(response);
-        window.location = 'http://localhost:8080/driver';
+        window.location = 'http://celia-tosic-server.eddi.cloud/driver';
       });
   };
 

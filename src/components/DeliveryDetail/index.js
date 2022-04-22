@@ -28,7 +28,7 @@ const DeliveryDetail = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/admin/deliveries/${id}`, config)
+    axios.get(`http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/admin/deliveries/${id}`, config)
       .then((res) => {
         const resultDelivery = res.data;
         setDelivery(resultDelivery);

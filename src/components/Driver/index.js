@@ -23,7 +23,7 @@ const Driver = () => {
   const id = sessionStorage.getItem('id');
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/drivers/${id}/deliveries`, config)
+    axios.get(`http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/drivers/${id}/deliveries`, config)
       .then((res) => {
         const resultDeliveries = res.data;
         setDeliveries(resultDeliveries);

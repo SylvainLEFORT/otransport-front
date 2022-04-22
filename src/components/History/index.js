@@ -22,7 +22,7 @@ const History = () => {
   };
 
   useEffect(() => {
-    axios.get('http://0.0.0.0:8000/api/admin/deliveries/completed', config)
+    axios.get('http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/admin/deliveries/completed', config)
       .then((res) => {
         const resultDelivery = res.data;
         console.log(resultDelivery);

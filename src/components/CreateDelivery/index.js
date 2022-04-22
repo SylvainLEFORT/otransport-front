@@ -87,7 +87,7 @@ const CreateDelivery = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:8000/api/admin/deliveries/create', { delivery, customer }, config)
+    axios.post('http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/admin/deliveries/create', { delivery, customer }, config)
       .then((response) => {
         console.log(response);
         const message = 'Livraison créée !';

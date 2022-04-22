@@ -34,7 +34,7 @@ const DriversManagement = () => {
   const deleteDriver = (readDriverId) => async () => {
     const confirmed = window.confirm('Etes-vous sûr de vouloir supprimer le chauffeur ?');
     if (confirmed) {
-      await axios.delete(`http://localhost:8000/api/admin/drivers/${readDriverId}`, config);
+      await axios.delete(`http://celia-tosic-server.eddi.cloud/projet-03-o-transport-back/public/api/admin/drivers/${readDriverId}`, config);
       // On change la valeur de drivers pour supprimer le chauffeur des données front
       // sans devoir refaire un appel API
       setStatus(true);
