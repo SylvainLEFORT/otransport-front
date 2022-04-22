@@ -10,7 +10,7 @@ module.exports = merge(common, {
   mode: 'production',
   devtool: false,
   output: {
-    publicPath: 'apotheose/projet-03-o-transport-front/dist/'
+    publicPath: '/projet-03-o-transport-front/dist/'
   },
   plugins: [
     new MiniCssExtractPlugin({
