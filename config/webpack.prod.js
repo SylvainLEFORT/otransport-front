@@ -9,6 +9,9 @@ const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
 module.exports = merge(common, {
   mode: 'production',
   devtool: false,
+  output: {
+    publicPath: '/projet-03-o-transport-front/dist/'
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
